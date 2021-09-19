@@ -1,0 +1,20 @@
+.layout {
+  display: grid;
+  grid-template-columns: repeat(20, 5%);
+}
+
+.card:nth-child(2n) {
+  grid-column: 10 / 21;
+}
+
+.card:nth-child(2n + 1) {
+  grid-column: 1 / 13;
+}
+
+.cardDesc:nth-child(2n) {
+  grid-column: 13 / 21;
+}
+
+.cardDesc:nth-child(2n + 1) {
+  grid-column: 1 / 10;
+}

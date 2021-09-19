@@ -1,0 +1,19 @@
+.nav {
+  display: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: rotate(270deg) translateX(-50%);
+  width: 100vh;
+}
