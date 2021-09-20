@@ -9,7 +9,6 @@ body {
   background-color: var(--color-background);
   color: var(--color-primary);
   padding: 0;
-  position: relative;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -45,15 +44,19 @@ h2 {
 
 h3 {
   font-family: "Josefin Slab";
+  font-size: 4rem;
   font-weight: 600;
 }
 
 p {
   font-family: "Open Sans";
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  text-align: justify;
 }
 
 main {
-  min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
   perspective: var(--perspective);
@@ -65,10 +68,25 @@ main {
 section {
   min-height: 100vh;
   padding: 1rem 4rem;
+  transform-style: preserve-3d;
 }
 
-section:nth-child(2n + 1) > h2 {
+section div {
+  transform-style: preserve-3d;
+}
+
+section:nth-child(2n + 1) h2 {
   padding-left: 50%;
+}
+
+.parallaxEl {
+  position: relative;
+}
+
+section .parallaxEl > div {
+  position: relative;
+  transform: translateZ(-10px) scale(1.1);
+  transform-origin: bottom right;
 }
 
 .grid {
