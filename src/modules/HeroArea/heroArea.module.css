@@ -1,0 +1,22 @@
+.leftCol {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+}
+
+.leftCol > div {
+  width: 27rem;
+}
+
+.shortDesc {
+  max-width: 60ch;
+}
+
+.cta {
+  --dimension-image: 30rem;
+  height: var(--dimension-image);
+  position: absolute;
+  right: 10rem;
+  transform: rotate(150deg);
+  width: var(--dimension-image);
+}

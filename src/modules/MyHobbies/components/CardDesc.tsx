@@ -1,3 +1,4 @@
+import ParallaxEl from "../../../components/ParallaxEl";
 import styles from "../myHobbies.module.css";
 
 type Props = {
@@ -8,8 +9,12 @@ type Props = {
 const CardDesc = ({ desc, phrase }: Props) => {
   return (
     <div className={styles.cardDesc}>
-      <h3>{phrase}</h3>
-      <p>{desc}</p>
+      <ParallaxEl translateZ={1}>
+        <h3 className={styles.title}>{phrase}</h3>
+      </ParallaxEl>
+      <ParallaxEl translateZ={-2}>
+        <p>{desc}</p>
+      </ParallaxEl>
     </div>
   );
 };

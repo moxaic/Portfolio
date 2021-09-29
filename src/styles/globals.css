@@ -16,6 +16,7 @@ body {
 
 a {
   color: inherit;
+  cursor: pointer;
   font-family: "Comfortaa";
   text-decoration: none;
 }
@@ -40,6 +41,7 @@ h1 {
 
 h2 {
   font-size: 6rem;
+  min-width: 30ch;
 }
 
 h3 {
@@ -67,11 +69,11 @@ main {
 
 section {
   min-height: 100vh;
-  padding: 1rem 4rem;
+  padding: 0 6rem 1rem;
   transform-style: preserve-3d;
 }
 
-section div {
+div {
   transform-style: preserve-3d;
 }
 
@@ -79,17 +81,18 @@ section:nth-child(2n + 1) h2 {
   padding-left: 50%;
 }
 
-.parallaxEl {
+.parallaxEl,
+.parallaxEl > div {
   position: relative;
-}
-
-section .parallaxEl > div {
-  position: relative;
-  transform: translateZ(-10px) scale(1.1);
-  transform-origin: bottom right;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 50%);
+}
+
+.imageContainer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }

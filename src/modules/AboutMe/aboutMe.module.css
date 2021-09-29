@@ -1,0 +1,28 @@
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.rightCol {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.question {
+  --dimension-image: 15rem;
+  height: var(--dimension-image);
+  left: 47%;
+  position: absolute;
+  top: 5%;
+  width: var(--dimension-image);
+}
+
+.face {
+  --dimension-image: 8rem;
+  height: var(--dimension-image);
+  position: absolute;
+  right: 5%;
+  top: 2%;
+  width: var(--dimension-image);
+}

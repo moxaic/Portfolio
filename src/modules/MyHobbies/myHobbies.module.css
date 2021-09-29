@@ -1,20 +1,54 @@
 .layout {
   display: grid;
-  grid-template-columns: repeat(20, 5%);
+  gap: 10rem 0;
+  grid-template-columns: repeat(100, 1%);
+  grid-template-rows: repeat(3, auto);
+}
+
+.card {
+  background-color: seagreen;
+}
+
+.card:first-child {
+  background-color: rebeccapurple;
 }
 
 .card:nth-child(2n) {
-  grid-column: 10 / 21;
+  background-color: slateblue;
+}
+
+.card:nth-child(2n) {
+  grid-column: 54 / 101;
 }
 
 .card:nth-child(2n + 1) {
-  grid-column: 1 / 13;
+  grid-column: 1 / 54;
+}
+
+.card:nth-child(2n) > div {
+  padding: 5.5rem 2rem 2rem 5.5rem;
+}
+
+.card:nth-child(2n + 1) > div {
+  padding: 5.5rem 5.5rem 2rem 2rem;
+}
+
+.cardDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 3rem;
 }
 
 .cardDesc:nth-child(2n) {
-  grid-column: 13 / 21;
+  grid-column: 54 / 101;
 }
 
 .cardDesc:nth-child(2n + 1) {
-  grid-column: 1 / 10;
+  grid-column: 1 / 54;
+}
+
+.title {
+  /* width: 18ch; */
+  position: relative;
 }

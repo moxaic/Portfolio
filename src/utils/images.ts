@@ -1,0 +1,12 @@
+export { default as ArtJpg } from "../assets/images/art.jpg";
+export { default as BellsPng } from "../assets/images/bulb.png";
+export { default as BulbPng } from "../assets/images/bulb.png";
+export { default as CoffeeMugPng } from "../assets/images/coffee-cup.png";
+export { default as CallToActionPng } from "../assets/images/direction-arrows.png";
+export { default as FaceMaskPng } from "../assets/images/face-mask.png";
+export { default as GuitarJpg } from "../assets/images/guitar.jpg";
+export { default as GuitarPng } from "../assets/images/guitar.png";
+export { default as HiPng } from "../assets/images/greeting.png";
+export { default as LaptopJpg } from "../assets/images/laptop.jpg";
+export { default as MeSvg } from "../assets/images/photo-of-me.svg";
+export { default as QuestionMarkPng } from "../assets/images/question-mark.png";
