@@ -1,11 +1,11 @@
 .leftCol {
   align-items: flex-end;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .leftCol > div {
-  width: 27rem;
+  width: 29rem;
 }
 
 .shortDesc {
@@ -13,10 +13,11 @@
 }
 
 .cta {
-  --dimension-image: 30rem;
+  --dimension-image: 40rem;
   height: var(--dimension-image);
   position: absolute;
   right: 10rem;
-  transform: rotate(150deg);
+  top: 22rem;
+  transform: rotateX(180deg) rotateY(-180deg);
   width: var(--dimension-image);
 }

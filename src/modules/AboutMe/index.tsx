@@ -1,7 +1,9 @@
 import Image from "next/image";
 
 import { FaceMaskPng, MeSvg, QuestionMarkPng } from "../../utils/images";
+import BorderedText from "../../components/BorderedText";
 import Grid from "../../components/Grid";
+import ParallaxEl from "../../components/ParallaxEl";
 import styles from "./aboutMe.module.css";
 
 const AboutMe = () => {
@@ -10,7 +12,9 @@ const AboutMe = () => {
       <Grid>
         {[
           <div className={styles.leftCol} key="about-me-left-col">
-            <h3>A jack of all trade, master of some</h3>
+            <ParallaxEl translateZ={5}>
+              <BorderedText>Jack of all trade, master of some</BorderedText>
+            </ParallaxEl>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae in
               labore fuga dicta architecto pariatur. Doloremque ut totam neque

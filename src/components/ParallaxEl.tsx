@@ -9,7 +9,8 @@ type Props = {
 };
 
 const ParallaxEl = ({ children, moduleClass, translateZ }: Props) => {
-  const [horizontalTranslate, setHorizontalTranslate] = useState<number>(0);
+  const [horizontalTranslate, setHorizontalTranslate] = useState(0);
+  const [verticalTranslate, setVerticalTranslate] = useState(0);
   const container = useRef<HTMLDivElement>(null);
   const child = useRef<HTMLDivElement>(null);
   const scale = (PERSPECTIVE - translateZ) / PERSPECTIVE;
@@ -20,7 +21,10 @@ const ParallaxEl = ({ children, moduleClass, translateZ }: Props) => {
     if (container && container.current && child && child.current) {
       const containerRect = container.current.getBoundingClientRect();
       const childRect = child.current.getBoundingClientRect();
-      setHorizontalTranslate(containerRect.left - childRect.left);
+      setHorizontalTranslate(containerRect.x - childRect.x);
+      if (containerRect.y + containerRect.height < window.innerHeight) {
+        setVerticalTranslate(containerRect.y - childRect.y);
+      }
     }
   }, []);
 
@@ -29,9 +33,8 @@ const ParallaxEl = ({ children, moduleClass, translateZ }: Props) => {
       <div ref={child}>{children}</div>
       <style jsx>{`
         .parallaxEl > div {
-          ${translateZ > 0
-            ? `right: ${-horizontalTranslate}px;`
-            : `left: ${horizontalTranslate}px;`}
+          left: ${horizontalTranslate * scale}px;
+          top: ${verticalTranslate * scale}px;
           transform: translateZ(${translateZ}px) scale(${scale});
           transform-origin: bottom right;
         }

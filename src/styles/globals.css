@@ -69,16 +69,20 @@ main {
 
 section {
   min-height: 100vh;
-  padding: 0 6rem 1rem;
+  padding: 0 6rem 7rem;
   transform-style: preserve-3d;
 }
 
-div {
-  transform-style: preserve-3d;
+section h2 {
+  margin-bottom: 6rem;
 }
 
 section:nth-child(2n + 1) h2 {
   padding-left: 50%;
+}
+
+div {
+  transform-style: preserve-3d;
 }
 
 .parallaxEl,
@@ -95,4 +99,8 @@ section:nth-child(2n + 1) h2 {
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+section:nth-child(1) > .grid {
+  margin: 1rem 5rem 0;
 }

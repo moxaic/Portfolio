@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -13,7 +13,7 @@ import Section from "../src/components/Section";
 const Home: NextPage = () => {
   const sectionsName = ["Home", "About Me", "My Hobbies", "Contact Me"];
   const sectionRefs = useRef<HTMLElement[]>([]);
-  const sections = [HeroArea, AboutMe, MyHobbies, ContactMe];
+  const Sections = [HeroArea, AboutMe, MyHobbies, ContactMe];
 
   return (
     <>
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
       <Navbar sections={sectionsName} refs={sectionRefs} />
       <main>
         {sectionsName.map((sectionName, idx) => {
-          const Component = sections[idx];
+          const Component = Sections[idx];
           return (
             <Section
               key={sectionName}

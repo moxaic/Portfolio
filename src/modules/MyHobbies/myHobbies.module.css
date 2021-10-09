@@ -18,7 +18,7 @@
 }
 
 .card:nth-child(2n) {
-  grid-column: 54 / 101;
+  grid-column: 48 / 101;
 }
 
 .card:nth-child(2n + 1) {
@@ -42,10 +42,12 @@
 
 .cardDesc:nth-child(2n) {
   grid-column: 54 / 101;
+  padding-left: 1.5rem;
 }
 
 .cardDesc:nth-child(2n + 1) {
-  grid-column: 1 / 54;
+  grid-column: 1 / 48;
+  padding-right: 1.5rem;
 }
 
 .title {
