@@ -7,6 +7,7 @@ const Footer = () => {
         magni at minus? Consequatur quam dignissimos dolores quasi cum dolorum.
         Repellendus, nobis.
       </p>
+      <h3>Just need this here</h3>
     </footer>
   );
 };

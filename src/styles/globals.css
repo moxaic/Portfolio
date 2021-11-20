@@ -1,7 +1,6 @@
 :root {
   --color-background: #13161f;
   --color-primary: #fafafa;
-  --font-size: 16px;
   --perspective: 100px;
 }
 
@@ -94,14 +93,18 @@ footer {
 }
 
 .canvasContainer {
-  margin: 2rem 0;
+  height: 4rem;
+  font-size: 4rem;
+}
+
+.canvasContainer > div {
   padding: 0 2rem;
   position: absolute;
   width: fit-content;
 }
 
-.canvasContainer::before,
-.canvasContainer::after {
+.canvasContainer > div::before,
+.canvasContainer > div::after {
   content: open-quote;
   font-size: 4.5rem;
   left: 0;
@@ -109,7 +112,7 @@ footer {
   top: 0;
 }
 
-.canvasContainer::after {
+.canvasContainer > div::after {
   bottom: unset;
   content: close-quote;
   left: unset;

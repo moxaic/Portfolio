@@ -9,6 +9,7 @@ type Style = {
 type Props = { children: string };
 
 const StrokeText = ({ children }: Props) => {
+  const [marginVertical, setMarginVertical] = useState<string>("1em");
   const [style, setStyle] = useState<Style>();
   const canvas = useRef<HTMLCanvasElement>(null);
   const dummyH3 = useRef<HTMLHeadingElement>(null);
@@ -21,22 +22,23 @@ const StrokeText = ({ children }: Props) => {
       });
     }
 
-    if (canvas && canvas.current) {
-      canvas.current.height = style!.height;
-      canvas.current.width = style!.width;
+    if (canvas && canvas.current && style) {
+      canvas.current.height = 1.5 * style.height;
+      canvas.current.width = style.width;
       const ctx = canvas.current.getContext("2d");
       if (ctx) {
         const [strokeColor] = getCssVar(":root", ["--color-primary"]);
-        const [fontFamily, fontSize, fontWeight] = getCssVar("h3", [
+        const [fontFamily, fontSize, fontWeight, marginTop] = getCssVar("h3", [
           "font-family",
           "font-size",
           "font-weight",
+          "margin-top",
         ]);
         ctx.clearRect(0, 0, canvas.current.width, canvas.current.height);
-        // ctx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
-        ctx.font = "700 4rem Josefin Slab";
+        ctx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
         ctx.strokeStyle = strokeColor;
-        ctx.strokeText(children, 0, 50);
+        ctx.strokeText(children, 0, style.height);
+        setMarginVertical(marginTop);
       }
     }
   }, [children, style]);
@@ -47,7 +49,14 @@ const StrokeText = ({ children }: Props) => {
 
   return (
     <div className="canvasContainer">
-      <canvas ref={canvas} />
+      <div>
+        <canvas ref={canvas} />
+      </div>
+      <style jsx>{`
+        .canvasContainer {
+          margin: ${marginVertical} 0;
+        }
+      `}</style>
     </div>
   );
 };
