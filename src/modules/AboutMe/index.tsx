@@ -1,9 +1,7 @@
 import Image from "next/image";
 
-import { FaceMaskPng, MeSvg, QuestionMarkPng } from "../../utils/images";
-import BorderedText from "../../components/BorderedText";
-import Grid from "../../components/Grid";
-import ParallaxEl from "../../components/ParallaxEl";
+import { faceMaskPng, meSvg, questionMarkPng } from "../../utils/images";
+import { Grid, ParallaxEl, StrokeText } from "../../components";
 import styles from "./aboutMe.module.css";
 
 const AboutMe = () => {
@@ -13,28 +11,32 @@ const AboutMe = () => {
         {[
           <div className={styles.leftCol} key="about-me-left-col">
             <ParallaxEl translateZ={5}>
-              <BorderedText>Jack of all trade, master of some</BorderedText>
+              <StrokeText>Jack of all trade, master of some</StrokeText>
             </ParallaxEl>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae in
-              labore fuga dicta architecto pariatur. Doloremque ut totam neque
-              consectetur, quis repudiandae iusto odio repellat excepturi magni
-              omnis. Eligendi, praesentium?
-            </p>
+            <ParallaxEl translateZ={-5}>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
+                in labore fuga dicta architecto pariatur. Doloremque ut totam
+                neque consectetur, quis repudiandae iusto odio repellat
+                excepturi magni omnis. Eligendi, praesentium?
+              </p>
+            </ParallaxEl>
           </div>,
-          <div className={styles.rightCol} key="about-me-right-col">
-            <div>
-              <Image alt="author" src={MeSvg} />
-            </div>
-          </div>,
+          <ParallaxEl
+            key="about-me-right-col"
+            moduleClass={styles.rightCol}
+            translateZ={0}
+          >
+            <Image alt="author" src={meSvg.src} />
+          </ParallaxEl>,
         ]}
       </Grid>
-      <div className={styles.question}>
-        <Image alt="who am I?" src={QuestionMarkPng} />
-      </div>
-      <div className={styles.face}>
-        <Image alt="masked face" src={FaceMaskPng} />
-      </div>
+      <ParallaxEl moduleClass={styles.question} translateZ={4}>
+        <Image alt="who am I?" src={questionMarkPng.src} />
+      </ParallaxEl>
+      <ParallaxEl moduleClass={styles.face} translateZ={-10}>
+        <Image alt="masked face" src={faceMaskPng.src} />
+      </ParallaxEl>
     </>
   );
 };

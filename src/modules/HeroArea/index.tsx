@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { CallToActionPng, HiPng } from "../../utils/images";
+import { callToActionPng, hiPng } from "../../utils/images";
 import Grid from "../../components/Grid";
 import ParallaxEl from "../../components/ParallaxEl";
 import styles from "./heroArea.module.css";
@@ -11,9 +11,15 @@ const HeroArea = () => {
       <Grid>
         {[
           <div className={styles.leftCol} key="hero-area-left-col">
-            <ParallaxEl translateZ={-5}>
-              <Image alt="hi" src={HiPng} />
-            </ParallaxEl>
+            <div>
+              <Image
+                alt="hi"
+                layout="responsive"
+                height={1}
+                width={1}
+                src={hiPng.src}
+              />
+            </div>
           </div>,
           <div key="hero-area-right-col">
             <ParallaxEl translateZ={-30}>
@@ -33,7 +39,11 @@ const HeroArea = () => {
         ]}
       </Grid>
       <ParallaxEl moduleClass={styles.cta} translateZ={-10}>
-        <Image alt="scroll down" src={CallToActionPng} />
+        <Image
+          alt="scroll down"
+          layout="responsive"
+          src={callToActionPng.src}
+        />
       </ParallaxEl>
     </>
   );

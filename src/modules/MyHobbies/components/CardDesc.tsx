@@ -1,4 +1,4 @@
-import ParallaxEl from "../../../components/ParallaxEl";
+import { ParallaxEl, StrokeText } from "../../../components";
 import styles from "../myHobbies.module.css";
 
 type Props = {
@@ -9,8 +9,8 @@ type Props = {
 const CardDesc = ({ desc, phrase }: Props) => {
   return (
     <div className={styles.cardDesc}>
-      <ParallaxEl translateZ={1}>
-        <h3 className={styles.title}>{phrase}</h3>
+      <ParallaxEl translateZ={5}>
+        <StrokeText>{phrase}</StrokeText>
       </ParallaxEl>
       <ParallaxEl translateZ={-2}>
         <p>{desc}</p>

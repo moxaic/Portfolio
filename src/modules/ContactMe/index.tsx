@@ -1,11 +1,13 @@
-import Grid from "../../components/Grid";
+import { Grid, StrokeText } from "../../components";
 import Form from "./components/Form";
+import styles from "./contactMe.module.css";
 
 const ContactMe = () => {
   return (
     <Grid>
       {[
-        <div key="contact-me-left-col">
+        <div className={styles.leftCol} key="contact-me-left-col">
+          <StrokeText>This is where you tell me about yourself</StrokeText>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
             eos soluta porro, officia qui ut a ratione facilis ducimus
@@ -13,7 +15,7 @@ const ContactMe = () => {
             doloribus ea obcaecati sunt!
           </p>
         </div>,
-        <div key="contact-me-right-col">
+        <div className={styles.formContainer} key="contact-me-right-col">
           <Form />
         </div>,
       ]}

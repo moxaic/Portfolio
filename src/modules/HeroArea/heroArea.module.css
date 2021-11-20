@@ -1,11 +1,11 @@
 .leftCol {
-  align-items: flex-end;
+  align-self: flex-end;
   display: flex;
   justify-content: flex-start;
 }
 
 .leftCol > div {
-  width: 29rem;
+  width: 31rem;
 }
 
 .shortDesc {
@@ -16,8 +16,8 @@
   --dimension-image: 40rem;
   height: var(--dimension-image);
   position: absolute;
-  right: 10rem;
+  right: 4rem;
   top: 22rem;
   transform: rotateX(180deg) rotateY(-180deg);
-  width: var(--dimension-image);
+  width: calc(var(--dimension-image) * 1);
 }

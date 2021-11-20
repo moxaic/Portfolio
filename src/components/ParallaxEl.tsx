@@ -25,6 +25,8 @@ const ParallaxEl = ({ children, moduleClass, translateZ }: Props) => {
       if (containerRect.y + containerRect.height < window.innerHeight) {
         setVerticalTranslate(containerRect.y - childRect.y);
       }
+      // child.current.style.left = `${(containerRect.x - childRect.x) * scale}px`;
+      // child.current.style.top = `${(containerRect.y - childRect.y) * scale}px`;
     }
   }, []);
 

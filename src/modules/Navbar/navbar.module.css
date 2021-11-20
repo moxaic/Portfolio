@@ -1,33 +1,24 @@
 .nav {
-  left: 0;
-  padding: 0.4rem 0.4rem;
   position: fixed;
   right: 0;
-  top: 0;
+  top: -22px;
+  transform: rotate(270deg);
+  transform-origin: bottom right;
+  width: 100vh;
   z-index: 100;
-}
-
-.nav > a {
-  font-size: 1.1rem;
-  letter-spacing: 0.07rem;
 }
 
 .navLinks {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-around;
   list-style: none;
   margin: 0;
   padding: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: rotate(270deg);
-  transform-origin: bottom right;
-  width: 100vh;
 }
 
 .navLinks > li {
-  text-transform: capitalize;
+  flex: 1;
   letter-spacing: 0.1rem;
+  text-align: center;
+  text-transform: capitalize;
 }

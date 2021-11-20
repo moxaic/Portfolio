@@ -1,7 +1,17 @@
 :root {
   --color-background: #13161f;
   --color-primary: #fafafa;
+  --font-size: 16px;
   --perspective: 100px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+  transform-style: preserve-3d;
 }
 
 html,
@@ -21,22 +31,11 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
 h1,
 h2 {
   font-family: "Zen Tokyo Zoo";
-  font-weight: 400;
-}
-
-h1 {
   font-size: 7rem;
+  font-weight: 400;
 }
 
 h2 {
@@ -45,9 +44,13 @@ h2 {
 }
 
 h3 {
+  display: inline-block;
   font-family: "Josefin Slab";
   font-size: 4rem;
-  font-weight: 600;
+  font-weight: 700;
+  position: absolute;
+  visibility: hidden;
+  width: max-content;
 }
 
 p {
@@ -73,21 +76,45 @@ section {
   transform-style: preserve-3d;
 }
 
-section h2 {
-  margin-bottom: 6rem;
-}
-
 section:nth-child(2n + 1) h2 {
   padding-left: 50%;
 }
 
-div {
-  transform-style: preserve-3d;
+section:nth-child(1) > .grid {
+  padding: 1rem 5rem 0;
 }
 
-.parallaxEl,
-.parallaxEl > div {
-  position: relative;
+section:nth-child(2) > .grid {
+  grid-template-columns: 60% 40%;
+}
+
+footer {
+  border-top: solid 1px #fafafa;
+  height: 100vh;
+}
+
+.canvasContainer {
+  margin: 2rem 0;
+  padding: 0 2rem;
+  position: absolute;
+  width: fit-content;
+}
+
+.canvasContainer::before,
+.canvasContainer::after {
+  content: open-quote;
+  font-size: 4.5rem;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.canvasContainer::after {
+  bottom: unset;
+  content: close-quote;
+  left: unset;
+  right: 0;
+  top: 0;
 }
 
 .grid {
@@ -95,12 +122,7 @@ div {
   grid-template-columns: repeat(2, 50%);
 }
 
-.imageContainer {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-section:nth-child(1) > .grid {
-  margin: 1rem 5rem 0;
+.parallaxEl,
+.parallaxEl > div {
+  position: relative;
 }

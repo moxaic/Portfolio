@@ -1,23 +1,24 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
-import Logo from "../../components/Logo";
-import styles from "./navbar.module.css";
 
-import Link from "./components/Link";
+import getSectionId from "../../utils/getSectionId";
+import { Link } from "./components";
+import styles from "./navbar.module.css";
 
 type Props = {
   sections: string[];
-  refs: MutableRefObject<HTMLElement[]>;
+  navRefs: MutableRefObject<HTMLElement[]>;
 };
 
-const Navbar = ({ sections, refs }: Props) => {
-  const [currSection, setCurrSection] = useState<string>();
+const Navbar = ({ sections, navRefs }: Props) => {
+  const [currSection, setCurrSection] = useState<string>(
+    getSectionId(sections[0])
+  );
   const nav = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (nav && nav.current) {
       const navCurr = nav.current;
-      const mouseWheelHandler = (e: any) => {
-        console.log(e);
+      const mouseWheelHandler = (e: Event) => {
         e.preventDefault();
       };
       navCurr.addEventListener("mousewheel", mouseWheelHandler);
@@ -25,15 +26,20 @@ const Navbar = ({ sections, refs }: Props) => {
         navCurr.removeEventListener("mousewheel", mouseWheelHandler);
       };
     }
-  }, []);
+  }, [sections]);
 
   return (
     <nav className={styles.nav} ref={nav}>
-      <Logo />
       <ul className={styles.navLinks}>
-        {sections.map((section, idx) => (
-          <Link key={section} text={section} />
-        ))}
+        {sections.map((section, idx) => {
+          const text = getSectionId(section);
+          return (
+            <Link
+              key={text}
+              {...{ currSection, idx, navRefs, setCurrSection, text }}
+            />
+          );
+        })}
       </ul>
     </nav>
   );

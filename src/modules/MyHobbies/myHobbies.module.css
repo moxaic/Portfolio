@@ -50,7 +50,10 @@
   padding-right: 1.5rem;
 }
 
+.cardDesc:nth-child(2n) .canvasContainer {
+  right: 0;
+}
+
 .title {
-  /* width: 18ch; */
   position: relative;
 }

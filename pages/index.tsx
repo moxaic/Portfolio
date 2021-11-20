@@ -1,14 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import AboutMe from "../src/modules/AboutMe";
-import ContactMe from "../src/modules/ContactMe";
-import Footer from "../src/modules/Footer";
-import HeroArea from "../src/modules/HeroArea";
-import MyHobbies from "../src/modules/MyHobbies";
-import Navbar from "../src/modules/Navbar";
-import Section from "../src/components/Section";
+import { Section } from "../src/components";
+import {
+  AboutMe,
+  ContactMe,
+  Footer,
+  HeroArea,
+  MyHobbies,
+  Navbar,
+} from "../src/modules";
 
 const Home: NextPage = () => {
   const sectionsName = ["Home", "About Me", "My Hobbies", "Contact Me"];
@@ -18,20 +20,20 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Moxaic</title>
+        <title>Aditya Srivastava | Evil, chaotic & naughty</title>
         <meta name="description" content="Portfolio of Aditya Srivastava" />
       </Head>
-      <Navbar sections={sectionsName} refs={sectionRefs} />
+      <Navbar sections={sectionsName} navRefs={sectionRefs} />
       <main>
         {sectionsName.map((sectionName, idx) => {
-          const Component = Sections[idx];
+          const Module = Sections[idx];
           return (
             <Section
               key={sectionName}
               ref={(el: HTMLElement) => (sectionRefs.current[idx] = el)}
               title={sectionName}
             >
-              <Component />
+              <Module />
             </Section>
           );
         })}

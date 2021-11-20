@@ -1,15 +1,34 @@
+import { useState } from "react";
+
+import { Input } from ".";
 import styles from "../contactMe.module.css";
 
 const Form = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   return (
     <form className={styles.form} method="POST">
-      <label htmlFor="name">Your name:</label>
-      <input id="name" name="name" type="text" />
-      <label htmlFor="email">Your email:</label>
-      <input id="email" name="email" type="email" />
-      <label htmlFor="message">Your message:</label>
-      <textarea id="message" />
-      <input type="submit" value="Send" />
+      <Input
+        name="name"
+        placeholder="Your Name"
+        setValue={setName}
+        type="text"
+        value={name}
+      />
+      <Input
+        name="email"
+        placeholder="Your Email"
+        setValue={setEmail}
+        type="email"
+        value={email}
+      />
+      <div className={styles.inputGroup}>
+        <textarea id="message" />
+        <label className={styles.text} htmlFor="message">
+          Your message
+        </label>
+      </div>
+      <button className={styles.bitton}>Send</button>
     </form>
   );
 };
