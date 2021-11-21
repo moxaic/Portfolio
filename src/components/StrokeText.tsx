@@ -6,13 +6,17 @@ type Style = {
   width: number;
 };
 
-type Props = { children: string };
+type Props = { children: string; moduleClass?: string };
 
-const StrokeText = ({ children }: Props) => {
+const StrokeText = ({ children, moduleClass }: Props) => {
   const [marginVertical, setMarginVertical] = useState<string>("1em");
   const [style, setStyle] = useState<Style>();
   const canvas = useRef<HTMLCanvasElement>(null);
   const dummyH3 = useRef<HTMLHeadingElement>(null);
+  const componentClass =
+    moduleClass === undefined
+      ? "canvasContainer"
+      : `canvasContainer ${moduleClass}`;
 
   useEffect(() => {
     if (dummyH3 && dummyH3.current) {
@@ -48,7 +52,7 @@ const StrokeText = ({ children }: Props) => {
   }
 
   return (
-    <div className="canvasContainer">
+    <div className={componentClass}>
       <div>
         <canvas ref={canvas} />
       </div>

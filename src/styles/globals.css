@@ -42,10 +42,15 @@ h2 {
   min-width: 30ch;
 }
 
+h3,
+.canvasContainer {
+  --font-size: 4rem;
+}
+
 h3 {
   display: inline-block;
   font-family: "Josefin Slab";
-  font-size: 4rem;
+  font-size: var(--font-size);
   font-weight: 700;
   position: absolute;
   visibility: hidden;
@@ -65,7 +70,7 @@ main {
   overflow-y: auto;
   perspective: var(--perspective);
   perspective-origin: bottom right;
-  position: relative;
+  /* position: relative; */
   scroll-behavior: smooth;
 }
 
@@ -93,8 +98,7 @@ footer {
 }
 
 .canvasContainer {
-  height: 4rem;
-  font-size: 4rem;
+  height: calc(1.5 * var(--font-size));
 }
 
 .canvasContainer > div {
@@ -128,4 +132,8 @@ footer {
 .parallaxEl,
 .parallaxEl > div {
   position: relative;
+}
+
+.parallaxEl > div {
+  transform-origin: bottom right;
 }

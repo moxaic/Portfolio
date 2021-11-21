@@ -1,59 +1,42 @@
-.layout {
-  display: grid;
-  gap: 10rem 0;
-  grid-template-columns: repeat(100, 1%);
-  grid-template-rows: repeat(3, auto);
-}
-
 .card {
-  background-color: seagreen;
+  display: flex;
+  margin-bottom: 10rem;
 }
 
-.card:first-child {
+.card:last-child {
+  margin-bottom: unset;
+}
+
+.card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.cardImg {
   background-color: rebeccapurple;
+  width: 53%;
 }
 
-.card:nth-child(2n) {
-  background-color: slateblue;
-}
-
-.card:nth-child(2n) {
-  grid-column: 48 / 101;
-}
-
-.card:nth-child(2n + 1) {
-  grid-column: 1 / 54;
-}
-
-.card:nth-child(2n) > div {
-  padding: 5.5rem 2rem 2rem 5.5rem;
-}
-
-.card:nth-child(2n + 1) > div {
+.cardImg > div {
   padding: 5.5rem 5.5rem 2rem 2rem;
 }
 
-.cardDesc {
+.card:nth-child(even) > .cardImg > div {
+  padding: 5.5rem 2rem 2rem 5.5rem;
+}
+
+.cardInfo {
+  justify-content: flex-end;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 3rem;
+  padding-right: 2rem;
+  width: 47%;
 }
 
-.cardDesc:nth-child(2n) {
-  grid-column: 54 / 101;
-  padding-left: 1.5rem;
+.card:nth-child(odd) > .cardInfo {
+  padding-left: 2rem;
+  padding-right: unset;
 }
 
-.cardDesc:nth-child(2n + 1) {
-  grid-column: 1 / 48;
-  padding-right: 1.5rem;
-}
-
-.cardDesc:nth-child(2n) .canvasContainer {
+.card:nth-child(odd) .heading > div {
   right: 0;
-}
-
-.title {
-  position: relative;
 }

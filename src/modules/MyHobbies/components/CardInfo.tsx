@@ -2,21 +2,21 @@ import { ParallaxEl, StrokeText } from "../../../components";
 import styles from "../myHobbies.module.css";
 
 type Props = {
-  desc: string;
-  phrase: string;
+  heading: string;
+  text: string;
 };
 
-const CardDesc = ({ desc, phrase }: Props) => {
+const CardInfo = ({ heading, text }: Props) => {
   return (
-    <div className={styles.cardDesc}>
+    <div className={styles.cardInfo}>
       <ParallaxEl translateZ={5}>
-        <StrokeText>{phrase}</StrokeText>
+        <StrokeText moduleClass={styles.heading}>{heading}</StrokeText>
       </ParallaxEl>
       <ParallaxEl translateZ={-2}>
-        <p>{desc}</p>
+        <p>{text}</p>
       </ParallaxEl>
     </div>
   );
 };
 
-export default CardDesc;
+export default CardInfo;

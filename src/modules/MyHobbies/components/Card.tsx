@@ -1,20 +1,19 @@
-import Image from "next/image";
-
-import ParallaxEl from "../../../components/ParallaxEl";
 import styles from "../myHobbies.module.css";
+import { CardImg, CardInfo } from ".";
 
 type Props = {
   alt: string;
+  heading: string;
   src: StaticImageData;
+  text: string;
 };
 
-const Card = ({ alt, src }: Props) => {
+const Card = ({ alt, heading, src, text }: Props) => {
   return (
-    // <ParallaxEl moduleClass={styles.card} translateZ={-2}>
-    <ParallaxEl moduleClass={styles.card} translateZ={4}>
-      <Image {...{ alt, src }} />
-    </ParallaxEl>
-    // </ParallaxEl>
+    <div className={styles.card}>
+      <CardImg {...{ alt, src }} />
+      <CardInfo {...{ heading, text }} />
+    </div>
   );
 };
 
