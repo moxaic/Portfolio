@@ -1,11 +1,17 @@
+import Image from "next/image";
+
 import styles from "../footer.module.css";
 
-const GlassIcon = () => {
+type Props = {
+  link: string;
+  Svg: StaticImageData;
+};
+
+const GlassIcon = ({ link, Svg }: Props) => {
   return (
-    <div className={styles.icon}>
-      text
-      {/* <div className={styles.glass}>text</div> */}
-    </div>
+    <a className={styles.glassIcon}>
+      <Image alt="" src={Svg} />
+    </a>
   );
 };
 

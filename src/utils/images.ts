@@ -12,7 +12,15 @@ import LaptopJpg from "../assets/images/laptop.jpg";
 import MeSvg from "../assets/images/photo-of-me.svg";
 import MouthPng from "../assets/images/mouth.png";
 import NamastePng from "../assets/images/namaste.png";
+import PointingFingerPng from "../assets/images/pointing-finger.png";
 import QuestionMarkPng from "../assets/images/question-mark.png";
+
+export const pointingFingerPng = {
+  alt: "",
+  src: PointingFingerPng,
+  maxWidth: 0,
+  maxHeight: 0,
+};
 
 export const artJpg = {
   alt: "",

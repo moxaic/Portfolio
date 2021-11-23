@@ -13,57 +13,63 @@
   visibility: unset;
 }
 
+.visualContent p {
+  font-family: "Tangerine";
+  font-size: 2rem;
+}
+
 .mainContent {
-  text-align: center !important;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   width: 60vw;
 }
 
 .mainContent p {
+  /* flex: 0 1 auto; */
   text-align: inherit;
 }
 
-.socialLinks {
-  display: flex;
-  margin: auto;
-  width: fit-content;
+.fillsSpace {
+  flex: 1 1 auto;
 }
 
-.icon {
-  /* filter: blur(8px); */
-  /* background-clip: text; */
-  /* backdrop-filter: blur(100px); */
+.socialLinks {
+  display: grid;
+  justify-content: center;
+  /* flex: 0 1 6rem; */
+  gap: 0 2rem;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: 6rem;
+  padding: 2rem 0;
+  margin: auto;
+  width: 100%;
+}
+
+.glassIcon {
+  justify-content: center;
   background: rgba(45, 48, 61, 0.2);
   box-shadow: inset 0px -5px 12px rgba(144, 14, 176, 0.35),
     inset 0px 2px 4px rgba(255, 255, 255, 0.1);
-  height: 6rem;
-  margin: 1rem;
-  width: 6rem;
+  display: flex;
 }
 
-.icon::before {
-  content: "";
+.glassIcon::before {
   box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.5);
-  /* backdrop-filter: blur(8px); */
-  filter: blur(80px);
+  content: "";
+  filter: blur(8px);
   height: 100%;
-  width: 100%;
-  position: absolute;
   left: 0;
+  position: absolute;
   top: 0;
+  width: 100%;
   z-index: -100;
-}
-
-.glass {
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
 }
 
 .handImg {
   position: absolute;
+  right: 0;
   top: 0;
+  width: 30vw;
+  z-index: -10;
 }

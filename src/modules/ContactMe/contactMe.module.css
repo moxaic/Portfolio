@@ -92,35 +92,10 @@
   width: 50%;
 }
 
-.highlight {
-  position: absolute;
-  height: 3.2rem;
-  width: 100%;
-  top: 25%;
-  left: 0;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.inputGroup input:focus ~ .highlight,
-.inputGroup textarea:focus ~ .highlight {
-  animation: inputHighlighter 0.3s ease;
-}
-
 .feedbackImg {
   bottom: 0;
   left: 0;
   position: absolute;
   top: 0;
   z-index: -100;
-}
-
-@keyframes inputHighlighter {
-  from {
-    background: #5264ae;
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
 }

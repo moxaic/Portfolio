@@ -24,7 +24,6 @@ const Input = ({ name, placeholder, setValue, type, value }: Props) => {
         {...{ name, type, value }}
       />
       <label htmlFor={name}>{placeholder}</label>
-      <span className={styles.highlight} />
       <span className={styles.bar} />
     </div>
   );

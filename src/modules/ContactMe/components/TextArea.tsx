@@ -14,7 +14,6 @@ const TextArea = ({ name, placeholder, setValue, value }: Props) => {
     <div className={styles.inputGroup}>
       <textarea required={true} {...{ name, value }} />
       <label htmlFor={name}>{placeholder}</label>
-      {/* <span className={styles.highlight} /> */}
       <span className={styles.bar} />
     </div>
   );

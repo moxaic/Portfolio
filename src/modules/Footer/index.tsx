@@ -1,7 +1,13 @@
 import Image from "next/image";
 
-import { handSignPeacePng, mouthPng, namastePng } from "../../utils/images";
+import {
+  handSignPeacePng,
+  mouthPng,
+  namastePng,
+  pointingFingerPng,
+} from "../../utils/images";
 import { GlassIcon } from "./components";
+import { socialMediaLinks } from "./data";
 import styles from "./footer.module.css";
 
 const Footer = () => {
@@ -9,6 +15,8 @@ const Footer = () => {
     <footer>
       <div className={styles.visualContent}>
         <Image alt={namastePng.alt} src={namastePng.src} />
+        <p>Consider giving me a follow</p>
+        <Image alt={pointingFingerPng.alt} src={pointingFingerPng.src} />
       </div>
       <div className={styles.mainContent}>
         <h2>Thanks for visiting</h2>
@@ -18,17 +26,18 @@ const Footer = () => {
           recusandae at blanditiis, natus tenetur suscipit laudantium iste
           excepturi ipsam veniam totam!
         </p>
+        <p className={styles.fillsSpace}>A</p>
         <div className={styles.socialLinks}>
-          <GlassIcon />
-          <GlassIcon />
-          <GlassIcon />
-          <GlassIcon />
+          {socialMediaLinks.map(({ link, platform, svg: Svg }) => (
+            <GlassIcon key={platform} {...{ link, Svg }} />
+          ))}
         </div>
       </div>
       <div className={styles.visualContent}>
         <div className={styles.handImg}>
           <Image alt={handSignPeacePng.alt} src={handSignPeacePng.src} />
         </div>
+        <p>Aditya Srivastava</p>
         <h3>No rights reserved</h3>
         <Image alt={mouthPng.alt} src={mouthPng.src} />
       </div>
