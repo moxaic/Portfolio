@@ -42,19 +42,21 @@ h2 {
   min-width: 30ch;
 }
 
-h3,
-.canvasContainer {
+.h3Clone {
   --font-size: 4rem;
 }
 
 h3 {
   display: inline-block;
   font-family: "Josefin Slab";
-  font-size: var(--font-size);
   font-weight: 700;
   position: absolute;
   visibility: hidden;
   width: max-content;
+}
+
+h3.h3Clone {
+  font-size: var(--font-size);
 }
 
 p {
@@ -94,10 +96,11 @@ section:nth-child(2) > .grid {
 
 footer {
   border-top: solid 1px #fafafa;
+  display: flex;
   height: 100vh;
 }
 
-.canvasContainer {
+.canvasContainer.h3Clone {
   height: calc(1.5 * var(--font-size));
 }
 
@@ -136,4 +139,15 @@ footer {
 
 .parallaxEl > div {
   transform-origin: bottom right;
+  transition: 0.5s ease all;
+  animation: 0.5s fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

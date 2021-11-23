@@ -13,10 +13,9 @@ const StrokeText = ({ children, moduleClass }: Props) => {
   const [style, setStyle] = useState<Style>();
   const canvas = useRef<HTMLCanvasElement>(null);
   const dummyH3 = useRef<HTMLHeadingElement>(null);
+  const defaultClass = "canvasContainer h3Clone";
   const componentClass =
-    moduleClass === undefined
-      ? "canvasContainer"
-      : `canvasContainer ${moduleClass}`;
+    moduleClass === undefined ? defaultClass : `${defaultClass} ${moduleClass}`;
 
   useEffect(() => {
     if (dummyH3 && dummyH3.current) {
@@ -32,9 +31,9 @@ const StrokeText = ({ children, moduleClass }: Props) => {
       const ctx = canvas.current.getContext("2d");
       if (ctx) {
         const [strokeColor] = getCssVar(":root", ["--color-primary"]);
-        const [fontFamily, fontSize, fontWeight, marginTop] = getCssVar("h3", [
+        const [fontSize] = getCssVar(".h3Clone", ["--font-size"]);
+        const [fontFamily, fontWeight, marginTop] = getCssVar("h3", [
           "font-family",
-          "font-size",
           "font-weight",
           "margin-top",
         ]);
@@ -48,7 +47,11 @@ const StrokeText = ({ children, moduleClass }: Props) => {
   }, [children, style]);
 
   if (style === undefined) {
-    return <h3 ref={dummyH3}>{children}</h3>;
+    return (
+      <h3 className="h3Clone" ref={dummyH3}>
+        {children}
+      </h3>
+    );
   }
 
   return (

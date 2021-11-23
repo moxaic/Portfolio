@@ -1,14 +1,20 @@
 .leftCol {
-  align-items: flex-end;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-right: 2rem;
 }
 
 .formContainer {
   align-items: center;
-  background-color: darkslateblue;
+  background-color: palevioletred;
+  background-image: url("../../assets/images/feedback.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   display: flex;
   justify-content: center;
   padding: 6rem 0;
+  position: relative;
 }
 
 .form {
@@ -35,6 +41,8 @@
 
 .form input:focus,
 .form textarea:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
   outline: none;
 }
 
@@ -47,39 +55,40 @@
 }
 
 .form input:focus ~ label,
-.form input:valid ~ label {
+.form input:valid ~ label,
+.form textarea:focus ~ label,
+.form textarea:valid ~ label {
   font-size: 14px;
   top: 0;
 }
 
 .bar {
-  position: relative;
   display: block;
+  position: relative;
   width: 100%;
 }
+
 .bar:before,
 .bar:after {
+  background-color: #5264ae;
+  bottom: 1px;
   content: "";
   height: 4px;
-  width: 0;
-  bottom: 1px;
+  left: 50%;
   position: absolute;
-  background: #5264ae;
   transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
+  width: 0;
 }
 
 .bar:before {
-  left: 50%;
-}
-
-.bar:after {
+  left: unset;
   right: 50%;
 }
 
 .inputGroup input:focus ~ .bar:before,
-.inputGroup input:focus ~ .bar:after {
+.inputGroup input:focus ~ .bar:after,
+.inputGroup textarea:focus ~ .bar:before,
+.inputGroup textarea:focus ~ .bar:after {
   width: 50%;
 }
 
@@ -93,30 +102,17 @@
   opacity: 0.5;
 }
 
-.inputGroup input:focus ~ .highlight {
-  -webkit-animation: inputHighlighter 0.3s ease;
-  -moz-animation: inputHighlighter 0.3s ease;
+.inputGroup input:focus ~ .highlight,
+.inputGroup textarea:focus ~ .highlight {
   animation: inputHighlighter 0.3s ease;
 }
 
-@-webkit-keyframes inputHighlighter {
-  from {
-    background: #5264ae;
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
-}
-
-@-moz-keyframes inputHighlighter {
-  from {
-    background: #5264ae;
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
+.feedbackImg {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: -100;
 }
 
 @keyframes inputHighlighter {

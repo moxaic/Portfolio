@@ -1,31 +1,36 @@
-// export { default as ArtJpg } from "../assets/images/art.jpg";
-// export { default as BellsPng } from "../assets/images/bulb.png";
-// export { default as BulbPng } from "../assets/images/bulb.png";
-// export { default as CoffeeMugPng } from "../assets/images/coffee-cup.png";
-// export { default as CallToActionPng } from "../assets/images/direction-arrows.png";
-// export { default as FaceMaskPng } from "../assets/images/face-mask.png";
-// export { default as GuitarJpg } from "../assets/images/guitar.jpg";
-// export { default as GuitarPng } from "../assets/images/guitar.png";
-// export { default as HiPng } from "../assets/images/greeting.png";
-// export { default as LaptopJpg } from "../assets/images/laptop.jpg";
-// export { default as MeSvg } from "../assets/images/photo-of-me.svg";
-// export { default as QuestionMarkPng } from "../assets/images/question-mark.png";
-
 import ArtJpg from "../assets/images/art.jpg";
 import BulbPng from "../assets/images/bulb.png";
 import CoffeeMugPng from "../assets/images/coffee-cup.png";
 import CallToActionPng from "../assets/images/direction-arrows.png";
 import FaceMaskPng from "../assets/images/face-mask.png";
+import FeedbackPng from "../assets/images/feedback.png";
 import GuitarJpg from "../assets/images/guitar.jpg";
 import GuitarPng from "../assets/images/guitar.png";
+import HandSignPeacePng from "../assets/images/hand-sign-peace.png";
 import HiPng from "../assets/images/greeting.png";
 import LaptopJpg from "../assets/images/laptop.jpg";
 import MeSvg from "../assets/images/photo-of-me.svg";
+import MouthPng from "../assets/images/mouth.png";
+import NamastePng from "../assets/images/namaste.png";
 import QuestionMarkPng from "../assets/images/question-mark.png";
 
 export const artJpg = {
   alt: "",
   src: ArtJpg,
+  maxWidth: 0,
+  maxHeight: 0,
+};
+
+export const namastePng = {
+  alt: "",
+  src: NamastePng,
+  maxWidth: 0,
+  maxHeight: 0,
+};
+
+export const mouthPng = {
+  alt: "",
+  src: MouthPng,
   maxWidth: 0,
   maxHeight: 0,
 };
@@ -75,6 +80,20 @@ export const callToActionPng = {
 export const faceMaskPng = {
   alt: "",
   src: FaceMaskPng,
+  maxWidth: 0,
+  maxHeight: 0,
+};
+
+export const feedbackPng = {
+  alt: "",
+  src: FeedbackPng,
+  maxWidth: 0,
+  maxHeight: 0,
+};
+
+export const handSignPeacePng = {
+  alt: "",
+  src: HandSignPeacePng,
   maxWidth: 0,
   maxHeight: 0,
 };
