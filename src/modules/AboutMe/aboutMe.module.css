@@ -14,9 +14,9 @@
 .question {
   --image-width: 15rem;
   height: calc(var(--image-width) * 3 / 2);
-  left: 52%;
+  left: 48%;
   position: absolute;
-  top: 40%;
+  top: 10%;
   width: var(--image-width);
 }
 

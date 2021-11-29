@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer>
       <div className={styles.visualContent}>
-        <Image alt={namastePng.alt} src={namastePng.src} />
+        {/* <Image alt={namastePng.alt} src={namastePng.src} /> */}
         <p>Consider giving me a follow</p>
         <Image alt={pointingFingerPng.alt} src={pointingFingerPng.src} />
       </div>
@@ -27,15 +27,15 @@ const Footer = () => {
           excepturi ipsam veniam totam!
         </p>
         <p className={styles.fillsSpace}>A</p>
-        <div className={styles.socialLinks}>
+        <ul className={styles.socialLinks}>
           {socialMediaLinks.map(({ link, platform, svg: Svg }) => (
             <GlassIcon key={platform} {...{ link, Svg }} />
           ))}
-        </div>
+        </ul>
       </div>
       <div className={styles.visualContent}>
         <div className={styles.handImg}>
-          <Image alt={handSignPeacePng.alt} src={handSignPeacePng.src} />
+          {/* <Image alt={handSignPeacePng.alt} src={handSignPeacePng.src} /> */}
         </div>
         <p>Aditya Srivastava</p>
         <h3>No rights reserved</h3>

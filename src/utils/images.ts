@@ -8,12 +8,20 @@ import GuitarJpg from "../assets/images/guitar.jpg";
 import GuitarPng from "../assets/images/guitar.png";
 import HandSignPeacePng from "../assets/images/hand-sign-peace.png";
 import HiPng from "../assets/images/greeting.png";
+import IceCrystalPng from "../assets/images/ice-crystal.png";
 import LaptopJpg from "../assets/images/laptop.jpg";
 import MeSvg from "../assets/images/photo-of-me.svg";
 import MouthPng from "../assets/images/mouth.png";
 import NamastePng from "../assets/images/namaste.png";
 import PointingFingerPng from "../assets/images/pointing-finger.png";
 import QuestionMarkPng from "../assets/images/question-mark.png";
+
+export const iceCrystalPng = {
+  alt: "",
+  src: IceCrystalPng,
+  maxWidth: 0,
+  maxHeight: 0,
+};
 
 export const pointingFingerPng = {
   alt: "",

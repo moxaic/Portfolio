@@ -31,12 +31,16 @@ const AboutMe = () => {
           </ParallaxEl>,
         ]}
       </Grid>
-      <ParallaxEl moduleClass={styles.question} translateZ={4}>
-        <Image alt="who am I?" src={questionMarkPng.src} />
-      </ParallaxEl>
-      <ParallaxEl moduleClass={styles.face} translateZ={-10}>
-        <Image alt="masked face" src={faceMaskPng.src} />
-      </ParallaxEl>
+      <div className={styles.question}>
+        <ParallaxEl translateZ={4}>
+          <Image alt="who am I?" src={questionMarkPng.src} />
+        </ParallaxEl>
+      </div>
+      <div className={styles.face}>
+        <ParallaxEl translateZ={-10}>
+          <Image alt="masked face" src={faceMaskPng.src} />
+        </ParallaxEl>
+      </div>
     </>
   );
 };

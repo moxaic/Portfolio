@@ -38,13 +38,15 @@ const HeroArea = () => {
           </div>,
         ]}
       </Grid>
-      <ParallaxEl moduleClass={styles.cta} translateZ={-10}>
-        <Image
-          alt="scroll down"
-          layout="responsive"
-          src={callToActionPng.src}
-        />
-      </ParallaxEl>
+      <div className={styles.cta}>
+        <ParallaxEl translateZ={-10}>
+          <Image
+            alt="scroll down"
+            layout="responsive"
+            src={callToActionPng.src}
+          />
+        </ParallaxEl>
+      </div>
     </>
   );
 };

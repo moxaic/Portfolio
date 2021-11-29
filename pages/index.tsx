@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -16,6 +16,8 @@ const Home: NextPage = () => {
   const sectionsName = ["Home", "About Me", "My Hobbies", "Contact Me"];
   const sectionRefs = useRef<HTMLElement[]>([]);
   const Sections = [HeroArea, AboutMe, MyHobbies, ContactMe];
+
+  useEffect(() => {}, []);
 
   return (
     <>

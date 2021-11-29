@@ -9,9 +9,11 @@ type Props = {
 
 const GlassIcon = ({ link, Svg }: Props) => {
   return (
-    <a className={styles.glassIcon}>
-      <Image alt="" src={Svg} />
-    </a>
+    <li className={styles.glassIcon}>
+      <a>
+        <Image alt="" src={Svg} />
+      </a>
+    </li>
   );
 };
 

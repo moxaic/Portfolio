@@ -3,16 +3,19 @@ import { CardImg, CardInfo } from ".";
 
 type Props = {
   alt: string;
-  heading: string;
+  cta: string;
+  quote: string;
+  quoteBy: string;
   src: StaticImageData;
   text: string;
+  textCta: string;
 };
 
-const Card = ({ alt, heading, src, text }: Props) => {
+const Card = ({ alt, src, ...rest }: Props) => {
   return (
     <div className={styles.card}>
       <CardImg {...{ alt, src }} />
-      <CardInfo {...{ heading, text }} />
+      <CardInfo {...{ ...rest }} />
     </div>
   );
 };

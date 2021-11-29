@@ -1,69 +1,132 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+
 import getCssVar from "../utils/getCssVar";
+import getNumValue from "../utils/getNumValue";
+import remToPx from "../utils/remToPx";
 
-type Style = {
-  height: number;
-  width: number;
-};
+type Props = { children: string; moduleClass?: string; quoteBy?: string };
 
-type Props = { children: string; moduleClass?: string };
-
-const StrokeText = ({ children, moduleClass }: Props) => {
-  const [marginVertical, setMarginVertical] = useState<string>("1em");
-  const [style, setStyle] = useState<Style>();
+const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
+  const container = useRef<HTMLDivElement>(null);
+  const innerCtn = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
-  const dummyH3 = useRef<HTMLHeadingElement>(null);
-  const defaultClass = "canvasContainer h3Clone";
-  const componentClass =
-    moduleClass === undefined ? defaultClass : `${defaultClass} ${moduleClass}`;
+  const className =
+    moduleClass === undefined ? "strokeText" : `strokeText ${moduleClass}`;
 
   useEffect(() => {
-    if (dummyH3 && dummyH3.current) {
-      setStyle({
-        height: dummyH3.current?.clientHeight,
-        width: dummyH3.current?.clientWidth,
-      });
-    }
-
-    if (canvas && canvas.current && style) {
-      canvas.current.height = 1.5 * style.height;
-      canvas.current.width = style.width;
-      const ctx = canvas.current.getContext("2d");
-      if (ctx) {
-        const [strokeColor] = getCssVar(":root", ["--color-primary"]);
-        const [fontSize] = getCssVar(".h3Clone", ["--font-size"]);
-        const [fontFamily, fontWeight, marginTop] = getCssVar("h3", [
-          "font-family",
-          "font-weight",
-          "margin-top",
-        ]);
-        ctx.clearRect(0, 0, canvas.current.width, canvas.current.height);
-        ctx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
-        ctx.strokeStyle = strokeColor;
-        ctx.strokeText(children, 0, style.height);
-        setMarginVertical(marginTop);
-      }
-    }
-  }, [children, style]);
-
-  if (style === undefined) {
-    return (
-      <h3 className="h3Clone" ref={dummyH3}>
-        {children}
-      </h3>
+    let fontFamily = "Josefin Slab";
+    const fontWeight = "700";
+    const [rootFontSize, strokeColor, paddingHorizontalRem] = getCssVar(
+      ":root",
+      ["--font-size", "--color-primary", "--padding-horizontal"]
     );
-  }
+    const [fontSize, paddingLeftPx] = getCssVar(".strokeText", [
+      "--font-size-canvas",
+      "padding-left",
+    ]);
+    const paddingHorizontal = getNumValue(
+      remToPx(paddingHorizontalRem, rootFontSize),
+      "px"
+    );
+    const paddingLeft = getNumValue(paddingLeftPx, "px");
+    const fontSizePxVal = getNumValue(remToPx(fontSize, rootFontSize), "px");
+    const lineHeight = 1.2;
+    const canvasCurr = canvas && canvas.current;
+    const canvasCtx = canvasCurr && canvasCurr.getContext("2d");
+
+    const getFont = async () => {
+      try {
+        const josefinSlab = new FontFace(
+          fontFamily,
+          "url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700') format('ttf')"
+        );
+        await josefinSlab.load();
+        document.fonts.add(josefinSlab);
+      } catch (err) {
+        fontFamily = "Serif"; // fallback font
+        console.error(err);
+      } finally {
+        getDimensions();
+      }
+    };
+
+    const getDimensions = () => {
+      if (canvasCtx) {
+        canvasCtx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
+        let { width } = canvasCtx.measureText(children);
+        let height = fontSizePxVal + 2;
+        const availableScreenWidth =
+          screen.width - 2 * (paddingHorizontal + paddingLeft);
+        let singleLineWords: string[] = [];
+        if (width > availableScreenWidth) {
+          const words = children.split(" ");
+          const wordCount = words.length;
+          let maxWidth = canvasCtx.measureText(words[0]).width;
+          let rowWidth = maxWidth;
+          singleLineWords.push(words[0]);
+          for (let i = 1; i < wordCount; i++) {
+            const wordWidth = canvasCtx.measureText(` ${words[i]}`).width;
+            if (rowWidth + wordWidth > availableScreenWidth) {
+              if (rowWidth > maxWidth) {
+                maxWidth = rowWidth;
+              }
+              rowWidth = wordWidth;
+              height += lineHeight * fontSizePxVal;
+              singleLineWords.push(words[i]);
+            } else {
+              const lastStr = singleLineWords.at(-1);
+              singleLineWords.splice(-1, 1, lastStr + ` ${words[i]}`);
+              rowWidth += wordWidth;
+            }
+          }
+          width = maxWidth;
+        } else {
+          singleLineWords.push(children);
+        }
+        drawCanvas(height, width, singleLineWords);
+      }
+    };
+
+    const drawCanvas = (height: number, width: number, lines: string[]) => {
+      if (canvasCurr) {
+        canvasCurr.height = height;
+        canvasCurr.width = width;
+        if (canvasCtx) {
+          canvasCtx.textBaseline = "top";
+          canvasCtx.strokeStyle = strokeColor;
+          canvasCtx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
+          canvasCtx.clearRect(0, 0, canvasCurr.width, canvasCurr.height);
+          const noOfLines = lines.length;
+          for (let i = 0; i < noOfLines; i++) {
+            const verticalOffset = i === 0 ? 1 : (0.2 + i) * fontSizePxVal;
+            canvasCtx.strokeText(lines[i], 0, verticalOffset);
+          }
+        }
+      }
+      if (container && container.current && innerCtn && innerCtn.current) {
+        container.current.style.height = `${innerCtn.current.clientHeight}px`;
+      }
+    };
+
+    (async () => {
+      if (document.fonts.check(`${fontWeight} ${fontSize} ${fontFamily}`)) {
+        getDimensions();
+      } else {
+        await getFont();
+      }
+    })();
+  }, [children]);
 
   return (
-    <div className={componentClass}>
-      <div>
+    <div className="strokeTextContainer" ref={container}>
+      <div
+        data-quote={quoteBy ? "true" : "false"}
+        ref={innerCtn}
+        {...{ className }}
+      >
         <canvas ref={canvas} />
+        {quoteBy && <em>{quoteBy}</em>}
       </div>
-      <style jsx>{`
-        .canvasContainer {
-          margin: ${marginVertical} 0;
-        }
-      `}</style>
     </div>
   );
 };

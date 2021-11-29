@@ -1,8 +1,5 @@
 import { useState } from "react";
-import Image from "next/image";
 
-import { feedbackPng } from "../../../utils/images";
-import { ParallaxEl } from "../../../components";
 import styles from "../contactMe.module.css";
 import { Input, TextArea } from ".";
 
@@ -34,11 +31,8 @@ const Form = () => {
           setValue={setMsg}
           value={msg}
         />
-        <button className={styles.bitton}>Send</button>
+        <button className={styles.sendButton}>Send</button>
       </form>
-      {/* <div className={styles.feedbackImg}>
-        <Image alt={feedbackPng.alt} src={feedbackPng.src} />
-      </div> */}
     </div>
   );
 };

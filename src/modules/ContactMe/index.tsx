@@ -1,5 +1,5 @@
 import { Grid, StrokeText } from "../../components";
-import Form from "./components/Form";
+import { Form } from "./components";
 import styles from "./contactMe.module.css";
 
 const ContactMe = () => {

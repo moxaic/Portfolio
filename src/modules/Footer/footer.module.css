@@ -2,16 +2,27 @@
   width: 20vw;
 }
 
+/* .visualContent:first-child::before {
+  background-image: url("../../assets/images/namaste.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  height: 200px;
+  position: absolute;
+  width: 200px;
+  z-index: 100;
+} */
+
 .visualContent:last-child {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-.visualContent h3 {
+/* .visualContent h3 {
   position: unset;
   visibility: unset;
-}
+} */
 
 .visualContent p {
   font-family: "Tangerine";
@@ -39,8 +50,9 @@
   justify-content: center;
   /* flex: 0 1 6rem; */
   gap: 0 2rem;
-  grid-template-columns: repeat(4, 6rem);
-  grid-template-rows: 6rem;
+  grid-template-columns: repeat(4, 5rem);
+  grid-template-rows: 5rem;
+  list-style: none;
   padding: 2rem 0;
   margin: auto;
   width: 100%;
@@ -49,8 +61,10 @@
 .glassIcon {
   justify-content: center;
   background: rgba(45, 48, 61, 0.2);
-  box-shadow: inset 0px -5px 12px rgba(144, 14, 176, 0.35),
-    inset 0px 2px 4px rgba(255, 255, 255, 0.1);
+  /* box-shadow: inset 0px -5px 12px rgba(144, 14, 176, 0.35),
+    inset 0px 2px 4px rgba(255, 255, 255, 0.1); */
+  box-shadow: inset 0px -1rem 2rem rgba(144, 14, 176, 0.35),
+    inset 0px 0.5rem 1rem rgba(255, 255, 255, 0.1);
   display: flex;
 }
 
@@ -64,6 +78,14 @@
   top: 0;
   width: 100%;
   z-index: -100;
+}
+
+.glassIcon > a {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
 
 .handImg {

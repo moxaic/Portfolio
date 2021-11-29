@@ -7,13 +7,13 @@
 
 .formContainer {
   align-items: center;
-  background-color: palevioletred;
   background-image: url("../../assets/images/feedback.png");
   background-repeat: no-repeat;
   background-size: contain;
+  border: 2px solid var(--color-primary);
   display: flex;
   justify-content: center;
-  padding: 6rem 0;
+  padding: 5rem 0;
   position: relative;
 }
 
@@ -22,43 +22,46 @@
 }
 
 .inputGroup {
-  padding: 2rem 0;
+  margin-bottom: 1.7rem;
+  padding-top: 1.7rem;
   position: relative;
 }
 
-.form input,
-.form textarea {
-  background-color: transparent;
+.input,
+.textArea {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
   border: none;
   border-bottom: 1px solid #fafafa;
   color: var(--color-primary);
   display: block;
   font-size: 1.2rem;
-  height: 2rem;
-  padding: 5px 10px;
+  padding: 0.7rem 1rem;
   width: 100%;
 }
 
-.form input:focus,
-.form textarea:focus {
+.input:focus,
+.textArea:focus {
   background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   outline: none;
 }
 
-.form label {
-  left: 10px;
+.inputGroup > label {
+  font-size: 1rem;
+  left: 1rem;
   pointer-events: none;
   position: absolute;
-  top: 2rem;
+  top: 2.4rem;
   transition: 0.2s ease all;
 }
 
-.form input:focus ~ label,
-.form input:valid ~ label,
-.form textarea:focus ~ label,
-.form textarea:valid ~ label {
-  font-size: 14px;
+.input:focus ~ label,
+.input:valid ~ label,
+.input[type="email"]:invalid:not(.input[value=""]) ~ label,
+.textArea:focus ~ label,
+.textArea:valid ~ label {
+  font-size: 0.9rem;
   top: 0;
 }
 
@@ -68,34 +71,36 @@
   width: 100%;
 }
 
-.bar:before,
-.bar:after {
+.bar::before,
+.bar::after {
   background-color: #5264ae;
-  bottom: 1px;
+  bottom: 0;
   content: "";
-  height: 4px;
+  height: 2px;
   left: 50%;
   position: absolute;
   transition: 0.2s ease all;
   width: 0;
+  z-index: 100;
 }
 
-.bar:before {
+.bar::before {
   left: unset;
   right: 50%;
 }
 
-.inputGroup input:focus ~ .bar:before,
-.inputGroup input:focus ~ .bar:after,
-.inputGroup textarea:focus ~ .bar:before,
-.inputGroup textarea:focus ~ .bar:after {
+.input:focus ~ .bar::before,
+.input:focus ~ .bar::after,
+.textArea:focus ~ .bar::before,
+.textArea:focus ~ .bar::after {
   width: 50%;
 }
 
-.feedbackImg {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  top: 0;
-  z-index: -100;
+.sendButton {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 14px 42px;
+  text-transform: uppercase;
 }

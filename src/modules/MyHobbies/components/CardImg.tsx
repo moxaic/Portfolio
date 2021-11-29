@@ -10,9 +10,11 @@ type Props = {
 
 const CardImg = ({ alt, src }: Props) => {
   return (
-    <ParallaxEl moduleClass={styles.cardImg} translateZ={4}>
-      <Image {...{ alt, src }} />
-    </ParallaxEl>
+    <div className={styles.cardImgContainer}>
+      <ParallaxEl moduleClass={styles.cardImg} translateZ={5}>
+        <Image priority={true} {...{ alt, src }} />
+      </ParallaxEl>
+    </div>
   );
 };
 

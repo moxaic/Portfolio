@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import { PERSPECTIVE } from "../utils/constants";
 
@@ -9,35 +9,36 @@ type Props = {
 };
 
 const ParallaxEl = ({ children, moduleClass, translateZ }: Props) => {
-  const [horizontalTranslate, setHorizontalTranslate] = useState(0);
-  const [verticalTranslate, setVerticalTranslate] = useState(0);
   const container = useRef<HTMLDivElement>(null);
   const child = useRef<HTMLDivElement>(null);
   const scale = (PERSPECTIVE - translateZ) / PERSPECTIVE;
-  const componentClass =
+  const className =
     moduleClass === undefined ? "parallaxEl" : `parallaxEl ${moduleClass}`;
 
   useEffect(() => {
     if (container && container.current && child && child.current) {
       const containerRect = container.current.getBoundingClientRect();
       const childRect = child.current.getBoundingClientRect();
-      setHorizontalTranslate(containerRect.x - childRect.x);
+      child.current.style.left = `${(containerRect.x - childRect.x) * scale}px`;
       if (containerRect.y + containerRect.height < window.innerHeight) {
-        setVerticalTranslate(containerRect.y - childRect.y);
+        child.current.style.top = `${
+          (containerRect.y - childRect.y) * scale
+        }px`;
       }
     }
-  }, []);
+  }, [scale]);
 
   return (
-    <div ref={container} className={componentClass}>
-      <div ref={child}>{children}</div>
-      <style jsx>{`
-        .parallaxEl > div {
-          left: ${horizontalTranslate * scale}px;
-          top: ${verticalTranslate * scale}px;
-          transform: translateZ(${translateZ}px) scale(${scale});
-        }
-      `}</style>
+    <div ref={container}>
+      <div
+        {...{ className }}
+        ref={child}
+        style={{
+          transform: `translateZ(${translateZ}px) scale(${scale})`,
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 };

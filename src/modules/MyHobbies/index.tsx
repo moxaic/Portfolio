@@ -5,8 +5,8 @@ const MyHobbies = () => {
   return (
     <>
       <div>
-        {hobbies.map(({ alt, heading, src, text }) => (
-          <Card key={alt.replace(" ", "_")} {...{ alt, heading, src, text }} />
+        {hobbies.map((hobby) => (
+          <Card key={hobby.alt.replace(" ", "_")} {...{ ...hobby }} />
         ))}
       </div>
     </>

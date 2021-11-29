@@ -10,9 +10,18 @@ type Props = {
 };
 
 const TextArea = ({ name, placeholder, setValue, value }: Props) => {
+  const onChangeHandler = ({ target: { value } }: BaseSyntheticEvent) => {
+    setValue(value);
+  };
+
   return (
     <div className={styles.inputGroup}>
-      <textarea required={true} {...{ name, value }} />
+      <textarea
+        className={styles.textArea}
+        onChange={onChangeHandler}
+        required={true}
+        {...{ name, value }}
+      />
       <label htmlFor={name}>{placeholder}</label>
       <span className={styles.bar} />
     </div>

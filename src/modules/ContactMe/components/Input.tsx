@@ -12,13 +12,13 @@ type Props = {
 
 const Input = ({ name, placeholder, setValue, type, value }: Props) => {
   const onChangeHandler = ({ target: { value } }: BaseSyntheticEvent) => {
-    console.log(value);
     setValue(value);
   };
 
   return (
     <div className={styles.inputGroup}>
       <input
+        className={styles.input}
         onChange={onChangeHandler}
         required={true}
         {...{ name, type, value }}
