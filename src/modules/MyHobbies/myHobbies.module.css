@@ -53,16 +53,19 @@ background: linear-gradient(#f9207a 0%, #bba0db 100%);
 }
 
 .cardCta {
-  --translate: 0.7em;
+  --translate: 0.6em;
   background-color: ivory;
   bottom: var(--translate);
   color: var(--color-background);
   cursor: pointer;
   display: inline-block;
+  font-family: "Josefin Slab";
+  font-size: 1.4rem;
+  font-weight: 700;
   left: var(--translate);
   margin-bottom: 1.2em;
   margin-top: calc(var(--translate) + 1.2em);
-  padding: 10px 30px;
+  padding: 0.7em 1.5em;
   position: relative;
   transition: 200ms all ease;
   width: fit-content;
@@ -93,8 +96,6 @@ background: linear-gradient(#f9207a 0%, #bba0db 100%);
 }
 
 .ctaText {
-  font-size: 1rem;
   pointer-events: none;
   transition: 0.2s transform ease;
-  will-change: transform;
 }

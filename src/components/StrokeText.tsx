@@ -20,10 +20,10 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
       ":root",
       ["--font-size", "--color-primary", "--padding-horizontal"]
     );
-    const [fontSize, paddingLeftPx] = getCssVar(".strokeText", [
-      "--font-size-canvas",
-      "padding-left",
-    ]);
+    const [fontSize, paddingLeftPx] = getCssVar(
+      ".strokeText[data-quote='true']",
+      ["--font-size-canvas", "padding-left"]
+    );
     const paddingHorizontal = getNumValue(
       remToPx(paddingHorizontalRem, rootFontSize),
       "px"
@@ -38,7 +38,7 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
       try {
         const josefinSlab = new FontFace(
           fontFamily,
-          "url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700') format('ttf')"
+          "url('https://fonts.google.com/specimen/Josefin+Slab)"
         );
         await josefinSlab.load();
         document.fonts.add(josefinSlab);
@@ -56,14 +56,16 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
         let { width } = canvasCtx.measureText(children);
         let height = fontSizePxVal + 2;
         const availableScreenWidth =
-          screen.width - 2 * (paddingHorizontal + paddingLeft);
+          window.innerWidth - 2 * (paddingHorizontal + paddingLeft);
         let singleLineWords: string[] = [];
+
         if (width > availableScreenWidth) {
           const words = children.split(" ");
           const wordCount = words.length;
           let maxWidth = canvasCtx.measureText(words[0]).width;
           let rowWidth = maxWidth;
           singleLineWords.push(words[0]);
+
           for (let i = 1; i < wordCount; i++) {
             const wordWidth = canvasCtx.measureText(` ${words[i]}`).width;
             if (rowWidth + wordWidth > availableScreenWidth) {
@@ -118,14 +120,14 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
   }, [children]);
 
   return (
-    <div className="strokeTextContainer" ref={container}>
+    <div ref={container}>
       <div
         data-quote={quoteBy ? "true" : "false"}
         ref={innerCtn}
         {...{ className }}
       >
         <canvas ref={canvas} />
-        {quoteBy && <em>{quoteBy}</em>}
+        {quoteBy && <div>{quoteBy}</div>}
       </div>
     </div>
   );
