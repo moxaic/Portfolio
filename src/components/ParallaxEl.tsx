@@ -13,7 +13,7 @@ const ParallaxEl = ({ children, moduleClass, translateZ }: Props) => {
   const child = useRef<HTMLDivElement>(null);
   const scale = (PERSPECTIVE - translateZ) / PERSPECTIVE;
   const className =
-    moduleClass === undefined ? "parallaxEl" : `parallaxEl ${moduleClass}`;
+    moduleClass === undefined ? "parallax_el" : `parallax_el ${moduleClass}`;
 
   useEffect(() => {
     if (container && container.current && child && child.current) {

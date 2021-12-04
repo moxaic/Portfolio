@@ -1,0 +1,30 @@
+._left_col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 10rem;
+  padding-right: 5rem;
+}
+
+._right_col {
+  display: flex;
+  justify-self: flex-end;
+}
+
+._question {
+  --image-width: 15rem;
+  height: calc(var(--image-width) * 3 / 2);
+  left: 48%;
+  position: absolute;
+  top: 50%;
+  width: var(--image-width);
+}
+
+._face {
+  --image-width: 8rem;
+  height: calc(var(--image-width) * 3 / 2);
+  left: 2%;
+  position: absolute;
+  top: 30%;
+  width: var(--image-width);
+}

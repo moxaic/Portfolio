@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import styles from "../myHobbies.module.css";
+import styles from "../my_hobbies.module.css";
 
 type Props = {
   cta: string;
@@ -39,8 +39,8 @@ const CardCta = ({ cta, textCta }: Props) => {
   }, []);
 
   return (
-    <a className={styles.cardCta} href={cta} ref={btn}>
-      <div className={styles.ctaText} ref={textBtn}>
+    <a className={styles._card_cta} href={cta} ref={btn}>
+      <div className={styles._cta_text} ref={textBtn}>
         {textCta}
       </div>
     </a>

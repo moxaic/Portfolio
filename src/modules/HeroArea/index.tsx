@@ -3,14 +3,14 @@ import Image from "next/image";
 import { callToActionPng, hiPng } from "../../utils/images";
 import Grid from "../../components/Grid";
 import ParallaxEl from "../../components/ParallaxEl";
-import styles from "./heroArea.module.css";
+import styles from "./hero_area.module.css";
 
 const HeroArea = () => {
   return (
     <>
       <Grid>
         {[
-          <div className={styles.leftCol} key="hero-area-left-col">
+          <div className={styles._left_col} key="hero-area-left-col">
             <div>
               <Image
                 alt="hi"
@@ -22,14 +22,14 @@ const HeroArea = () => {
             </div>
           </div>,
           <div key="hero-area-right-col">
-            <ParallaxEl translateZ={-30}>
+            <ParallaxEl translateZ={-27}>
               <h1>
                 I&apos;m Aditya
                 <br />
                 Srivastava
               </h1>
             </ParallaxEl>
-            <p className={styles.shortDesc}>
+            <p className={styles._short_desc}>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro
               possimus inventore recusandae ipsam quibusdam, quo voluptatibus
               iure non quisquam obcaecati officia exercitationem. Inventore,
@@ -38,7 +38,7 @@ const HeroArea = () => {
           </div>,
         ]}
       </Grid>
-      <div className={styles.cta}>
+      <div className={styles._cta}>
         <ParallaxEl translateZ={-10}>
           <Image
             alt="scroll down"

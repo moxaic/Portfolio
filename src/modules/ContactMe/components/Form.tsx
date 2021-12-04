@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import styles from "../contactMe.module.css";
+import styles from "../contact_me.module.css";
 import { Input, TextArea } from ".";
 
 const Form = () => {
@@ -9,8 +9,8 @@ const Form = () => {
   const [msg, setMsg] = useState("");
 
   return (
-    <div className={styles.formContainer}>
-      <form className={styles.form} method="POST">
+    <div className={styles._form_container}>
+      <form className={styles._form} method="POST">
         <Input
           name="name"
           placeholder="Your Name"
@@ -31,7 +31,7 @@ const Form = () => {
           setValue={setMsg}
           value={msg}
         />
-        <button className={styles.sendButton}>Send</button>
+        <button className={styles._send_button}>Send</button>
       </form>
     </div>
   );

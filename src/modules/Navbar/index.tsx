@@ -1,7 +1,7 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 import getSectionId from "../../utils/getSectionId";
-import { Link } from "./components";
+import Link from "./components/Link";
 import styles from "./navbar.module.css";
 
 type Props = {
@@ -29,8 +29,8 @@ const Navbar = ({ sections, navRefs }: Props) => {
   }, [sections]);
 
   return (
-    <nav className={styles.nav} ref={nav}>
-      <ul className={styles.navLinks}>
+    <nav className={styles._nav} ref={nav}>
+      <ul className={styles._nav_links}>
         {sections.map((section, idx) => {
           const text = getSectionId(section);
           return (

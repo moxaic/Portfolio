@@ -1,5 +1,5 @@
 import { ParallaxEl, StrokeText } from "../../../components";
-import styles from "../myHobbies.module.css";
+import styles from "../my_hobbies.module.css";
 import { CardCta } from ".";
 
 type Props = {
@@ -12,9 +12,9 @@ type Props = {
 
 const CardInfo = ({ cta, quote, quoteBy, text, textCta }: Props) => {
   return (
-    <div className={styles.cardInfo}>
+    <div className={styles._card_info}>
       <ParallaxEl translateZ={6}>
-        <StrokeText moduleClass={styles.heading} {...{ quoteBy }}>
+        <StrokeText moduleClass={styles._heading} {...{ quoteBy }}>
           {quote}
         </StrokeText>
       </ParallaxEl>

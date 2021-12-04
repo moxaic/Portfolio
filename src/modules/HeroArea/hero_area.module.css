@@ -1,0 +1,23 @@
+._left_col {
+  align-self: flex-end;
+  display: flex;
+  justify-content: flex-start;
+}
+
+._left_col > div {
+  width: 31rem;
+}
+
+._short_desc {
+  max-width: 60ch;
+}
+
+._cta {
+  --dimension-image: 40rem;
+  height: var(--dimension-image);
+  position: absolute;
+  right: 4rem;
+  top: 22rem;
+  transform: rotateX(180deg) rotateY(-180deg);
+  width: calc(var(--dimension-image) * 1);
+}

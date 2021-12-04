@@ -46,17 +46,6 @@ h2 {
   min-width: 30ch;
 }
 
-h3 {
-  display: inline-block;
-  font-family: "Josefin Slab";
-  font-size: 4rem;
-  font-weight: 700;
-  margin: 1em 0;
-  position: absolute;
-  visibility: hidden;
-  width: max-content;
-}
-
 p {
   font-family: "Open Sans";
   font-size: 1.1rem;
@@ -70,14 +59,12 @@ main {
   overflow-y: auto;
   perspective: var(--perspective);
   perspective-origin: bottom right;
-  /* position: relative; */
   scroll-behavior: smooth;
 }
 
 section {
   min-height: 100vh;
   padding: 0 6rem 7rem;
-  /* transform-style: preserve-3d; */
 }
 
 section:nth-child(2n + 1) h2 {
@@ -95,25 +82,46 @@ section:nth-child(2) > .grid {
 footer {
   border-top: solid 1px #fafafa;
   display: flex;
-  height: 100vh;
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+footer::before {
+  background-image: url("../assets/images/namaste.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  height: 22vw;
+  left: 0;
+  position: absolute;
+  top: 1.4rem;
+  width: 22vw;
+  z-index: -10;
 }
 
 footer::after {
   background-attachment: fixed;
   background-image: url("../assets/images/hand-sign-peace.png");
-  background-position: center;
-  background-repeat: repeat;
+  background-position: right;
+  background-repeat: no-repeat;
   background-size: contain;
-  bottom: 0;
   content: "";
-  left: 65vw;
+  height: 100vh;
   position: absolute;
   right: 0;
   top: 0;
+  width: calc(200vh / 3);
   z-index: -10;
 }
 
-.strokeText {
+.font_tangerine {
+  font-family: "Tangerine";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.stroke_text {
   --font-size-canvas: 4rem;
   font-family: "Tangerine";
   font-size: 2rem;
@@ -122,7 +130,7 @@ footer::after {
   width: fit-content;
 }
 
-.strokeText[data-quote="true"] {
+.stroke_text[data-quote="true"] {
   align-items: flex-end;
   display: flex;
   flex-direction: column;
@@ -131,8 +139,8 @@ footer::after {
   padding: 0 1.9em;
 }
 
-.strokeText[data-quote="true"]::before,
-.strokeText[data-quote="true"]::after {
+.stroke_text[data-quote="true"]::before,
+.stroke_text[data-quote="true"]::after {
   content: open-quote;
   font-size: 7em;
   height: 100%;
@@ -141,14 +149,14 @@ footer::after {
   top: -0.45em;
 }
 
-.strokeText[data-quote="true"]::after {
+.stroke_text[data-quote="true"]::after {
   content: close-quote;
   left: unset;
   right: 15px;
   transform: translateY(70%);
 }
 
-.strokeText > div::before {
+.stroke_text > div::before {
   content: "~ ";
 }
 
@@ -157,7 +165,7 @@ footer::after {
   grid-template-columns: repeat(2, 50%);
 }
 
-.parallaxEl {
+.parallax_el {
   animation: 0.5s fadeIn;
   position: relative;
   transform-origin: bottom right;

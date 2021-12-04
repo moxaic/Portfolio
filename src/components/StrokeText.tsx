@@ -11,7 +11,7 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
   const innerCtn = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const className =
-    moduleClass === undefined ? "strokeText" : `strokeText ${moduleClass}`;
+    moduleClass === undefined ? "stroke_text" : `stroke_text ${moduleClass}`;
 
   useEffect(() => {
     let fontFamily = "Josefin Slab";

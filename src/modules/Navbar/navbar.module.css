@@ -1,4 +1,4 @@
-.nav {
+._nav {
   position: fixed;
   right: 0;
   top: -22px;
@@ -8,7 +8,7 @@
   z-index: 100;
 }
 
-.navLinks {
+._nav_links {
   display: flex;
   flex-direction: row-reverse;
   list-style: none;
@@ -16,7 +16,7 @@
   padding: 0;
 }
 
-.navLinks > li {
+._nav_links > li {
   flex: 1;
   letter-spacing: 0.1rem;
   text-align: center;

@@ -1,6 +1,6 @@
 import { BaseSyntheticEvent, Dispatch, SetStateAction } from "react";
 
-import styles from "../contactMe.module.css";
+import styles from "../contact_me.module.css";
 
 type Props = {
   name: string;
@@ -15,15 +15,15 @@ const TextArea = ({ name, placeholder, setValue, value }: Props) => {
   };
 
   return (
-    <div className={styles.inputGroup}>
+    <div className={styles._input_group}>
       <textarea
-        className={styles.textArea}
+        className={styles._text_area}
         onChange={onChangeHandler}
         required={true}
         {...{ name, value }}
       />
       <label htmlFor={name}>{placeholder}</label>
-      <span className={styles.bar} />
+      <span className={styles._bar} />
     </div>
   );
 };

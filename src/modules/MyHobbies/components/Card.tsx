@@ -1,4 +1,4 @@
-import styles from "../myHobbies.module.css";
+import styles from "../my_hobbies.module.css";
 import { CardImg, CardInfo } from ".";
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 
 const Card = ({ alt, src, ...rest }: Props) => {
   return (
-    <div className={styles.card}>
+    <div className={styles._card}>
       <CardImg {...{ alt, src }} />
       <CardInfo {...{ ...rest }} />
     </div>

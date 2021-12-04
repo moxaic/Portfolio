@@ -9,7 +9,7 @@ type Props = {
 
 const GlassIcon = ({ link, Svg }: Props) => {
   return (
-    <li className={styles.glassIcon}>
+    <li className={styles._glass_icon}>
       <a>
         <Image alt="" src={Svg} />
       </a>
