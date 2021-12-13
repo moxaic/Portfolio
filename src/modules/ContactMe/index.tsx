@@ -24,21 +24,15 @@ const ContactMe = () => {
           </ParallaxEl>,
         ]}
       </Grid>
-      <div className={styles._message_img}>
-        <ParallaxEl translateZ={15}>
-          <Image alt="" src={chatPng} />
-        </ParallaxEl>
-      </div>
-      <div className={styles._liked_post}>
-        <ParallaxEl translateZ={-10}>
-          <Image alt="" src={likedPostPng} />
-        </ParallaxEl>
-      </div>
-      <div className={styles._ice_cream}>
-        <ParallaxEl translateZ={-60}>
-          <Image alt="" src={iceCreamConePng} />
-        </ParallaxEl>
-      </div>
+      <ParallaxEl translateZ={15} moduleClass={styles._message_img}>
+        <Image alt="" src={chatPng} />
+      </ParallaxEl>
+      <ParallaxEl translateZ={-10} moduleClass={styles._liked_post}>
+        <Image alt="" src={likedPostPng} />
+      </ParallaxEl>
+      <ParallaxEl translateZ={-60} moduleClass={styles._ice_cream}>
+        <Image alt="" src={iceCreamConePng} />
+      </ParallaxEl>
     </>
   );
 };

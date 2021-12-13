@@ -10,17 +10,17 @@ import styles from "./hero_area.module.css";
 const h1Vars = ["margin-top"];
 
 const HeroArea = () => {
-  const imgCtn = useRef<HTMLDivElement>(null);
+  const leftCol = useRef<HTMLDivElement>(null);
   const rightCol = useRef<HTMLDivElement>(null);
   const [paddingTop] = useCssVariable("h1", h1Vars);
 
   useEffect(() => {
-    const imgCtnCurr = imgCtn && imgCtn.current;
-    const rightColCurr = rightCol && rightCol.current;
-    if (imgCtnCurr && rightColCurr && paddingTop) {
+    const leftColCur = leftCol && leftCol.current;
+    const rightColCur = rightCol && rightCol.current;
+    if (leftColCur && rightColCur && paddingTop) {
       const padTopVal = getNumValue(paddingTop, "px");
       console.log(padTopVal);
-      imgCtnCurr.style.width = `${rightColCurr.clientHeight - padTopVal}px`;
+      leftColCur.style.width = `${rightColCur.clientHeight - padTopVal}px`;
       console.log(rightCol);
     }
   }, [paddingTop]);
@@ -29,12 +29,14 @@ const HeroArea = () => {
     <>
       <Grid>
         {[
-          <div className={styles._left_col} key="hero-area-left-col">
-            <div className={styles._img_container} ref={imgCtn}>
-              <ParallaxEl translateZ={-20}>
-                <Image alt="hi" src={hiPng} />
-              </ParallaxEl>
-            </div>
+          <div
+            className={styles._left_col}
+            key="hero-area-left-col"
+            ref={leftCol}
+          >
+            <ParallaxEl translateZ={-20}>
+              <Image alt="hi" src={hiPng} />
+            </ParallaxEl>
           </div>,
           <div key="hero-area-right-col" ref={rightCol}>
             <ParallaxEl translateZ={-25}>
@@ -54,11 +56,9 @@ const HeroArea = () => {
           </div>,
         ]}
       </Grid>
-      <div className={styles._cta}>
-        <ParallaxEl translateZ={-10}>
-          <Image alt="scroll down" src={arrowsPng} />
-        </ParallaxEl>
-      </div>
+      <ParallaxEl translateZ={-10} moduleClass={styles._cta}>
+        <Image alt="scroll down" src={arrowsPng} />
+      </ParallaxEl>
     </>
   );
 };

@@ -10,8 +10,8 @@ const rootVarNames = ["--font-size", "--color-primary", "--padding-horizontal"];
 const strokeTextVarNames = ["--font-size-canvas", "padding-left"];
 
 const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
-  const container = useRef<HTMLDivElement>(null);
-  const innerCtn = useRef<HTMLDivElement>(null);
+  const parent = useRef<HTMLDivElement>(null);
+  const child = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const rootVars = useCssVariable(":root", rootVarNames);
   const strokeTextVars = useCssVariable(
@@ -34,8 +34,8 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
       const paddingLeft = getNumValue(paddingLeftPx, "px");
       const fontSizePxVal = getNumValue(remToPx(fontSize, rootFontSize), "px");
       const lineHeight = 1.5;
-      const canvasCurr = canvas && canvas.current;
-      const canvasCtx = canvasCurr && canvasCurr.getContext("2d");
+      const canvasCur = canvas && canvas.current;
+      const canvasCtx = canvasCur && canvasCur.getContext("2d");
 
       const getFont = async () => {
         try {
@@ -93,14 +93,14 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
       };
 
       const drawCanvas = (height: number, width: number, lines: string[]) => {
-        if (canvasCurr) {
-          canvasCurr.height = height;
-          canvasCurr.width = width;
+        if (canvasCur) {
+          canvasCur.height = height;
+          canvasCur.width = width;
           if (canvasCtx) {
             canvasCtx.textBaseline = "top";
             canvasCtx.strokeStyle = strokeColor;
             canvasCtx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
-            canvasCtx.clearRect(0, 0, canvasCurr.width, canvasCurr.height);
+            canvasCtx.clearRect(0, 0, canvasCur.width, canvasCur.height);
             const noOfLines = lines.length;
             for (let i = 0; i < noOfLines; i++) {
               const verticalOffset =
@@ -109,8 +109,8 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
             }
           }
         }
-        if (container && container.current && innerCtn && innerCtn.current) {
-          container.current.style.height = `${innerCtn.current.clientHeight}px`;
+        if (parent && parent.current && child && child.current) {
+          parent.current.style.height = `${child.current.clientHeight}px`;
         }
       };
 
@@ -125,10 +125,10 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
   }, [children, rootVars, strokeTextVars]);
 
   return (
-    <div ref={container}>
+    <div ref={parent}>
       <div
         data-quote={quoteBy ? "true" : "false"}
-        ref={innerCtn}
+        ref={child}
         {...{ className }}
       >
         <canvas ref={canvas} />

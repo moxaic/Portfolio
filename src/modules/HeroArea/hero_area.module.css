@@ -1,7 +1,6 @@
 ._left_col {
-  align-items: flex-end;
-  display: flex;
-  justify-content: center;
+  height: 100%;
+  place-self: bottom;
 }
 
 ._short_desc {

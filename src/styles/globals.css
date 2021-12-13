@@ -170,7 +170,7 @@ footer::after {
   grid-template-columns: repeat(2, 50%);
 }
 
-.parallax_el {
+.parallax_el > div {
   animation: 500ms fadeIn;
   position: relative;
   transform-origin: bottom right;

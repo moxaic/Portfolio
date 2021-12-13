@@ -14,27 +14,27 @@
   flex-direction: row-reverse;
 }
 
-._card_img_container {
+._card_img {
   width: 53%;
 }
 
-._card:nth-child(1) > ._card_img_container {
+._card:nth-child(1) > ._card_img {
   background: linear-gradient(#721c1c 0%, #9c9c9c 100%);
 }
 
-._card:nth-child(2) > ._card_img_container {
+._card:nth-child(2) > ._card_img {
   background: linear-gradient(#253b5e 0%, #9c9c9c 100%);
 }
 
-._card:nth-child(3) > ._card_img_container {
+._card:nth-child(3) > ._card_img {
   background: linear-gradient(#345953 0%, #9c9c9c 100%);
 }
 
-._card:nth-child(odd) ._card_img {
+._card:nth-child(odd) ._card_img > div {
   padding: 5.5rem 5.5rem 2rem 2rem;
 }
 
-._card:nth-child(even) ._card_img {
+._card:nth-child(even) ._card_img > div {
   padding: 5.5rem 2rem 2rem 5.5rem;
 }
 

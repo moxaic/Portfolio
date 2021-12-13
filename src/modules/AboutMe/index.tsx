@@ -33,26 +33,18 @@ const AboutMe = () => {
           </ParallaxEl>,
         ]}
       </Grid>
-      <div className={styles._question}>
-        <ParallaxEl translateZ={-45}>
-          <Image alt="" src={questionMarkPng} />
-        </ParallaxEl>
-      </div>
-      <div className={styles._face}>
-        <ParallaxEl translateZ={-10}>
-          <Image alt="" src={maskPng} />
-        </ParallaxEl>
-      </div>
-      <div className={styles._ice_crystal}>
-        <ParallaxEl translateZ={-20}>
-          <Image alt="" src={iceCrystalPng} />
-        </ParallaxEl>
-      </div>
-      <div className={styles._ice_cream}>
-        <ParallaxEl translateZ={30}>
-          <Image alt="" src={iceCreamBarPng} />
-        </ParallaxEl>
-      </div>
+      <ParallaxEl translateZ={-45} moduleClass={styles._question}>
+        <Image alt="" src={questionMarkPng} />
+      </ParallaxEl>
+      <ParallaxEl translateZ={-10} moduleClass={styles._face}>
+        <Image alt="" src={maskPng} />
+      </ParallaxEl>
+      <ParallaxEl translateZ={-20} moduleClass={styles._ice_crystal}>
+        <Image alt="" src={iceCrystalPng} />
+      </ParallaxEl>
+      <ParallaxEl translateZ={30} moduleClass={styles._ice_cream}>
+        <Image alt="" src={iceCreamBarPng} />
+      </ParallaxEl>
     </>
   );
 };

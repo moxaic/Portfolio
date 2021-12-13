@@ -8,12 +8,10 @@ type Props = {
 
 const CardImg = ({ alt, src }: Props) => {
   return (
-    // <ParallaxEl translateZ={-2} /* moduleClass={styles._card_img_container} */>
-    <div className={styles._card_img_container}>
-      <ParallaxEl moduleClass={styles._card_img} translateZ={5}>
-        <Image {...{ alt, src }} />
-      </ParallaxEl>
-    </div>
+    // <ParallaxEl translateZ={-2}>
+    <ParallaxEl moduleClass={styles._card_img} translateZ={5}>
+      <Image {...{ alt, src }} />
+    </ParallaxEl>
     // </ParallaxEl>
   );
 };

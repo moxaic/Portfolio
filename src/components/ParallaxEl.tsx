@@ -9,33 +9,32 @@ type Props = {
 };
 
 const ParallaxEl = ({ children, moduleClass, translateZ }: Props) => {
-  const container = useRef<HTMLDivElement>(null);
+  const parent = useRef<HTMLDivElement>(null);
   const child = useRef<HTMLDivElement>(null);
   const scale = (PERSPECTIVE - translateZ) / PERSPECTIVE;
   const className =
     moduleClass === undefined ? "parallax_el" : `parallax_el ${moduleClass}`;
 
   useEffect(() => {
-    if (container && container.current && child && child.current) {
-      const containerRect = container.current.getBoundingClientRect();
-      const childRect = child.current.getBoundingClientRect();
-      child.current.style.left = `${(containerRect.x - childRect.x) * scale}px`;
-      if (containerRect.y + containerRect.height < window.innerHeight) {
-        child.current.style.top = `${
-          (containerRect.y - childRect.y) * scale
-        }px`;
+    const parentCur = parent && parent.current;
+    const childCur = child && child.current;
+    if (parentCur && childCur) {
+      const parentRect = parentCur.getBoundingClientRect();
+      const childRect = childCur.getBoundingClientRect();
+      childCur.style.left = `${(parentRect.x - childRect.x) * scale}px`;
+      if (parentRect.y + parentRect.height < window.innerHeight) {
+        childCur.style.top = `${(parentRect.y - childRect.y) * scale}px`;
       }
     }
   }, [scale]);
 
   return (
-    <div ref={container}>
+    <div ref={parent} {...{ className }}>
       <div
         ref={child}
         style={{
           transform: `translateZ(${translateZ}px) scale(${scale})`,
         }}
-        {...{ className }}
       >
         {children}
       </div>

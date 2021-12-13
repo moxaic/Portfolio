@@ -12,11 +12,9 @@ const MyHobbies = () => {
           <Card key={hobby.alt.replace(" ", "_")} {...{ ...hobby }} />
         ))}
       </div>
-      <div className={styles._heart_sign}>
-        <ParallaxEl translateZ={25}>
-          <Image alt="" src={neonHeartPng} />
-        </ParallaxEl>
-      </div>
+      <ParallaxEl translateZ={25} moduleClass={styles._heart_sign}>
+        <Image alt="" src={neonHeartPng} />
+      </ParallaxEl>
     </>
   );
 };
