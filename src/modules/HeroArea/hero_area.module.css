@@ -1,10 +1,10 @@
 ._left_col {
-  height: 100%;
-  place-self: bottom;
+  margin: auto;
+  margin-bottom: 0;
 }
 
 ._short_desc {
-  max-width: 60ch;
+  max-width: 50ch;
 }
 
 ._cta {
