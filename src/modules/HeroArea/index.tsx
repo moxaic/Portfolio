@@ -19,9 +19,7 @@ const HeroArea = () => {
     const rightColCur = rightCol && rightCol.current;
     if (leftColCur && rightColCur && paddingTop) {
       const padTopVal = getNumValue(paddingTop, "px");
-      console.log(padTopVal);
       leftColCur.style.width = `${rightColCur.clientHeight - padTopVal}px`;
-      console.log(rightCol);
     }
   }, [paddingTop]);
 
