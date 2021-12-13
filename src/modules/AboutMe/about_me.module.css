@@ -8,23 +8,41 @@
 
 ._right_col {
   display: flex;
-  justify-self: flex-end;
+  justify-content: flex-end;
 }
 
 ._question {
-  --image-width: 15rem;
-  height: calc(var(--image-width) * 3 / 2);
-  left: 48%;
+  --width: 12rem;
+  height: calc(var(--width) * 3 / 2);
+  left: 44%;
   position: absolute;
-  top: 50%;
-  width: var(--image-width);
+  top: 10%;
+  width: var(--width);
 }
 
 ._face {
-  --image-width: 8rem;
-  height: calc(var(--image-width) * 3 / 2);
+  --width: 8rem;
+  height: calc(var(--width) * 3 / 2);
   left: 2%;
   position: absolute;
   top: 30%;
-  width: var(--image-width);
+  width: var(--width);
+}
+
+._ice_crystal {
+  --width: 16rem;
+  bottom: -2%;
+  height: var(--width);
+  left: 1%;
+  position: absolute;
+  width: var(--width);
+}
+
+._ice_cream {
+  --width: 8rem;
+  bottom: -2%;
+  height: var(--width);
+  right: 30%;
+  position: absolute;
+  width: var(--width);
 }

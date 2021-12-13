@@ -4,10 +4,10 @@ import styles from "../my_hobbies.module.css";
 
 type Props = {
   cta: string;
-  textCta: string;
+  ctaText: string;
 };
 
-const CardCta = ({ cta, textCta }: Props) => {
+const CardCta = ({ cta, ctaText }: Props) => {
   const btn = useRef<HTMLAnchorElement>(null);
   const textBtn = useRef<HTMLDivElement>(null);
 
@@ -41,7 +41,7 @@ const CardCta = ({ cta, textCta }: Props) => {
   return (
     <a className={styles._card_cta} href={cta} ref={btn}>
       <div className={styles._cta_text} ref={textBtn}>
-        {textCta}
+        {ctaText}
       </div>
     </a>
   );

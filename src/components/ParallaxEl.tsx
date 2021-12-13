@@ -31,11 +31,11 @@ const ParallaxEl = ({ children, moduleClass, translateZ }: Props) => {
   return (
     <div ref={container}>
       <div
-        {...{ className }}
         ref={child}
         style={{
           transform: `translateZ(${translateZ}px) scale(${scale})`,
         }}
+        {...{ className }}
       >
         {children}
       </div>

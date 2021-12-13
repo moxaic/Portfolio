@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 
-import { pointingFingerPng } from "../../utils/images";
+import fingerPng from "../../assets/images/finger.png";
+import { Image } from "../../components";
 import GlassIcon from "./components/GlassIcon";
 import { socialMediaLinks } from "./data";
 import styles from "./footer.module.css";
@@ -14,9 +14,11 @@ const Footer = () => {
     const fingerCurr = fingerRef && fingerRef.current;
     const footerCurr = footerRef && footerRef.current;
     const windowHeight = window.innerHeight;
+
     if (fingerCurr && footerCurr) {
       const magicNum = 18;
       const magicNumOver90 = 30;
+
       const mouseMoveHandler = ({ clientX, clientY }: MouseEvent) => {
         let rotate: string;
         let translate: number;
@@ -33,6 +35,7 @@ const Footer = () => {
           }px, ${translate}px)`;
         }
       };
+
       footerCurr.addEventListener("mousemove", mouseMoveHandler);
       return () =>
         footerCurr.removeEventListener("mousemove", mouseMoveHandler);
@@ -51,8 +54,8 @@ const Footer = () => {
         </p>
         <p className={styles._fill_space}>A</p>
         <ul className={styles._social_links}>
-          {socialMediaLinks.map(({ link, platform, svg: Svg }) => (
-            <GlassIcon key={platform} {...{ link, Svg }} />
+          {socialMediaLinks.map(({ Icon, link, platform }) => (
+            <GlassIcon key={platform} {...{ Icon, link, platform }} />
           ))}
         </ul>
       </div>
@@ -61,7 +64,7 @@ const Footer = () => {
           Consider giving me a follow
         </p> */}
       <div className={styles._pointing_finger} ref={fingerRef}>
-        <Image alt={pointingFingerPng.alt} src={pointingFingerPng.src} />
+        <Image alt="" src={fingerPng} />
       </div>
       {/* </div> */}
     </footer>

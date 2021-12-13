@@ -1,27 +1,45 @@
 import FacebookSvg from "../../assets/icons/facebook.svg";
 import GitHubSvg from "../../assets/icons/github.svg";
 import InstagramSvg from "../../assets/icons/instagram.svg";
+import LinkedInSvg from "../../assets/icons/linkedin.svg";
+import SpotifySvg from "../../assets/icons/spotify.svg";
 import TwitterSvg from "../../assets/icons/twitter.svg";
+import YouTubeSvg from "../../assets/icons/youtube.svg";
 
 export const socialMediaLinks = [
   {
     link: "",
     platform: "Facebook",
-    svg: FacebookSvg,
+    Icon: FacebookSvg,
   },
   {
     link: "",
     platform: "GitHub",
-    svg: GitHubSvg,
+    Icon: GitHubSvg,
   },
   {
     link: "",
     platform: "Instagram",
-    svg: InstagramSvg,
+    Icon: InstagramSvg,
+  },
+  {
+    link: "",
+    platform: "LinkedIn",
+    Icon: LinkedInSvg,
+  },
+  {
+    link: "",
+    platform: "Spotify",
+    Icon: SpotifySvg,
   },
   {
     link: "",
     platform: "Twitter",
-    svg: TwitterSvg,
+    Icon: TwitterSvg,
+  },
+  {
+    link: "",
+    platform: "YouTube",
+    Icon: YouTubeSvg,
   },
 ];

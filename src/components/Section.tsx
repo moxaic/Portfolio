@@ -12,7 +12,7 @@ const Section = forwardRef(
     return (
       <section ref={ref}>
         {title !== "Home" && (
-          <ParallaxEl translateZ={-10}>
+          <ParallaxEl translateZ={-18}>
             <h2>{title}</h2>
           </ParallaxEl>
         )}

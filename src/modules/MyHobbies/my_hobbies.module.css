@@ -1,20 +1,13 @@
-/*
-
-background: linear-gradient(#5ce7e6 0%, #09c6e4 100%);
-
-background: linear-gradient(#17b686 0%, #00533c 100%);
-
-background: linear-gradient(#f9207a 0%, #bba0db 100%);
-
-*/
+._cards_container {
+  margin-top: 12rem;
+}
 
 ._card {
   display: flex;
-  margin-bottom: 10rem;
 }
 
-._card:last-child {
-  margin-bottom: unset;
+._card:not(:last-child) {
+  margin-bottom: 12rem;
 }
 
 ._card:nth-child(even) {
@@ -22,11 +15,22 @@ background: linear-gradient(#f9207a 0%, #bba0db 100%);
 }
 
 ._card_img_container {
-  background: linear-gradient(#e39cb0 0%, #60435f 100%);
   width: 53%;
 }
 
-._card_img {
+._card:nth-child(1) > ._card_img_container {
+  background: linear-gradient(#721c1c 0%, #9c9c9c 100%);
+}
+
+._card:nth-child(2) > ._card_img_container {
+  background: linear-gradient(#253b5e 0%, #9c9c9c 100%);
+}
+
+._card:nth-child(3) > ._card_img_container {
+  background: linear-gradient(#345953 0%, #9c9c9c 100%);
+}
+
+._card:nth-child(odd) ._card_img {
   padding: 5.5rem 5.5rem 2rem 2rem;
 }
 
@@ -36,7 +40,6 @@ background: linear-gradient(#f9207a 0%, #bba0db 100%);
 
 ._card_info {
   display: flex;
-  border-bottom: 1px solid var(--color-primary);
   flex-direction: column;
   justify-content: flex-end;
   padding-right: 2rem;
@@ -54,7 +57,7 @@ background: linear-gradient(#f9207a 0%, #bba0db 100%);
 
 ._card_cta {
   --translate: 0.6em;
-  background-color: ivory;
+  background-color: var(--color-primary);
   bottom: var(--translate);
   color: var(--color-background);
   cursor: pointer;
@@ -90,12 +93,52 @@ background: linear-gradient(#f9207a 0%, #bba0db 100%);
 }
 
 ._card_cta:active::before {
-  box-sizing: border-box;
   bottom: 0;
   left: 0;
 }
 
+._card:nth-child(odd) ._card_cta {
+  left: unset;
+  margin-left: auto;
+  right: var(--translate);
+}
+
+._card:nth-child(odd) ._card_cta::before {
+  left: unset;
+  right: calc(-1 * var(--translate));
+}
+
+._card:nth-child(odd) ._card_cta:active {
+  bottom: calc(0.5 * var(--translate));
+  right: calc(0.5 * var(--translate));
+}
+
+._card:nth-child(odd) ._card_cta:active::before {
+  bottom: 0;
+  right: 0;
+}
+
 ._cta_text {
   pointer-events: none;
-  transition: 0.2s transform ease;
+  transition: 250ms transform ease;
+}
+
+._deco_img {
+  left: -6rem;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+
+._card:nth-child(odd) ._deco_img {
+  left: unset;
+  right: -8rem;
+}
+
+._heart_sign {
+  height: 200px;
+  position: absolute;
+  left: 30%;
+  top: 10rem;
+  width: 200px;
 }

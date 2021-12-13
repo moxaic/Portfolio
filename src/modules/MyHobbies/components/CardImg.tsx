@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-import { ParallaxEl } from "../../../components";
+import { Image, ParallaxEl } from "../../../components";
 import styles from "../my_hobbies.module.css";
 
 type Props = {
@@ -10,11 +8,13 @@ type Props = {
 
 const CardImg = ({ alt, src }: Props) => {
   return (
+    // <ParallaxEl translateZ={-2} /* moduleClass={styles._card_img_container} */>
     <div className={styles._card_img_container}>
       <ParallaxEl moduleClass={styles._card_img} translateZ={5}>
-        <Image priority={true} {...{ alt, src }} />
+        <Image {...{ alt, src }} />
       </ParallaxEl>
     </div>
+    // </ParallaxEl>
   );
 };
 

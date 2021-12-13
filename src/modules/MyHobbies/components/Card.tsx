@@ -4,11 +4,12 @@ import { CardImg, CardInfo } from ".";
 type Props = {
   alt: string;
   cta: string;
+  ctaText: string;
+  decoImg: StaticImageData;
   quote: string;
   quoteBy: string;
   src: StaticImageData;
   text: string;
-  textCta: string;
 };
 
 const Card = ({ alt, src, ...rest }: Props) => {

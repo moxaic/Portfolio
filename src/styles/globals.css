@@ -1,6 +1,7 @@
 :root {
   --color-background: #13161f;
-  --color-primary: #fafafa;
+  /* --color-primary: #fafafa; */
+  --color-primary: ivory;
   --font-size: 16px;
   --padding-horizontal: 6rem;
   --perspective: 100px;
@@ -10,7 +11,9 @@
   display: none;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   transform-style: preserve-3d;
 }
@@ -35,10 +38,11 @@ a {
 
 h1,
 h2 {
+  color: #ffffff;
   font-family: "Zen Tokyo Zoo";
   font-size: 7rem;
   font-weight: 400;
-  margin: 0.83em 0;
+  margin-block: 0.83em;
 }
 
 h2 {
@@ -47,9 +51,10 @@ h2 {
 }
 
 p {
+  color: #cecece;
   font-family: "Open Sans";
   font-size: 1.1rem;
-  line-height: 1.8rem;
+  line-height: 2rem;
   text-align: justify;
 }
 
@@ -64,7 +69,7 @@ main {
 
 section {
   min-height: 100vh;
-  padding: 0 6rem 7rem;
+  padding: 0 6rem 14rem;
 }
 
 section:nth-child(2n + 1) h2 {
@@ -92,17 +97,17 @@ footer::before {
   background-repeat: no-repeat;
   background-size: contain;
   content: "";
-  height: 22vw;
+  height: 24vw;
   left: 0;
   position: absolute;
   top: 1.4rem;
-  width: 22vw;
+  width: 24vw;
   z-index: -10;
 }
 
 footer::after {
   background-attachment: fixed;
-  background-image: url("../assets/images/hand-sign-peace.png");
+  background-image: url("../assets/images/peace.png");
   background-position: right;
   background-repeat: no-repeat;
   background-size: contain;
@@ -166,10 +171,10 @@ footer::after {
 }
 
 .parallax_el {
-  animation: 0.5s fadeIn;
+  animation: 500ms fadeIn;
   position: relative;
   transform-origin: bottom right;
-  transition: 0.5s ease all;
+  transition: 500ms all ease;
 }
 
 @keyframes fadeIn {
