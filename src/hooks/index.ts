@@ -1,2 +1,2 @@
 export { default as useCssVariable } from "./useCssVariable";
-export { default as useInViewport } from "./useInViewport";
+export { default as useMediaQuery } from "./useMediaQuery";

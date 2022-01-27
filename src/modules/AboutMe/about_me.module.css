@@ -1,27 +1,27 @@
-._left_col {
+/* ._left_col {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: 10rem;
-  padding-right: 5rem;
+  padding-bottom: 5rem;
+  padding-right: 3rem;
 }
 
-._right_col > div {
+._right_col {
   display: flex;
   justify-content: flex-end;
 }
 
 ._question {
-  --width: 12rem;
+  --width: 8rem;
   height: calc(var(--width) * 3 / 2);
   left: 44%;
   position: absolute;
-  top: 10%;
+  top: 11rem;
   width: var(--width);
 }
 
 ._face {
-  --width: 8rem;
+  --width: 6rem;
   height: calc(var(--width) * 3 / 2);
   left: 2%;
   position: absolute;
@@ -30,19 +30,66 @@
 }
 
 ._ice_crystal {
-  --width: 16rem;
-  bottom: -2%;
+  --width: 9.5rem;
+  bottom: 4rem;
   height: var(--width);
-  left: 1%;
+  left: 21%;
   position: absolute;
   width: var(--width);
 }
 
 ._ice_cream {
-  --width: 8rem;
+  --width: 7rem;
   bottom: -2%;
-  height: var(--width);
-  right: 30%;
+  height: calc(3 / 2 * var(--width));
+  right: 5%;
   position: absolute;
+  width: var(--width);
+}
+
+@media only screen and (max-width: 1000px) {
+  ._left_col {
+    padding-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  ._left_col {
+    padding-bottom: 0;
+  }
+}
+@media only screen and (max-width: 800px) {
+  ._face {
+    --width: 5rem;
+    background-color: red;
+    left: unset;
+    right: 2rem;
+    top: 0;
+    transform: scaleX(-1);
+  }
+
+  ._left_col {
+    padding-bottom: 4rem;
+    padding-right: 0;
+  }
+
+  ._ice_cream,
+  ._ice_crystal,
+  ._question {
+    display: none;
+  }
+} */
+
+._left_col {
+  padding-bottom: 4rem;
+}
+
+._face {
+  --width: 5rem;
+  height: calc(var(--width) * 3 / 2);
+  position: absolute;
+  right: 2rem;
+  top: 0;
+  transform: scaleX(-1);
   width: var(--width);
 }

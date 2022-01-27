@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 import styles from "../contact_me.module.css";
 import { Input, TextArea } from ".";
@@ -8,9 +8,24 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
 
+  const onSubmitHandler = async (e: FormEvent) => {
+    e.preventDefault();
+    await fetch("/api/contact", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message: msg,
+      }),
+    });
+  };
+
   return (
     <div className={styles._form_container}>
-      <form className={styles._form} method="POST">
+      <form className={styles._form} onSubmit={onSubmitHandler}>
         <Input
           name="name"
           placeholder="Your Name"

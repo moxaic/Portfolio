@@ -1,20 +1,21 @@
 import { ForwardedRef, forwardRef } from "react";
 
-import ParallaxEl from "./ParallaxEl";
+import { ParallaxElem } from ".";
 
 type Props = {
   children: JSX.Element;
+  id: string;
   title: string;
 };
 
 const Section = forwardRef(
-  ({ children, title }: Props, ref: ForwardedRef<HTMLElement>) => {
+  ({ children, id, title }: Props, ref: ForwardedRef<HTMLElement>) => {
     return (
-      <section ref={ref}>
+      <section id={id} ref={ref}>
         {title !== "Home" && (
-          <ParallaxEl translateZ={-18}>
+          <ParallaxElem translateZ={-18}>
             <h2>{title}</h2>
-          </ParallaxEl>
+          </ParallaxElem>
         )}
         {children}
       </section>

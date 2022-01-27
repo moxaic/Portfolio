@@ -1,4 +1,6 @@
-import { Image, ParallaxEl, StrokeText } from "../../../components";
+import { Image, ParallaxElem, StrokeText } from "../../../components";
+import { useMediaQuery } from "../../../hooks";
+import { BREAKPOINT } from "../../../utils/constants";
 import styles from "../my_hobbies.module.css";
 import { CardCta } from ".";
 
@@ -11,23 +13,31 @@ type Props = {
   text: string;
 };
 
+const breakpoints = [BREAKPOINT.MOBILE, BREAKPOINT.TAB_LARGE];
+
 const CardInfo = ({ cta, ctaText, decoImg, quote, quoteBy, text }: Props) => {
+  const [isMobile, isTab] = useMediaQuery(breakpoints);
+
   return (
     <div className={styles._card_info}>
-      <ParallaxEl translateZ={7}>
-        <StrokeText moduleClass={styles._heading} {...{ quoteBy }}>
-          {quote}
-        </StrokeText>
-      </ParallaxEl>
-      <ParallaxEl translateZ={-2}>
-        <p>{text}</p>
-      </ParallaxEl>
-      <CardCta {...{ cta, ctaText }} />
-      <div className={styles._deco_img}>
-        <ParallaxEl translateZ={-10}>
-          <Image alt="" src={decoImg} />
-        </ParallaxEl>
-      </div>
+      {!isMobile && (
+        <ParallaxElem moduleClass={styles._heading_ctn} translateZ={10}>
+          <StrokeText moduleClass={styles._heading} {...{ quoteBy }}>
+            {quote}
+          </StrokeText>
+        </ParallaxElem>
+      )}
+      <p>{text}</p>
+      <ParallaxElem moduleClass={styles._button_ctn} translateZ={2}>
+        <CardCta {...{ cta, ctaText }} />
+      </ParallaxElem>
+      {!isTab && (
+        <div className={styles._deco_img}>
+          <ParallaxElem translateZ={-15}>
+            <Image alt="" src={decoImg} />
+          </ParallaxElem>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-._left_col {
+/* ._left_col {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -172,33 +172,222 @@
   z-index: -1;
 }
 
-/* ._send_button:hover {
-  box-shadow: inset 0 0 20px rgba(35, 173, 255);
-} */
-
 ._message_img {
-  --width: 13rem;
-  height: var(--width);
+  --width: 10rem;
   position: absolute;
   right: 4%;
+  top: 4rem;
+  width: var(--width);
+}
+
+._ice_cream {
+  --width: 7rem;
+  left: 2rem;
+  position: absolute;
+  transform: rotate(15deg);
+  top: 20rem;
+  width: var(--width);
+}
+
+._liked_post {
+  --width: 12rem;
+  height: var(--width);
+  margin: 4rem auto 0;
+  padding: 2rem;
+  width: var(--width);
+}
+
+@media only screen and (max-width: 800px) {
+  ._message_img {
+    --width: 5rem;
+    background-color: red;
+    right: 1rem;
+    top: 0;
+  }
+
+  ._left_col {
+    padding-bottom: 5rem;
+    padding-right: 0;
+  }
+
+  ._form_container::after {
+    display: none;
+  }
+
+  ._ice_cream {
+    display: none;
+  }
+} */
+
+._left_col {
+  margin-bottom: 5rem;
+}
+
+._form_container {
+  align-items: center;
+  background-image: url("../../assets/images/frost.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--color-primary);
+  box-shadow: inset 0 0 12px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 5rem 0;
+  position: relative;
+  z-index: -3;
+}
+
+._form_container::before {
+  bottom: 0;
+  background-image: url("../../assets/images/neon_c.jpg");
+  background-position: center;
+  background-size: cover;
+  content: "";
+  filter: blur(12px);
+  opacity: 0.97;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -2;
+}
+
+._form {
+  width: 70%;
+}
+
+._input_group {
+  margin-bottom: 1.7rem;
+  padding-top: 1.7rem;
+  position: relative;
+}
+
+._input,
+._text_area {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: none;
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  display: block;
+  font-size: var(--font-size-input);
+  padding: 0.7rem 1.4rem;
+  width: 100%;
+}
+
+._input:focus,
+._text_area:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  outline: none;
+}
+
+._input_group > label {
+  font-size: var(--font-size-input);
+  left: 1.4rem;
+  pointer-events: none;
+  position: absolute;
+  top: 2.4rem;
+  transition: 0.2s ease all;
+}
+
+._input:focus ~ label,
+._input:valid ~ label,
+._input[type="email"]:invalid:not(._input[value=""]) ~ label,
+._text_area:focus ~ label,
+._text_area:valid ~ label {
+  font-size: 0.9rem;
+  left: 0.5rem;
+  top: 0;
+}
+
+._input[type="email"]:invalid:not(._input[value=""]) {
+  border-bottom: 2px solid red;
+}
+
+._input[type="email"]:invalid:not(._input[value=""]) ~ label::after {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 0, 0, 0.3);
+  color: pink;
+  content: "Please enter a valid email";
+  padding: 10px;
+  position: relative;
+  left: 100%;
+}
+
+._bar {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+._bar::before,
+._bar::after {
+  background-color: #5264ae;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  transition: 0.2s ease all;
+  width: 0;
+  z-index: 100;
+}
+
+._bar::before {
+  left: unset;
+  right: 50%;
+}
+
+._input:focus ~ ._bar::before,
+._input:focus ~ ._bar::after,
+._text_area:focus ~ ._bar::before,
+._text_area:focus ~ ._bar::after {
+  width: 50%;
+}
+
+._send_button {
+  background: inherit;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  cursor: pointer;
+  font-family: "Josefin Slab";
+  font-size: var(--font-size-button);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  overflow: hidden;
+  padding: 0.9em 3em;
+  text-transform: uppercase;
+}
+
+._send_button::before {
+  background: inherit;
+  bottom: 0;
+  box-shadow: inset 0 0 1000px rgba(255, 255, 255, 0.6);
+  content: "";
+  filter: blur(30px);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+._message_img {
+  --width: 5rem;
+  position: absolute;
+  right: 0;
   top: 0;
   width: var(--width);
 }
 
 ._liked_post {
-  --width: 13rem;
-  bottom: 10px;
+  --width: 11rem;
   height: var(--width);
-  position: absolute;
-  width: var(--width);
-}
-
-._ice_cream {
-  --width: 10rem;
-  bottom: 10px;
-  height: calc(3 / 2 * var(--width));
-  left: 0;
-  position: absolute;
-  top: -3rem;
+  margin: 2rem auto 0;
+  padding: 2rem;
   width: var(--width);
 }

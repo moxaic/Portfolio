@@ -13,27 +13,9 @@ class MyDocument extends Document {
             crossOrigin="crossorigin"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Josefin+Slab:wght@700&family=Open+Sans&family=Tangerine&family=Zen+Tokyo+Zoo&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;700&family=Open+Sans&family=Tangerine&family=Zen+Tokyo+Zoo&display=swap"
             rel="stylesheet"
           />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
-          />
-          <link rel="manifest" href="/site.webmanifest" />
         </Head>
         <body>
           <Main />

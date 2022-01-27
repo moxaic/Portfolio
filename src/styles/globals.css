@@ -1,7 +1,6 @@
-:root {
+/* :root {
   --color-background: #13161f;
-  /* --color-primary: #fafafa; */
-  --color-primary: ivory;
+  --color-primary: #fff;
   --font-size: 16px;
   --padding-horizontal: 6rem;
   --perspective: 100px;
@@ -22,31 +21,28 @@ html,
 body {
   background-color: var(--color-background);
   color: var(--color-primary);
-  font-display: block;
+  font-display: swap;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: var(--font-size);
   margin: 0;
   padding: 0;
-}
-
-a {
-  color: inherit;
-  cursor: pointer;
-  font-family: "Comfortaa";
-  text-decoration: none;
 }
 
 h1,
 h2 {
   color: #ffffff;
   font-family: "Zen Tokyo Zoo";
-  font-size: 7rem;
   font-weight: 400;
   margin-block: 0.83em;
 }
 
+h1 {
+  font-size: 6.5rem;
+}
+
 h2 {
-  font-size: 6rem;
+  font-size: 5.5rem;
   min-width: 30ch;
 }
 
@@ -54,8 +50,16 @@ p {
   color: #cecece;
   font-family: "Open Sans";
   font-size: 1.1rem;
-  line-height: 2rem;
+  line-height: 1.8;
   text-align: justify;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  font-family: "Josefin Slab";
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 main {
@@ -69,24 +73,31 @@ main {
 
 section {
   min-height: 100vh;
-  padding: 0 6rem 14rem;
+  padding: 0 var(--padding-horizontal);
 }
 
-section:nth-child(2n + 1) h2 {
+section:not(:last-of-type) {
+  padding-bottom: 14rem;
+}
+
+section:nth-child(odd) h2 {
   padding-left: 50%;
 }
 
 section:nth-child(1) > .grid {
-  padding: 1rem 5rem 0;
+  padding-top: 1.4em;
 }
 
 section:nth-child(2) > .grid {
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 65% 35%;
+}
+
+section:nth-child(3) h2 {
+  margin-bottom: 2em;
 }
 
 footer {
   border-top: solid 1px #fafafa;
-  display: flex;
   max-height: 100vh;
   overflow-y: hidden;
 }
@@ -127,7 +138,8 @@ footer::after {
 }
 
 .stroke_text {
-  --font-size-canvas: 4rem;
+  --font-size-canvas: 3.5rem;
+  --line-height-canvas: 1.4;
   font-family: "Tangerine";
   font-size: 2rem;
   font-weight: 400;
@@ -275,4 +287,313 @@ footer::after {
   100% {
     transform: translate(0px, 0px);
   }
+}
+
+@media only screen and (max-width: 1400px) {
+  :root {
+    --padding-horizontal: 4.5rem;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  h2 {
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  a {
+    font-size: 1.1rem;
+  }
+
+  .stroke_text {
+    --font-size-canvas: 3rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  :root {
+    --padding-horizontal: 4rem;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  :root {
+    --padding-horizontal: 3.5rem;
+  }
+
+  h1 {
+    font-size: 5.5rem;
+  }
+
+  h2 {
+    font-size: 4.5rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  .stroke_text {
+    --font-size-canvas: 2.7rem;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  :root {
+    --padding-horizontal: 3rem;
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  .stroke_text {
+    --font-size-canvas: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  :root {
+    --padding-horizontal: 2rem;
+  }
+
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+  }
+
+  p {
+    font-size: 1.5;
+  }
+
+  .stroke_text {
+    --font-size-canvas: 2.2rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  :root {
+    --padding-horizontal: 2rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+    min-width: 100%;
+  }
+
+  p {
+    line-height: 1.4;
+  }
+
+  section h2,
+  section:nth-child(3) h2 {
+    margin-bottom: 3.5em;
+  }
+
+  section:nth-child(odd) h2 {
+    padding-left: 0;
+    text-align: right;
+  }
+
+  .grid,
+  section:nth-child(2) > .grid {
+    grid-template-columns: 100%;
+  }
+
+  .stroke_text {
+    --font-size-canvas: 2rem;
+  }
+
+  footer::before {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 3.8rem;
+  }
+
+  a {
+    font-size: 1.8rem;
+  }
+} */
+
+:root {
+  --color-primary: #fff;
+  --color-background: #13161f;
+  --color-text: gray;
+  --color-ascent: purple;
+  --color-warning: red;
+  --font-size: 16px;
+  --font-size-h1: 3.8rem;
+  --font-size-h2: 3.5rem;
+  --font-size-canvas: 2.5rem;
+  --font-size-p: 1.1rem;
+  --font-size-link: 1.2rem;
+  --font-size-button: 1.2rem;
+  --font-size-input: 1.1rem;
+  --padding-horizontal: clamp(1rem, 5%, 6rem);
+  --perspective: 100px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-display: swap;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: var(--font-size);
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  color: var(--color-primary);
+  font-family: "Zen Tokyo Zoo";
+  font-weight: 400;
+  margin-block: 0.83em;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+p {
+  color: var(--color-text);
+  font-family: "Open Sans";
+  font-size: var(--font-size-p);
+  line-height: 1.8;
+  margin-block: 1em;
+  text-align: justify;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  font-family: "Josefin Slab";
+  font-size: var(--font-size-link);
+  text-decoration: none;
+}
+
+main {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: var(--perspective);
+  perspective-origin: bottom right;
+  scroll-behavior: smooth;
+}
+
+section {
+  min-height: 100vh;
+  padding: 0 var(--padding-horizontal);
+}
+
+section:not(:last-of-type) {
+  padding-bottom: 14rem;
+}
+
+section h2 {
+  margin-bottom: 3.5em;
+}
+
+section:nth-child(odd) h2 {
+  text-align: right;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+section:nth-child(1) > .grid {
+  padding-top: 1.4rem;
+}
+
+.parallax_elem > div {
+  position: relative;
+  transform-origin: bottom right;
+}
+
+.stroke_text {
+  --font-size-canvas: 2.5rem;
+  --line-height-canvas: 1.4;
+  --text-align-canvas: center;
+  position: absolute;
+  width: fit-content;
+}
+
+footer {
+  border-top: solid 1px var(--color-primary);
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+footer::after {
+  background-attachment: fixed;
+  background-image: url("../assets/images/peace.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 90vw;
+  z-index: -10;
+}
+
+.font_tangerine {
+  font-family: "Tangerine";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.logo {
+  position: fixed;
+  height: 2rem;
+  left: 1rem;
+  top: 1rem;
+  width: 2rem;
+  z-index: 100;
 }

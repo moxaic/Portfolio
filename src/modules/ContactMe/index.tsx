@@ -1,11 +1,17 @@
 import chatPng from "../../assets/images/chat.png";
 import iceCreamConePng from "../../assets/images/ice_cream_cone.png";
 import likedPostPng from "../../assets/images/liked_post.png";
-import { Grid, Image, ParallaxEl, StrokeText } from "../../components";
+import { Grid, Image, ParallaxElem, StrokeText } from "../../components";
+import { useMediaQuery } from "../../hooks";
+import { BREAKPOINT } from "../../utils/constants";
 import { Form } from "./components";
 import styles from "./contact_me.module.css";
 
+const breakpoints = [BREAKPOINT.TAB_LARGE];
+
 const ContactMe = () => {
+  const [isTab] = useMediaQuery(breakpoints);
+
   return (
     <>
       <Grid>
@@ -19,20 +25,22 @@ const ContactMe = () => {
               itaque doloribus ea obcaecati sunt!
             </p>
           </div>,
-          <ParallaxEl key="contact-me-right-col" translateZ={-15}>
+          <ParallaxElem key="contact-me-right-col" translateZ={-15}>
             <Form />
-          </ParallaxEl>,
+          </ParallaxElem>,
         ]}
       </Grid>
-      <ParallaxEl translateZ={15} moduleClass={styles._message_img}>
+      <ParallaxElem translateZ={15} moduleClass={styles._message_img}>
         <Image alt="" src={chatPng} />
-      </ParallaxEl>
-      <ParallaxEl translateZ={-10} moduleClass={styles._liked_post}>
+      </ParallaxElem>
+      <div className={styles._liked_post}>
         <Image alt="" src={likedPostPng} />
-      </ParallaxEl>
-      <ParallaxEl translateZ={-60} moduleClass={styles._ice_cream}>
-        <Image alt="" src={iceCreamConePng} />
-      </ParallaxEl>
+      </div>
+      {!isTab && (
+        <ParallaxElem translateZ={-50} moduleClass={styles._ice_cream}>
+          <Image alt="" src={iceCreamConePng} />
+        </ParallaxElem>
+      )}
     </>
   );
 };

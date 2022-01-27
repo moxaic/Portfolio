@@ -6,15 +6,16 @@ const useCssVariable = (target: string, variableNames: string[]) => {
   useEffect(() => {
     const targetEl = document.querySelector(target);
     if (targetEl) {
-      const cssVars = getComputedStyle(targetEl);
       const resizeHandler = () => {
-        variableNames.forEach((variable) => {
-          setVariables((prev) => [...prev, cssVars.getPropertyValue(variable)]);
-        });
+        const cssVars = getComputedStyle(targetEl);
+        const values = variableNames.map((variable) =>
+          cssVars.getPropertyValue(variable)
+        );
+        setVariables(values);
       };
 
       resizeHandler();
-      window.addEventListener("resize", resizeHandler);
+      window.onresize = resizeHandler;
       return () => window.removeEventListener("resize", resizeHandler);
     }
   }, [target, variableNames]);

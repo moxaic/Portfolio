@@ -1,6 +1,6 @@
-._left_col {
+/* ._left_col {
   margin: auto;
-  margin-bottom: 0;
+  margin-bottom: 1.1rem;
 }
 
 ._short_desc {
@@ -8,10 +8,76 @@
 }
 
 ._cta {
-  height: 40rem;
+  --width: 32rem;
+  height: var(--width);
   position: absolute;
-  right: 4.5rem;
-  top: 23rem;
+  right: 9.5rem;
+  top: 25rem;
   transform: rotateX(180deg) rotateY(180deg);
-  width: 40rem;
+  width: var(--width);
+}
+
+@media only screen and (max-width: 1100px) {
+  ._short_desc {
+    max-width: 45ch;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  ._short_desc {
+    max-width: 40ch;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  ._short_desc {
+    max-width: 35ch;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  ._intro_text {
+    text-align: right;
+  }
+
+  ._short_desc {
+    max-width: 100%;
+  }
+
+  ._cta {
+    display: none;
+  }
+} */
+
+._intro_text {
+  text-align: right;
+}
+
+._intro_text::before {
+  background-image: url("/images/namaste.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: calc(100% - 12ch);
+}
+
+@media only screen and (max-width: 439px) {
+  ._intro_text::before {
+    left: calc(-1 * var(--padding-horizontal));
+    width: calc(100% - 11ch);
+  }
+}
+
+@media only screen and (max-width: 349px) {
+  ._intro_text {
+    text-align: center;
+  }
+
+  ._intro_text::before {
+    display: none;
+  }
 }

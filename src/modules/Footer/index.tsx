@@ -1,14 +1,21 @@
 import { useEffect, useRef } from "react";
 
 import fingerPng from "../../assets/images/finger.png";
+import negationValue from "../../utils/negationValue";
 import { Image } from "../../components";
+import { useMediaQuery } from "../../hooks";
+import { BREAKPOINT } from "../../utils/constants";
 import GlassIcon from "./components/GlassIcon";
 import { socialMediaLinks } from "./data";
 import styles from "./footer.module.css";
 
+const breakpoints = [BREAKPOINT.TAB_LARGE];
+
 const Footer = () => {
   const fingerRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
+  const [isTab] = useMediaQuery(breakpoints);
+  const isNotTab = negationValue(isTab);
 
   useEffect(() => {
     const fingerCurr = fingerRef && fingerRef.current;
@@ -59,14 +66,11 @@ const Footer = () => {
           ))}
         </ul>
       </div>
-      {/* <div className={styles._left_pos}>
-        <p className={`font_tangerine ${styles._get_attention}`}>
-          Consider giving me a follow
-        </p> */}
-      <div className={styles._pointing_finger} ref={fingerRef}>
-        <Image alt="" src={fingerPng} />
-      </div>
-      {/* </div> */}
+      {isNotTab && (
+        <div className={styles._pointing_finger} ref={fingerRef}>
+          <Image alt="" src={fingerPng} />
+        </div>
+      )}
     </footer>
   );
 };

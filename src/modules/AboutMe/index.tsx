@@ -3,48 +3,66 @@ import iceCreamBarPng from "../../assets/images/ice_cream_bar.png";
 import iceCrystalPng from "../../assets/images/ice_crystal.png";
 import maskPng from "../../assets/images/mask.png";
 import questionMarkPng from "../../assets/images/question_mark.png";
-import { Grid, Image, ParallaxEl, StrokeText } from "../../components";
+import { Grid, Image, ParallaxElem, StrokeText } from "../../components";
+import { useMediaQuery } from "../../hooks";
+import { BREAKPOINT } from "../../utils/constants";
+import negationValue from "../../utils/negationValue";
 import styles from "./about_me.module.css";
 
+const breakpoints = [BREAKPOINT.TAB_LARGE];
+
 const AboutMe = () => {
+  const [isTab] = useMediaQuery(breakpoints);
+  const isNotTab = negationValue(isTab);
+
   return (
     <>
       <Grid>
         {[
           <div className={styles._left_col} key="about-me-left-col">
-            <ParallaxEl translateZ={7}>
+            <ParallaxElem translateZ={7}>
               <StrokeText>Jack of all trade, master of some</StrokeText>
-            </ParallaxEl>
-            <ParallaxEl translateZ={-5}>
+            </ParallaxElem>
+            <ParallaxElem translateZ={-5}>
               <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae
-                in labore fuga dicta architecto pariatur. Doloremque ut totam
-                neque consectetur, quis repudiandae iusto odio repellat
-                excepturi magni omnis. Eligendi, praesentium?
+                {/* I am a computer science undergraduate, who enjoys building
+                standalone apps. I love to work with react and it&apos;s mobile
+                counterpart: react native. I have plenty of experience when it
+                comes to working with industry level app. On my free days I
+                enjoy travelling. To know more about me, keep scrolling. */}
+                {/* I love to work with web and mobile technology. When I'm not working on clients' websites, I like programming to learn new things and build things that challenge my skills. My interests include: animation, audio synthesis, computer vision and generative algorithms. */}
+                {/* Hello and Welcome to my profile! I am interested in your work and would like to work with you. I have 5+ years of experience building cross-platform (native and mobile web) products. I’m truly passionate about Open Source, contributing to the community and believe in learning new things every day. My expertise lies on Front-end development using React JS and React Native and I also have vast experience on Mobile development using iOS Swift or Objective C. On the backend side, I love working with NodeJS, Python/Django, NodeJs Express etc, If you have any questions or need any clarifications regarding my profile, please get back to me anytime. */}
+                {/* Trying to create user friendly and highly scalable applications is what I am good at. I have passion to learn new technologies and work on them. I have experience when it comes to working on industry-level apps, building standalone apps as well as react native apps. Apart from this, I also like to travel a lot and try new experiences. */}
+                Creative, imaginative, gracious and emotional - traits of a
+                pisces🐟, add lazy to the list and that&apos;s pretty much me🙋‍♂️.
+                I am very passionate about coding and love to learn new skills
+                in my free time. I have plenty of experience when it comes to
+                industry level app. When I am not busting my head🧠 in front of
+                a laptop screen, I enjoy going on walks🌿.
               </p>
-            </ParallaxEl>
+            </ParallaxElem>
           </div>,
-          <ParallaxEl
-            key="about-me-right-col"
-            moduleClass={styles._right_col}
-            translateZ={-2}
-          >
-            <CreatorSvg />
-          </ParallaxEl>,
+          <div className={styles._right_col} key="about-me-right-col">
+            <CreatorSvg className={styles._my_img} />
+          </div>,
         ]}
       </Grid>
-      <ParallaxEl translateZ={-45} moduleClass={styles._question}>
-        <Image alt="" src={questionMarkPng} />
-      </ParallaxEl>
-      <ParallaxEl translateZ={-10} moduleClass={styles._face}>
+      <ParallaxElem translateZ={-10} moduleClass={styles._face}>
         <Image alt="" src={maskPng} />
-      </ParallaxEl>
-      <ParallaxEl translateZ={-20} moduleClass={styles._ice_crystal}>
-        <Image alt="" src={iceCrystalPng} />
-      </ParallaxEl>
-      <ParallaxEl translateZ={30} moduleClass={styles._ice_cream}>
-        <Image alt="" src={iceCreamBarPng} />
-      </ParallaxEl>
+      </ParallaxElem>
+      {isNotTab && (
+        <>
+          <ParallaxElem translateZ={-45} moduleClass={styles._question}>
+            <Image alt="" src={questionMarkPng} />
+          </ParallaxElem>
+          <ParallaxElem translateZ={-20} moduleClass={styles._ice_crystal}>
+            <Image alt="" src={iceCrystalPng} />
+          </ParallaxElem>
+          <ParallaxElem translateZ={15} moduleClass={styles._ice_cream}>
+            <Image alt="" src={iceCreamBarPng} />
+          </ParallaxElem>
+        </>
+      )}
     </>
   );
 };

@@ -1,5 +1,17 @@
+import Link from "next/link";
+
+import LogoSvg from "../assets/icons/logo.svg";
+
 const Logo = () => {
-  return <a className="logo">Moxaic</a>;
+  return (
+    <div className="logo">
+      <Link href="/">
+        <a>
+          <LogoSvg />
+        </a>
+      </Link>
+    </div>
+  );
 };
 
 export default Logo;

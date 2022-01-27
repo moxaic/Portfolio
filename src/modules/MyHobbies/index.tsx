@@ -1,5 +1,5 @@
 import neonHeartPng from "../../assets/images/neon_heart.png";
-import { Image, ParallaxEl } from "../../components";
+import { Image, ParallaxElem } from "../../components";
 import { Card } from "./components";
 import { hobbies } from "./data";
 import styles from "./my_hobbies.module.css";
@@ -12,9 +12,9 @@ const MyHobbies = () => {
           <Card key={hobby.alt.replace(" ", "_")} {...{ ...hobby }} />
         ))}
       </div>
-      <ParallaxEl translateZ={25} moduleClass={styles._heart_sign}>
+      <ParallaxElem translateZ={25} moduleClass={styles._heart_sign}>
         <Image alt="" src={neonHeartPng} />
-      </ParallaxEl>
+      </ParallaxElem>
     </>
   );
 };

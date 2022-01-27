@@ -1,38 +1,20 @@
-import {
-  Dispatch,
-  MutableRefObject,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import styles from "../navbar.module.css";
 
 type Props = {
-  currSection: string;
-  idx: number;
-  navRefs: MutableRefObject<HTMLElement[]>;
-  setCurrSection: Dispatch<SetStateAction<string>>;
+  isActive: boolean;
+  scrollToSection: (id: string) => void;
   text: string;
 };
 
-const Link = ({ currSection, idx, navRefs, setCurrSection, text }: Props) => {
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    if (currSection === text) {
-      setActive(true);
-    } else {
-      setActive(false);
-    }
-  }, [currSection, text]);
+const Link = ({ isActive, scrollToSection, text }: Props) => {
+  const className = isActive ? styles._active : styles._link;
 
   const onClickHandler = () => {
-    setCurrSection(text);
-    navRefs.current[idx].scrollIntoView();
+    scrollToSection(text);
   };
 
   return (
-    <li>
+    <li {...{ className }}>
       <a onClick={onClickHandler}>{text}</a>
     </li>
   );

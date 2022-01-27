@@ -1,4 +1,4 @@
-import { Image, ParallaxEl } from "../../../components";
+import { Image, ParallaxElem } from "../../../components";
 import styles from "../my_hobbies.module.css";
 
 type Props = {
@@ -8,11 +8,9 @@ type Props = {
 
 const CardImg = ({ alt, src }: Props) => {
   return (
-    // <ParallaxEl translateZ={-2}>
-    <ParallaxEl moduleClass={styles._card_img} translateZ={5}>
+    <ParallaxElem moduleClass={styles._card_img} translateZ={6}>
       <Image {...{ alt, src }} />
-    </ParallaxEl>
-    // </ParallaxEl>
+    </ParallaxElem>
   );
 };
 
