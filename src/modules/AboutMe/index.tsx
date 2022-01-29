@@ -1,12 +1,12 @@
-import CreatorSvg from "../../assets/images/creator.svg";
-import iceCreamBarPng from "../../assets/images/ice_cream_bar.png";
-import iceCrystalPng from "../../assets/images/ice_crystal.png";
-import maskPng from "../../assets/images/mask.png";
-import questionMarkPng from "../../assets/images/question_mark.png";
-import { Grid, Image, ParallaxElem, StrokeText } from "../../components";
-import { useMediaQuery } from "../../hooks";
-import { BREAKPOINT } from "../../utils/constants";
-import negationValue from "../../utils/negationValue";
+import CreatorSvg from "@/images/creator.svg";
+import iceCreamBarPng from "@/images/ice_cream_bar.png";
+import iceCrystalPng from "@/images/ice_crystal.png";
+import maskPng from "@/images/mask.png";
+import questionMarkPng from "@/images/question_mark.png";
+import { Grid, Image, ParallaxElem, StrokeText } from "@/components";
+import { useMediaQuery } from "@/hooks";
+import { BREAKPOINT } from "@/utils/constants";
+import negationValue from "@/utils/getNegationValue";
 import styles from "./about_me.module.css";
 
 const breakpoints = [BREAKPOINT.TAB_LARGE];

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import LogoSvg from "../assets/icons/logo.svg";
+import LogoSvg from "@/images/logo.svg";
 
 const Logo = () => {
   return (

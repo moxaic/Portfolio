@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 
-import getSectionId from "../../utils/getSectionId";
+import getSectionId from "@/utils/getSectionId";
 import HamMenu from "./components/HamMenu";
 import Link from "./components/Link";
 import styles from "./navbar.module.css";

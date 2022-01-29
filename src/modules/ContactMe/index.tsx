@@ -1,9 +1,9 @@
-import chatPng from "../../assets/images/chat.png";
-import iceCreamConePng from "../../assets/images/ice_cream_cone.png";
-import likedPostPng from "../../assets/images/liked_post.png";
-import { Grid, Image, ParallaxElem, StrokeText } from "../../components";
-import { useMediaQuery } from "../../hooks";
-import { BREAKPOINT } from "../../utils/constants";
+import chatPng from "@/images/chat.png";
+import iceCreamConePng from "@/images/ice_cream_cone.png";
+import likedPostPng from "@/images/liked_post.png";
+import { Grid, Image, ParallaxElem, StrokeText } from "@/components";
+import { useMediaQuery } from "@/hooks";
+import { BREAKPOINT } from "@/utils/constants";
 import { Form } from "./components";
 import styles from "./contact_me.module.css";
 

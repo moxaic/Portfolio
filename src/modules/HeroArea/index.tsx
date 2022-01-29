@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 
-import arrowsPng from "../../assets/images/arrows.png";
-import hiPng from "../../assets/images/hi.png";
-import { Grid, Image, ParallaxElem } from "../../components";
-import { useCssVariable, useMediaQuery } from "../../hooks";
-import getNumValue from "../../utils/getNumValue";
-import negationValue from "../../utils/negationValue";
-import { BREAKPOINT } from "../../utils/constants";
+import arrowsPng from "@/images/arrows.png";
+import hiPng from "@/images/hi.png";
+import { Grid, Image, ParallaxElem } from "@/components";
+import { useCssVariable, useMediaQuery } from "@/hooks";
+import { BREAKPOINT } from "@/utils/constants";
+import negationValue from "@/utils/getNegationValue";
+import getNumValue from "@/utils/getNumValue";
 import Intro from "./components/Intro";
 import styles from "./hero_area.module.css";
 

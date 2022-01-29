@@ -1,6 +1,6 @@
 import { MouseEvent, RefObject, useRef } from "react";
 
-import Menu from "../../../assets/icons/menu.svg";
+import Menu from "@/images/menu.svg";
 import styles from "../navbar.module.css";
 
 type Props = {

@@ -302,7 +302,8 @@
 ._card_cta {
   --translate: 0.6em;
   background-color: var(--color-primary);
-  bottom: var(--translate);
+  /* bottom: var(--translate); */
+  bottom: 0;
   color: var(--color-background);
   cursor: pointer;
   display: inline-block;
@@ -331,7 +332,7 @@
 }
 
 ._card_cta:active {
-  bottom: calc(0.5 * var(--translate));
+  bottom: calc(-0.5 * var(--translate));
   /* left: calc(0.5 * var(--translate)); */
 }
 

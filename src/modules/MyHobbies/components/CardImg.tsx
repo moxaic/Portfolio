@@ -1,4 +1,4 @@
-import { Image, ParallaxElem } from "../../../components";
+import { Image, ParallaxElem } from "@/components";
 import styles from "../my_hobbies.module.css";
 
 type Props = {

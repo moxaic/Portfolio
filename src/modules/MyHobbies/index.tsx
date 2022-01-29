@@ -1,5 +1,5 @@
-import neonHeartPng from "../../assets/images/neon_heart.png";
-import { Image, ParallaxElem } from "../../components";
+import neonHeartPng from "@/images/neon_heart.png";
+import { Image, ParallaxElem } from "@/components";
 import { Card } from "./components";
 import { hobbies } from "./data";
 import styles from "./my_hobbies.module.css";

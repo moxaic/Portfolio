@@ -446,12 +446,13 @@ footer::after {
   --font-size-h1: 3.8rem;
   --font-size-h2: 3.5rem;
   --font-size-canvas: 2.5rem;
-  --font-size-p: 1.1rem;
+  --font-size-text: 1.1rem;
   --font-size-link: 1.2rem;
   --font-size-button: 1.2rem;
-  --font-size-input: 1.1rem;
-  --padding-horizontal: clamp(1rem, 5%, 6rem);
+  --line-height-canvas: 1.4;
+  --padding-horizontal: clamp(1rem, 5%, 6.5rem);
   --perspective: 100px;
+  --text-align-canvas: center;
 }
 
 ::-webkit-scrollbar {
@@ -505,7 +506,7 @@ h2 {
 p {
   color: var(--color-text);
   font-family: "Open Sans";
-  font-size: var(--font-size-p);
+  font-size: var(--font-size-text);
   line-height: 1.8;
   margin-block: 1em;
   text-align: justify;

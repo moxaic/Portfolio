@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { PERSPECTIVE } from "../utils/constants";
+import { PERSPECTIVE } from "@/utils/constants";
 
 type Props = {
   children: JSX.Element;

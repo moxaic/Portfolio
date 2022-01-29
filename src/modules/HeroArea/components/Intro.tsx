@@ -1,5 +1,5 @@
 import { ForwardedRef, forwardRef } from "react";
-import { ParallaxElem } from "../../../components";
+import { ParallaxElem } from "@/components";
 import styles from "../hero_area.module.css";
 
 const Intro = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {

@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 
-import fingerPng from "../../assets/images/finger.png";
-import negationValue from "../../utils/negationValue";
-import { Image } from "../../components";
-import { useMediaQuery } from "../../hooks";
-import { BREAKPOINT } from "../../utils/constants";
+import fingerPng from "@/images/finger.png";
+import { Image } from "@/components";
+import { useMediaQuery } from "@/hooks";
+import { BREAKPOINT } from "@/utils/constants";
+import negationValue from "@/utils/getNegationValue";
 import GlassIcon from "./components/GlassIcon";
 import { socialMediaLinks } from "./data";
 import styles from "./footer.module.css";

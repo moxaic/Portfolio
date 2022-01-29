@@ -1,6 +1,6 @@
-import { Image, ParallaxElem, StrokeText } from "../../../components";
-import { useMediaQuery } from "../../../hooks";
-import { BREAKPOINT } from "../../../utils/constants";
+import { Image, ParallaxElem, StrokeText } from "@/components";
+import { useMediaQuery } from "@/hooks";
+import { BREAKPOINT } from "@/utils/constants";
 import styles from "../my_hobbies.module.css";
 import { CardCta } from ".";
 
