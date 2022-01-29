@@ -225,7 +225,7 @@
 
 ._form_container {
   align-items: center;
-  background-image: url("../../assets/images/frost.jpg");
+  background-image: url("/images/frost.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -241,7 +241,7 @@
 
 ._form_container::before {
   bottom: 0;
-  background-image: url("../../assets/images/neon_c.jpg");
+  background-image: url("/images/neon_c.jpg");
   background-position: center;
   background-size: cover;
   content: "";

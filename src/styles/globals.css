@@ -587,7 +587,7 @@ footer {
 
 footer::after {
   background-attachment: fixed;
-  background-image: url("../assets/images/peace.png");
+  background-image: url("/images/peace.png");
   background-position: right;
   background-repeat: no-repeat;
   background-size: contain;

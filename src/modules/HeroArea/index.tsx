@@ -5,7 +5,7 @@ import hiPng from "@/images/hi.png";
 import { Grid, Image, ParallaxElem } from "@/components";
 import { useCssVariable, useMediaQuery } from "@/hooks";
 import { BREAKPOINT } from "@/utils/constants";
-import negationValue from "@/utils/getNegationValue";
+import getNegationValue from "@/utils/getNegationValue";
 import getNumValue from "@/utils/getNumValue";
 import Intro from "./components/Intro";
 import styles from "./hero_area.module.css";
@@ -18,8 +18,8 @@ const HeroArea = () => {
   const rightCol = useRef<HTMLDivElement>(null);
   const [paddingTop] = useCssVariable("h1", h1Vars);
   const [isTabP, isTab] = useMediaQuery(breakpoints);
-  const isNotTabP = negationValue(isTabP);
-  const isNotTab = negationValue(isTab);
+  const isNotTabP = getNegationValue(isTabP);
+  const isNotTab = getNegationValue(isTab);
 
   useEffect(() => {
     const leftColCur = leftCol && leftCol.current;

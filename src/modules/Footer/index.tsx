@@ -4,7 +4,7 @@ import fingerPng from "@/images/finger.png";
 import { Image } from "@/components";
 import { useMediaQuery } from "@/hooks";
 import { BREAKPOINT } from "@/utils/constants";
-import negationValue from "@/utils/getNegationValue";
+import getNegationValue from "@/utils/getNegationValue";
 import GlassIcon from "./components/GlassIcon";
 import { socialMediaLinks } from "./data";
 import styles from "./footer.module.css";
@@ -15,7 +15,7 @@ const Footer = () => {
   const fingerRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
   const [isTab] = useMediaQuery(breakpoints);
-  const isNotTab = negationValue(isTab);
+  const isNotTab = getNegationValue(isTab);
 
   useEffect(() => {
     const fingerCurr = fingerRef && fingerRef.current;

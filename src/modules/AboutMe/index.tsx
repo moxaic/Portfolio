@@ -6,14 +6,14 @@ import questionMarkPng from "@/images/question_mark.png";
 import { Grid, Image, ParallaxElem, StrokeText } from "@/components";
 import { useMediaQuery } from "@/hooks";
 import { BREAKPOINT } from "@/utils/constants";
-import negationValue from "@/utils/getNegationValue";
+import getNegationValue from "../../utils/getNegationValue";
 import styles from "./about_me.module.css";
 
 const breakpoints = [BREAKPOINT.TAB_LARGE];
 
 const AboutMe = () => {
   const [isTab] = useMediaQuery(breakpoints);
-  const isNotTab = negationValue(isTab);
+  const isNotTab = getNegationValue(isTab);
 
   return (
     <>

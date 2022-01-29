@@ -1,10 +1,10 @@
-import FacebookSvg from "../../assets/icons/facebook.svg";
-import GitHubSvg from "../../assets/icons/github.svg";
-import InstagramSvg from "../../assets/icons/instagram.svg";
-import LinkedInSvg from "../../assets/icons/linkedin.svg";
-import SpotifySvg from "../../assets/icons/spotify.svg";
-import TwitterSvg from "../../assets/icons/twitter.svg";
-import YouTubeSvg from "../../assets/icons/youtube.svg";
+import FacebookSvg from "@/images/facebook.svg";
+import GitHubSvg from "@/images/github.svg";
+import InstagramSvg from "@/images/instagram.svg";
+import LinkedInSvg from "@/images/linkedin.svg";
+import SpotifySvg from "@/images/spotify.svg";
+import TwitterSvg from "@/images/twitter.svg";
+import YouTubeSvg from "@/images/youtube.svg";
 
 export const socialMediaLinks = [
   {

@@ -1,9 +1,9 @@
-import colorPencilsJpg from "../../assets/images/color_pencils.jpg";
-import cupPng from "../../assets/images/cup.png";
-import guitarJpg from "../../assets/images/guitar.jpg";
-import guitarPng from "../../assets/images/guitar.png";
-import heartPng from "../../assets/images/heart.png";
-import laptopJpg from "../../assets/images/laptop.jpg";
+import colorPencilsJpg from "@/images/color_pencils.jpg";
+import cupPng from "@/images/cup.png";
+import guitarJpg from "@/images/guitar.jpg";
+import guitarPng from "@/images/guitar.png";
+import heartPng from "@/images/heart.png";
+import laptopJpg from "@/images/laptop.jpg";
 
 export const hobbies = [
   {

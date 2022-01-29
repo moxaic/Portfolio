@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import { useCssVariable } from "@/hooks";
-import remToPx from "@/utils/convertRemToPx";
+import convertRemToPx from "@/utils/convertRemToPx";
 import getNumValue from "@/utils/getNumValue";
 
 type Props = { children: string; moduleClass?: string; quoteBy?: string };
@@ -31,11 +31,14 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
       let fontFamily = "Josefin Slab";
       // // let fontFamily = "Serif";
       const paddingHorizontal = getNumValue(
-        remToPx(paddingHorizontalRem, rootFontSize),
+        convertRemToPx(paddingHorizontalRem, rootFontSize),
         "px"
       );
       const paddingLeft = getNumValue(paddingLeftPx, "px");
-      const fontSizePxVal = getNumValue(remToPx(fontSize, rootFontSize), "px");
+      const fontSizePxVal = getNumValue(
+        convertRemToPx(fontSize, rootFontSize),
+        "px"
+      );
       const lineHeight = Number(lineHeightStr);
       const canvasCur = canvas && canvas.current;
       const canvasCtx = canvasCur && canvasCur.getContext("2d");
