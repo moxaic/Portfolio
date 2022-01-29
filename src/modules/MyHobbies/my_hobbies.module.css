@@ -309,7 +309,7 @@
   font-family: "Josefin Slab";
   font-size: var(--font-size-button);
   font-weight: 700;
-  left: var(--translate);
+  /* left: var(--translate); */
   margin: calc(var(--translate) + 1.2em) auto;
   padding: 0.5em 1.2em;
   position: relative;
@@ -332,7 +332,7 @@
 
 ._card_cta:active {
   bottom: calc(0.5 * var(--translate));
-  left: calc(0.5 * var(--translate));
+  /* left: calc(0.5 * var(--translate)); */
 }
 
 ._card_cta:active::before {

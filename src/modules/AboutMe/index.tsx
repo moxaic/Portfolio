@@ -36,9 +36,11 @@ const AboutMe = () => {
                 Creative, imaginative, gracious and emotional - traits of a
                 pisces🐟, add lazy to the list and that&apos;s pretty much me🙋‍♂️.
                 I am very passionate about coding and love to learn new skills
-                in my free time. I have plenty of experience when it comes to
-                industry level app. When I am not busting my head🧠 in front of
-                a laptop screen, I enjoy going on walks🌿.
+                in my free time. I have plenty of experience working with
+                industry level apps. While I am mostly a modern day vampire🧛, I
+                do enjoy going on walks🌿 (when I am done busting my head🧠 in
+                front of a laptop screen). Cricket🏏, badminton🏸 and chess♟️
+                are my favourite sports.
               </p>
             </ParallaxElem>
           </div>,

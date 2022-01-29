@@ -19,10 +19,10 @@ const ContactMe = () => {
           <div className={styles._left_col} key="contact-me-left-col">
             <StrokeText>Get in touch</StrokeText>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Doloremque eos soluta porro, officia qui ut a ratione facilis
-              ducimus perspiciatis repellendus quasi esse laudantium autem
-              itaque doloribus ea obcaecati sunt!
+              I understand that the site is pretty generic, still don&apos;t
+              hesitate to reach out to me regarding any of my hobbies that
+              caught your interest. If you are a passerby I would love to hear
+              your feedback, or you could just let me know you favourite anime.
             </p>
           </div>,
           <ParallaxElem key="contact-me-right-col" translateZ={-15}>

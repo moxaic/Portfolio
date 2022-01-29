@@ -54,7 +54,7 @@
 }
 
 ._intro_text::before {
-  background-image: url("/images/namaste.png");
+  background-image: url("/images/hi.png");
   background-position: left;
   background-repeat: no-repeat;
   background-size: contain;
@@ -65,10 +65,9 @@
   width: calc(100% - 12ch);
 }
 
-@media only screen and (max-width: 439px) {
+@media only screen and (max-width: 449px) {
   ._intro_text::before {
     left: calc(-1 * var(--padding-horizontal));
-    width: calc(100% - 11ch);
   }
 }
 
@@ -79,5 +78,22 @@
 
   ._intro_text::before {
     display: none;
+  }
+}
+
+._short_desc {
+  text-align: center;
+}
+
+@media only screen and (min-width: 800px) {
+  ._short_desc {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  ._left_col {
+    margin: auto;
+    margin-bottom: 1.1rem;
   }
 }

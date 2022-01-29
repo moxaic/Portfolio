@@ -11,7 +11,7 @@ type Props = {
 const Section = forwardRef(
   ({ children, id, title }: Props, ref: ForwardedRef<HTMLElement>) => {
     return (
-      <section id={id} ref={ref}>
+      <section {...{ id, ref }}>
         {title !== "Home" && (
           <ParallaxElem translateZ={-18}>
             <h2>{title}</h2>

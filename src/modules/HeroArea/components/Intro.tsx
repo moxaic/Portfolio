@@ -13,10 +13,11 @@ const Intro = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
         </h1>
       </ParallaxElem>
       <p className={styles._short_desc}>
-        A computer science engineer🎓 with knack for building standalone apps. I
-        write code that solves more problem than it creates🪲. I have 2+ years of
-        experience working as a full-stack web and app developer. I&apos;d love
-        to work with you on your next creative project.
+        A computer science engineer🎓 with knack for building awesome
+        applications. I write code that solve more problems than it creates🪲. I
+        have 2+ years of experience working as a full-stack web and app
+        developer. I&apos;d love to work with you on your next creative
+        project💞.
       </p>
     </div>
   );

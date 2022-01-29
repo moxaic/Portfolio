@@ -14,7 +14,7 @@ export const hobbies = [
     quote: "One man's crappy software is another man's full-time job.",
     quoteBy: "Jessica Gaston",
     src: laptopJpg,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repellendus maiores facere exercitationem totam voluptatem mollitia unde? Saepe sint ullam ipsum iusto, repellendus quo est, odit quaerat nam sit neque.",
+    text: "My first introduction to programming was in college where I learned to code using low level programming languages such as C and C++. I have always been fascinated by web development and around the end of my first year I started making fully fledged websites. Thanks to cross platform frameworks like react native and electron, I get to call myself cross-platform-full-stack developer (if that's a thing).",
   },
   {
     alt: "surf green stratocaster",
@@ -24,7 +24,7 @@ export const hobbies = [
     quote: "Do it again on the next verse, and people think you meant it.",
     quoteBy: "Chet Atkins",
     src: guitarJpg,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repellendus maiores facere exercitationem totam voluptatem mollitia unde? Saepe sint ullam ipsum iusto, repellendus quo est, odit quaerat nam sit neque.",
+    text: "Music makes you feel like the hero of a movie. It makes you live moments that are actually never going to happen.",
   },
   {
     alt: "bunch of color pencil",
@@ -34,6 +34,6 @@ export const hobbies = [
     quote: "The Earth without art is just Eh.",
     quoteBy: "Demetri Martin",
     src: colorPencilsJpg,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repellendus maiores facere exercitationem totam voluptatem mollitia unde? Saepe sint ullam ipsum iusto, repellendus quo est, odit quaerat nam sit neque.",
+    text: "Art was my first passion. The world can be as beautiful as you can make it and as ugly as you let it be, and if you don't like it, you can (almost) always erase.",
   },
 ];

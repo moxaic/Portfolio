@@ -477,9 +477,13 @@ body {
   padding: 0;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
+.logo {
+  position: fixed;
+  height: 2rem;
+  left: 1rem;
+  top: 1rem;
+  width: 2rem;
+  z-index: 100;
 }
 
 h1,
@@ -513,6 +517,11 @@ a {
   font-family: "Josefin Slab";
   font-size: var(--font-size-link);
   text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 main {
@@ -563,6 +572,12 @@ section:nth-child(1) > .grid {
   width: fit-content;
 }
 
+@media only screen and (min-width: 500px) {
+  .stroke_text {
+    font-size: 1.5rem;
+  }
+}
+
 footer {
   border-top: solid 1px var(--color-primary);
   max-height: 100vh;
@@ -587,13 +602,4 @@ footer::after {
   font-family: "Tangerine";
   font-style: normal;
   font-weight: 400;
-}
-
-.logo {
-  position: fixed;
-  height: 2rem;
-  left: 1rem;
-  top: 1rem;
-  width: 2rem;
-  z-index: 100;
 }

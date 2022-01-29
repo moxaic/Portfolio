@@ -11,14 +11,14 @@ import Intro from "./components/Intro";
 import styles from "./hero_area.module.css";
 
 const h1Vars = ["margin-top"];
-const breakpoints = [BREAKPOINT.MOBILE, BREAKPOINT.TAB_LARGE];
+const breakpoints = [BREAKPOINT.TAB, BREAKPOINT.TAB_LARGE];
 
 const HeroArea = () => {
   const leftCol = useRef<HTMLDivElement>(null);
   const rightCol = useRef<HTMLDivElement>(null);
   const [paddingTop] = useCssVariable("h1", h1Vars);
-  const [isMobile, isTab] = useMediaQuery(breakpoints);
-  const isNotMobile = negationValue(isMobile);
+  const [isTabP, isTab] = useMediaQuery(breakpoints);
+  const isNotTabP = negationValue(isTabP);
   const isNotTab = negationValue(isTab);
 
   useEffect(() => {
@@ -32,10 +32,10 @@ const HeroArea = () => {
 
   return (
     <>
-      {isMobile && (
+      {isTabP && (
         <Grid>{[<Intro key="hero_area_single_col" ref={rightCol} />]}</Grid>
       )}
-      {isNotMobile && (
+      {isNotTabP && (
         <Grid>
           {[
             <div

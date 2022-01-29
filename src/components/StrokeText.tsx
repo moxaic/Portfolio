@@ -19,8 +19,9 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
   const canvas = useRef<HTMLCanvasElement>(null);
   const rootVars = useCssVariable(":root", rootVarNames);
   const strokeTextVars = useCssVariable(".stroke_text", strokeTextVarNames);
+  const defaultClass = "stroke_text font_tangerine";
   const className =
-    moduleClass === undefined ? "stroke_text" : `stroke_text ${moduleClass}`;
+    moduleClass === undefined ? defaultClass : `${defaultClass} ${moduleClass}`;
 
   useEffect(() => {
     if (rootVars.length !== 0 && strokeTextVars.length !== 0) {
@@ -28,7 +29,7 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
       const [fontSize, lineHeightStr, paddingLeftPx] = strokeTextVars;
       const fontWeight = "700";
       let fontFamily = "Josefin Slab";
-      // let fontFamily = "Serif";
+      // // let fontFamily = "Serif";
       const paddingHorizontal = getNumValue(
         remToPx(paddingHorizontalRem, rootFontSize),
         "px"
@@ -47,6 +48,7 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
             let textHeight = fontSizePxVal + 2;
             const availableScreenWidth =
               window.innerWidth - 2 * (paddingHorizontal + paddingLeft);
+            console.log(availableScreenWidth, paddingHorizontal, paddingLeft);
 
             if (textWidth > availableScreenWidth) {
               const words = children.split(" ");
