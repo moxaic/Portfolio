@@ -4,7 +4,7 @@ export enum BREAKPOINT {
   TAB = 800,
   TAB_LARGE = 1000,
   LAPTOP_SMALL = 1200,
-  LAPTOP_ = 1400,
+  LAPTOP = 1400,
 }
 
 export const PERSPECTIVE = 100;

@@ -1,48 +1,34 @@
-import { useRef } from "react";
-import type { NextPage } from "next";
+import { useEffect, useRef } from "react";
 import Head from "next/head";
+import type { NextPage } from "next";
 
-import { Logo, Section } from "../src/components";
-import {
-  AboutMe,
-  ContactMe,
-  Footer,
-  HeroArea,
-  MyHobbies,
-  Navbar,
-} from "../src/modules";
-import getSectionId from "../src/utils/getSectionId";
+import { useScreenSize } from "@/contexts";
+import { HomeScreen, LoadingScreen } from "src/screens";
 
 const Home: NextPage = () => {
-  const sectionsName = ["Home", "About Me", "My Hobbies", "Contact Me"];
-  const sectionRefs = useRef<HTMLElement[]>([]);
-  const Sections = [HeroArea, AboutMe, MyHobbies, ContactMe];
+  const loader = useRef<HTMLDivElement>(null);
+  const screenSize = useScreenSize();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    const mountedTime = new Date();
+    if (loader && loader.current) {
+      window.onload = () => {
+        loader.current?.classList.add("hide");
+        const loadedTime = new Date();
+        console.log(loadedTime.getTime() - mountedTime.getTime());
+      };
+    }
+  }, []);
 
   return (
     <>
       <Head>
-        <title>Aditya Srivastava | Friendly neigghbourhood freelancer</title>
+        <title>Aditya Srivastava | Portfolio</title>
         <meta name="description" content="Portfolio of Aditya Srivastava" />
       </Head>
-      <Logo />
-      <Navbar {...{ sectionsName, sectionRefs }} />
-      <main>
-        {sectionsName.map((sectionName, i) => {
-          const id = getSectionId(sectionName);
-          const Module = Sections[i];
-          return (
-            <Section
-              id={id}
-              key={id}
-              ref={(el: HTMLElement) => (sectionRefs.current[i] = el)}
-              title={sectionName}
-            >
-              <Module />
-            </Section>
-          );
-        })}
-      </main>
-      <Footer />
+      <LoadingScreen ref={loader} />
+      {screenSize !== undefined && <HomeScreen />}
     </>
   );
 };

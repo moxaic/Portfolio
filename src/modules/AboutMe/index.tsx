@@ -4,16 +4,12 @@ import iceCrystalPng from "@/images/ice_crystal.png";
 import maskPng from "@/images/mask.png";
 import questionMarkPng from "@/images/question_mark.png";
 import { Grid, Image, ParallaxElem, StrokeText } from "@/components";
-import { useMediaQuery } from "@/hooks";
+import { useScreenSize } from "@/contexts";
 import { BREAKPOINT } from "@/utils/constants";
-import getNegationValue from "../../utils/getNegationValue";
 import styles from "./about_me.module.css";
 
-const breakpoints = [BREAKPOINT.TAB_LARGE];
-
 const AboutMe = () => {
-  const [isTab] = useMediaQuery(breakpoints);
-  const isNotTab = getNegationValue(isTab);
+  const screenSize = useScreenSize();
 
   return (
     <>
@@ -52,7 +48,7 @@ const AboutMe = () => {
       <ParallaxElem translateZ={-10} moduleClass={styles._face}>
         <Image alt="" src={maskPng} />
       </ParallaxElem>
-      {isNotTab && (
+      {screenSize! > BREAKPOINT.TAB_LARGE && (
         <>
           <ParallaxElem translateZ={-45} moduleClass={styles._question}>
             <Image alt="" src={questionMarkPng} />

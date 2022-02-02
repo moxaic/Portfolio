@@ -15,8 +15,10 @@ const useCssVariable = (target: string, variableNames: string[]) => {
       };
 
       resizeHandler();
-      window.onresize = resizeHandler;
-      return () => window.removeEventListener("resize", resizeHandler);
+      window.addEventListener("resize", resizeHandler);
+      return () => {
+        window.removeEventListener("resize", resizeHandler);
+      };
     }
   }, [target, variableNames]);
 

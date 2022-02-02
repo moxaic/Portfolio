@@ -11,14 +11,8 @@ const HamMenu = ({ navRef }: Props) => {
   const menu = useRef<HTMLDivElement>(null);
 
   const onClickHandler = (_: MouseEvent<HTMLDivElement>) => {
-    if (navRef && navRef.current) {
-      if (menu.current?.classList.contains(styles._open)) {
-        navRef.current.style.transform = "translateY(-110%)";
-      } else {
-        navRef.current.style.transform = "translateY(0)";
-      }
-    }
     menu.current?.classList.toggle(styles._open);
+    navRef.current?.classList.toggle(styles._open);
   };
 
   return (

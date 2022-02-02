@@ -93,3 +93,42 @@
   transform: scaleX(-1);
   width: var(--width);
 }
+
+@media only screen and (min-width: 1000px) {
+  ._face {
+    --width: 6rem;
+    height: calc(var(--width) * 3 / 2);
+    left: 2%;
+    position: absolute;
+    top: 30%;
+    transform: scaleX(1);
+    width: var(--width);
+  }
+
+  ._ice_cream {
+    --width: 7rem;
+    bottom: -2%;
+    height: calc(3 / 2 * var(--width));
+    right: 5%;
+    position: absolute;
+    width: var(--width);
+  }
+
+  ._ice_crystal {
+    --width: 9.5rem;
+    bottom: 4rem;
+    height: var(--width);
+    left: 21%;
+    position: absolute;
+    width: var(--width);
+  }
+
+  ._question {
+    --width: 8rem;
+    height: calc(var(--width) * 3 / 2);
+    left: 44%;
+    position: absolute;
+    top: 11rem;
+    width: var(--width);
+  }
+}

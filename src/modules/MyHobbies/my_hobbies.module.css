@@ -291,8 +291,12 @@
   background: linear-gradient(#345953 0%, #9c9c9c 100%);
 }
 
-._card:nth-child(odd) > ._card_img > div {
-  padding: 0 0.5rem;
+._card_img > div {
+  padding: 0 1rem;
+}
+
+._card_img > div > div {
+  transform: translateY(1rem);
 }
 
 ._button_ctn > div {
@@ -302,7 +306,6 @@
 ._card_cta {
   --translate: 0.6em;
   background-color: var(--color-primary);
-  /* bottom: var(--translate); */
   bottom: 0;
   color: var(--color-background);
   cursor: pointer;
@@ -310,7 +313,6 @@
   font-family: "Josefin Slab";
   font-size: var(--font-size-button);
   font-weight: 700;
-  /* left: var(--translate); */
   margin: calc(var(--translate) + 1.2em) auto;
   padding: 0.5em 1.2em;
   position: relative;
@@ -333,7 +335,6 @@
 
 ._card_cta:active {
   bottom: calc(-0.5 * var(--translate));
-  /* left: calc(0.5 * var(--translate)); */
 }
 
 ._card_cta:active::before {
@@ -354,4 +355,95 @@
   left: 0;
   top: 0;
   width: var(--width);
+}
+
+@media only screen and (min-width: 800px) {
+  ._card {
+    display: flex;
+  }
+
+  ._card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  ._card_img {
+    width: 47%;
+  }
+
+  ._card_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 53%;
+  }
+
+  ._card:nth-child(odd) > ._card_info {
+    padding-left: 3rem;
+  }
+
+  ._card:nth-child(even) > ._card_info {
+    padding-right: 3rem;
+  }
+
+  ._card:nth-child(odd) ._heading {
+    right: 0;
+  }
+
+  ._card_cta {
+    margin-left: unset;
+    margin-right: unset;
+    padding: 0.7em 1.5em;
+  }
+
+  ._card_cta::before {
+    width: 100%;
+  }
+
+  ._card:nth-child(odd) ._card_cta {
+    margin-left: auto;
+    right: var(--translate);
+  }
+
+  ._card:nth-child(odd) ._card_cta::before {
+    left: var(--translate);
+  }
+
+  ._card:nth-child(odd) ._card_cta:active {
+    bottom: calc(0.5 * var(--translate));
+    left: calc(0.5 * var(--translate));
+  }
+
+  ._card:nth-child(odd) ._card_cta:active::before {
+    bottom: 0;
+    right: 0;
+  }
+
+  ._card:nth-child(even) ._card_cta {
+    left: var(--translate);
+    margin-right: auto;
+  }
+
+  ._card:nth-child(even) ._card_cta:active {
+    left: calc(0.5 * var(--translate));
+  }
+
+  ._card:nth-child(even) ._card_cta:active::before {
+    bottom: 0;
+    left: 0;
+  }
+
+  ._deco_img {
+    --width: 8rem;
+    position: absolute;
+    top: 2rem;
+    width: var(--width);
+  }
+
+  ._card:nth-child(odd) ._deco_img {
+    right: -4rem;
+  }
+
+  ._card:nth-child(even) ._deco_img {
+    left: -4rem;
+  }
 }

@@ -51,7 +51,6 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
             let textHeight = fontSizePxVal + 2;
             const availableScreenWidth =
               window.innerWidth - 2 * (paddingHorizontal + paddingLeft);
-            console.log(availableScreenWidth, paddingHorizontal, paddingLeft);
 
             if (textWidth > availableScreenWidth) {
               const words = children.split(" ");

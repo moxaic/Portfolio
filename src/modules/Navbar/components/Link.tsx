@@ -7,7 +7,10 @@ type Props = {
 };
 
 const Link = ({ isActive, scrollToSection, text }: Props) => {
-  const className = isActive ? styles._active : styles._link;
+  const defaultClass = styles._link;
+  const className = isActive
+    ? `${defaultClass} ${styles._active}`
+    : styles._link;
 
   const onClickHandler = () => {
     scrollToSection(text);

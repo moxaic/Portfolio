@@ -24,7 +24,8 @@ export const hobbies = [
     quote: "Do it again on the next verse, and people think you meant it.",
     quoteBy: "Chet Atkins",
     src: guitarJpg,
-    text: "Music makes you feel like the hero of a movie. It makes you live moments that are actually never going to happen.",
+    // text: "Music makes you feel like the hero of a movie. It makes you live moments that are actually never going to happen.",
+    text: "I like to jam with my guitars. I'm still a novice but I enjoy some electrical and acoustic compositions. All that's left is to add some base.",
   },
   {
     alt: "bunch of color pencil",
@@ -34,6 +35,7 @@ export const hobbies = [
     quote: "The Earth without art is just Eh.",
     quoteBy: "Demetri Martin",
     src: colorPencilsJpg,
-    text: "Art was my first passion. The world can be as beautiful as you can make it and as ugly as you let it be, and if you don't like it, you can (almost) always erase.",
+    // text: "Art was my first passion. The world can be as beautiful as you can make it and as ugly as you let it be, and if you don't like it, you can (almost) always erase.",
+    text: "What doesn't exist in real life, I try to recreate with sketches. It's a fine line of charcoal that makes the difference.",
   },
 ];

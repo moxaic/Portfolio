@@ -1,5 +1,5 @@
 import { Image, ParallaxElem, StrokeText } from "@/components";
-import { useMediaQuery } from "@/hooks";
+import { useScreenSize } from "@/contexts";
 import { BREAKPOINT } from "@/utils/constants";
 import styles from "../my_hobbies.module.css";
 import { CardCta } from ".";
@@ -13,14 +13,12 @@ type Props = {
   text: string;
 };
 
-const breakpoints = [BREAKPOINT.MOBILE, BREAKPOINT.TAB_LARGE];
-
 const CardInfo = ({ cta, ctaText, decoImg, quote, quoteBy, text }: Props) => {
-  const [isMobile, isTab] = useMediaQuery(breakpoints);
+  const screenSize = useScreenSize();
 
   return (
     <div className={styles._card_info}>
-      {!isMobile && (
+      {screenSize! > BREAKPOINT.MOBILE && (
         <ParallaxElem moduleClass={styles._heading_ctn} translateZ={10}>
           <StrokeText moduleClass={styles._heading} {...{ quoteBy }}>
             {quote}
@@ -31,7 +29,7 @@ const CardInfo = ({ cta, ctaText, decoImg, quote, quoteBy, text }: Props) => {
       <ParallaxElem moduleClass={styles._button_ctn} translateZ={2}>
         <CardCta {...{ cta, ctaText }} />
       </ParallaxElem>
-      {!isTab && (
+      {screenSize! > BREAKPOINT.TAB_LARGE && (
         <div className={styles._deco_img}>
           <ParallaxElem translateZ={-15}>
             <Image alt="" src={decoImg} />

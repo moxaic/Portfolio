@@ -2,15 +2,17 @@ import chatPng from "@/images/chat.png";
 import iceCreamConePng from "@/images/ice_cream_cone.png";
 import likedPostPng from "@/images/liked_post.png";
 import { Grid, Image, ParallaxElem, StrokeText } from "@/components";
-import { useMediaQuery } from "@/hooks";
+import { useScreenSize } from "@/contexts";
 import { BREAKPOINT } from "@/utils/constants";
 import { Form } from "./components";
 import styles from "./contact_me.module.css";
 
-const breakpoints = [BREAKPOINT.TAB_LARGE];
-
 const ContactMe = () => {
-  const [isTab] = useMediaQuery(breakpoints);
+  const screenSize = useScreenSize();
+
+  const onClickHandler = (e: any) => {
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -33,10 +35,12 @@ const ContactMe = () => {
       <ParallaxElem translateZ={15} moduleClass={styles._message_img}>
         <Image alt="" src={chatPng} />
       </ParallaxElem>
-      <div className={styles._liked_post}>
-        <Image alt="" src={likedPostPng} />
-      </div>
-      {!isTab && (
+      <button onClick={onClickHandler}>
+        <div className={styles._liked_post}>
+          <Image alt="" src={likedPostPng} />
+        </div>
+      </button>
+      {screenSize! > BREAKPOINT.TAB_LARGE && (
         <ParallaxElem translateZ={-50} moduleClass={styles._ice_cream}>
           <Image alt="" src={iceCreamConePng} />
         </ParallaxElem>
