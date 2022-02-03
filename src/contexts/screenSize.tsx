@@ -2,11 +2,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 import { BREAKPOINT } from "@/utils/constants";
 
-const ScreenSizeContext = createContext<number | undefined>(undefined);
-
 type Props = {
   children: JSX.Element;
 };
+
+const ScreenSizeContext = createContext<number | undefined>(undefined);
 
 const ScreenSizeProvider = ({ children }: Props) => {
   const [screenSize, setScreenSize] = useState<number>();

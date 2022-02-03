@@ -1,9 +1,7 @@
 import { MutableRefObject, useEffect, useRef } from "react";
 
-import { useScreenSize } from "@/contexts";
 import { useVisibleSection } from "@/hooks";
-import { BREAKPOINT } from "@/utils/constants";
-import HamMenu from "./components/HamMenu";
+import Menu from "./components/Menu";
 import Link from "./components/Link";
 import styles from "./navbar.module.css";
 
@@ -12,20 +10,13 @@ type Props = {
 };
 
 const Navbar = ({ sectionsRef }: Props) => {
-  const nav = useRef<HTMLElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const menuRef = useRef<HTMLButtonElement>(null);
   const visibleSection = useVisibleSection(sectionsRef.current);
-  const screenSize = useScreenSize();
 
   useEffect(() => {
-    const navCur = nav && nav.current;
-    if (navCur) {
-      const onWheelHandler = (e: Event) => {
-        e.preventDefault();
-      };
-
-      navCur.style.height = `${window.innerHeight}px`;
-      navCur.addEventListener("wheel", onWheelHandler);
-      return () => navCur.removeEventListener("wheel", onWheelHandler);
+    if (navRef && navRef.current) {
+      navRef.current.style.height = `${window.innerHeight}px`;
     }
   }, []);
 
@@ -36,22 +27,26 @@ const Navbar = ({ sectionsRef }: Props) => {
     sectionsRef.current[sectionToScroll].scrollIntoView();
   };
 
+  const onClickHandler = () => {
+    menuRef.current?.classList.toggle(styles._open);
+    navRef.current?.classList.toggle(styles._open);
+  };
+
   return (
     <>
-      <nav className={styles._nav} ref={nav}>
+      <nav className={styles._nav} ref={navRef}>
         <ul className={styles._nav_links}>
-          {sectionsRef.current.map(({ id: text }) => {
-            return (
-              <Link
-                key={text}
-                isActive={visibleSection === text}
-                {...{ scrollToSection, text }}
-              />
-            );
-          })}
+          {sectionsRef.current.map(({ id: text }) => (
+            <Link
+              key={text}
+              isActive={visibleSection === text}
+              menuOnClickHandler={onClickHandler}
+              {...{ scrollToSection, text }}
+            />
+          ))}
         </ul>
       </nav>
-      {screenSize! < BREAKPOINT.LAPTOP_SMALL && <HamMenu navRef={nav} />}
+      <Menu ref={menuRef} {...{ onClickHandler }} />
     </>
   );
 };

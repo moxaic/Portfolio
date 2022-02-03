@@ -1,52 +1,5 @@
-/* ._nav {
-  position: fixed;
-  right: 0;
-  top: -22px;
-  transform: rotate(270deg);
-  transform-origin: bottom right;
-  width: 100vh;
-  z-index: 100;
-}
-
-._nav_links {
-  display: flex;
-  flex-direction: row-reverse;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-._nav_links > li {
-  flex: 1;
-  letter-spacing: 0.1rem;
-  text-align: center;
-  text-transform: capitalize;
-}
-
-@media only screen and (max-width: 1000px) {
-  ._nav {
-    display: none;
-    left: 0;
-    top: 0;
-    transform: rotate(0);
-    width: 100%;
-  }
-
-  ._nav_links {
-    background-color: var(--color-background);
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-around;
-  }
-
-  ._nav_links > li {
-    flex: 0;
-  }
-} */
-
 ._nav {
   backdrop-filter: blur(20px);
-  /* background-color: var(--color-background); */
   height: 100vh;
   left: 0;
   position: fixed;
@@ -88,7 +41,9 @@
   width: 20px;
 }
 
-._ham_menu {
+._menu {
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   height: 5rem;
   position: fixed;
@@ -98,7 +53,7 @@
   z-index: 1000;
 }
 
-._ham_menu::before {
+._menu::before {
   backdrop-filter: blur(12px);
   content: "";
   height: 60%;
@@ -110,37 +65,37 @@
   z-index: -1;
 }
 
-._ham_menu svg {
+._menu svg {
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-._ham_menu path {
+._menu path {
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
     stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-._ham_menu path:nth-child(1) {
+._menu path:nth-child(1) {
   transform-origin: 36% 40%;
 }
 
-._ham_menu path:nth-child(2) {
+._menu path:nth-child(2) {
   stroke-dasharray: 29 299;
 }
 
-._ham_menu path:nth-child(3) {
+._menu path:nth-child(3) {
   transform-origin: 35% 63%;
 }
 
-._ham_menu path:nth-child(4) {
+._menu path:nth-child(4) {
   stroke-dasharray: 29 299;
 }
 
-._ham_menu path:nth-child(5) {
+._menu path:nth-child(5) {
   transform-origin: 61% 52%;
 }
 
-._ham_menu path:nth-child(6) {
+._menu path:nth-child(6) {
   transform-origin: 62% 52%;
 }
 

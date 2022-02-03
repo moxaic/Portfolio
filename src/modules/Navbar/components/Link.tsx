@@ -2,17 +2,19 @@ import styles from "../navbar.module.css";
 
 type Props = {
   isActive: boolean;
+  menuOnClickHandler: () => void;
   scrollToSection: (id: string) => void;
   text: string;
 };
 
-const Link = ({ isActive, scrollToSection, text }: Props) => {
-  const defaultClass = styles._link;
+const Link = (props: Props) => {
+  const { isActive, menuOnClickHandler, scrollToSection, text } = props;
   const className = isActive
-    ? `${defaultClass} ${styles._active}`
+    ? `${styles._link} ${styles._active}`
     : styles._link;
 
   const onClickHandler = () => {
+    menuOnClickHandler();
     scrollToSection(text);
   };
 

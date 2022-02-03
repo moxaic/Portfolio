@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useCssValues = (cssProperties: object) => {
-  const [values, setValues] = useState<(string[] | undefined)[]>();
+  const [values, setValues] = useState<(string[] | undefined)[]>([]);
 
   useEffect(() => {
     const val = Object.keys(cssProperties).map((cssQuery) => {

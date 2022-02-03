@@ -14,7 +14,8 @@ export const hobbies = [
     quote: "One man's crappy software is another man's full-time job.",
     quoteBy: "Jessica Gaston",
     src: laptopJpg,
-    text: "My first introduction to programming was in college where I learned to code using low level programming languages such as C and C++. I have always been fascinated by web development and around the end of my first year I started making fully fledged websites. Thanks to cross platform frameworks like react native and electron, I get to call myself cross-platform-full-stack developer (if that's a thing).",
+    // text: "My first introduction to programming was in college where I learned to code using low level programming languages such as C and C++. I have always been fascinated by web development and around the end of my first year I started making fully fledged websites. Thanks to cross platform frameworks like react native and electron, I get to call myself cross-platform-full-stack developer (if that's a thing).",
+    text: "I got introduced into coding culture after I got into college and it has became somewhat of a passion. I spend my free time recreating famous websites and making applications that have the mantle to take up space in the market.",
   },
   {
     alt: "surf green stratocaster",

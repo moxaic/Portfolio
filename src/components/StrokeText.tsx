@@ -1,56 +1,54 @@
 import { useEffect, useRef } from "react";
 
-import { useCssVariable } from "@/hooks";
+import { useCssValues } from "@/hooks";
 import convertRemToPx from "@/utils/convertRemToPx";
 import getNumValue from "@/utils/getNumValue";
 
 type Props = { children: string; moduleClass?: string; quoteBy?: string };
 
-const rootVarNames = ["--font-size", "--color-primary", "--padding-horizontal"];
-const strokeTextVarNames = [
-  "--font-size-canvas",
-  "--line-height-canvas",
-  "padding-left",
-];
+const cssProps = {
+  body: ["font-size"],
+  ":root": ["--color-primary"],
+  section: ["padding-left"],
+  ".stroke_text[data-is-quote='true'": [
+    "--font-size-canvas",
+    "--line-height-canvas",
+    "--text-align-canvas",
+    "padding-left",
+  ],
+};
 
 const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
   const parent = useRef<HTMLDivElement>(null);
   const child = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
-  const rootVars = useCssVariable(":root", rootVarNames);
-  const strokeTextVars = useCssVariable(".stroke_text", strokeTextVarNames);
+  const [body, root, section, self] = useCssValues(cssProps);
   const defaultClass = "stroke_text font_tangerine";
   const className =
     moduleClass === undefined ? defaultClass : `${defaultClass} ${moduleClass}`;
 
   useEffect(() => {
-    if (rootVars.length !== 0 && strokeTextVars.length !== 0) {
-      const [rootFontSize, strokeColor, paddingHorizontalRem] = rootVars;
-      const [fontSize, lineHeightStr, paddingLeftPx] = strokeTextVars;
-      const fontWeight = "700";
-      let fontFamily = "Josefin Slab";
-      // // let fontFamily = "Serif";
-      const paddingHorizontal = getNumValue(
-        convertRemToPx(paddingHorizontalRem, rootFontSize),
-        "px"
-      );
-      const paddingLeft = getNumValue(paddingLeftPx, "px");
-      const fontSizePxVal = getNumValue(
-        convertRemToPx(fontSize, rootFontSize),
-        "px"
-      );
+    if (root && body && section && self) {
+      const [color] = root;
+      const [rem] = body;
+      const [paddingCtn] = section;
+      const [fontSizeRem, lineHeightStr, textAlign, padding] = self;
+      const padCtn = getNumValue(paddingCtn, "px");
+      const pad = quoteBy ? getNumValue(padding, "px") : 0;
+      const fontSize = getNumValue(convertRemToPx(fontSizeRem, rem), "px");
       const lineHeight = Number(lineHeightStr);
       const canvasCur = canvas && canvas.current;
       const canvasCtx = canvasCur && canvasCur.getContext("2d");
+      const fontWeight = 700;
+      const fontFamily = "Josefin Slab";
 
       const drawCanvas = () => {
         const getCanvasDimensions = () => {
           if (canvasCtx) {
-            canvasCtx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
+            canvasCtx.font = `${fontWeight} ${fontSizeRem} ${fontFamily}`;
             let { width: textWidth } = canvasCtx.measureText(children);
-            let textHeight = fontSizePxVal + 2;
-            const availableScreenWidth =
-              window.innerWidth - 2 * (paddingHorizontal + paddingLeft);
+            let textHeight = fontSize + 2;
+            const availableScreenWidth = window.innerWidth - 2 * (padCtn + pad);
 
             if (textWidth > availableScreenWidth) {
               const words = children.split(" ");
@@ -65,7 +63,7 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
                     maxWidth = rowWidth;
                   }
                   rowWidth = wordWidth;
-                  textHeight += lineHeight * fontSizePxVal;
+                  textHeight += lineHeight * fontSize;
                   lines.push(words[i]);
                 } else {
                   const lastStr = lines.at(-1);
@@ -93,15 +91,15 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
             canvasCur.height = height;
             canvasCur.width = width;
             if (canvasCtx) {
-              canvasCtx.textAlign = "center";
+              canvasCtx.textAlign = textAlign as CanvasTextAlign;
               canvasCtx.textBaseline = "top";
-              canvasCtx.strokeStyle = strokeColor;
-              canvasCtx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
+              canvasCtx.strokeStyle = color;
+              canvasCtx.font = `${fontWeight} ${fontSizeRem} ${fontFamily}`;
               canvasCtx.clearRect(0, 0, canvasCur.width, canvasCur.height);
               const noOfLines = lines.length;
               const x = textAlign === "center" ? width / 2 : 0;
               for (let i = 0; i < noOfLines; i++) {
-                const y = i !== 0 ? i * lineHeight * fontSizePxVal : 1;
+                const y = i === 0 ? 1 : i * lineHeight * fontSize;
                 canvasCtx.strokeText(lines[i], x, y);
               }
             }
@@ -115,22 +113,17 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
         let height: number;
         let width: number;
         const lines: string[] = [];
-        let textAlign = "center";
         getCanvasDimensions();
         paintText();
       };
 
       document.fonts.ready.then(drawCanvas);
     }
-  }, [children, rootVars, strokeTextVars]);
+  }, [body, children, quoteBy, root, section, self]);
 
   return (
     <div ref={parent}>
-      <div
-        data-quote={quoteBy ? "true" : "false"}
-        ref={child}
-        {...{ className }}
-      >
+      <div data-is-quote={quoteBy !== undefined} ref={child} {...{ className }}>
         <canvas ref={canvas} />
         {quoteBy && <div>{quoteBy}</div>}
       </div>

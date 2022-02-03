@@ -10,13 +10,9 @@ const Home: NextPage = () => {
   const screenSize = useScreenSize();
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
-    const mountedTime = new Date();
     if (loader && loader.current) {
       window.onload = () => {
         loader.current?.classList.add("hide");
-        const loadedTime = new Date();
-        console.log(loadedTime.getTime() - mountedTime.getTime());
       };
     }
   }, []);
@@ -26,6 +22,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Aditya Srivastava | Portfolio</title>
         <meta name="description" content="Portfolio of Aditya Srivastava" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg"></link>
       </Head>
       <LoadingScreen ref={loader} />
       {screenSize !== undefined && <HomeScreen />}

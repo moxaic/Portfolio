@@ -102,7 +102,7 @@
 @media only screen and (min-width: 1000px) {
   ._left_col {
     margin: auto;
-    margin-bottom: 1.1rem;
+    margin-bottom: 0;
   }
 
   ._cta {
@@ -110,7 +110,6 @@
     height: var(--width);
     position: absolute;
     right: 9.5rem;
-    /* top: 100%; */
     top: 40rem;
     transform: rotateX(180deg) rotateY(180deg);
     width: var(--width);

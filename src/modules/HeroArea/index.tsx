@@ -4,24 +4,14 @@ import arrowsPng from "@/images/arrows.png";
 import hiPng from "@/images/hi.png";
 import { Grid, Image, ParallaxElem } from "@/components";
 import { useScreenSize } from "@/contexts";
-import { useCssValues, useCssVariable } from "@/hooks";
 import { BREAKPOINT } from "@/utils/constants";
 import Intro from "./components/Intro";
 import styles from "./hero_area.module.css";
 
-const h1Vars = ["margin-top"];
-const etst = {
-  ".grid h1": ["margin-top", "font-size"],
-  h2: ["font-size"],
-};
-
 const HeroArea = () => {
   const leftCol = useRef<HTMLDivElement>(null);
   const rightCol = useRef<HTMLDivElement>(null);
-  const [marginTop] = useCssVariable("h1", h1Vars);
   const screenSize = useScreenSize();
-
-  useCssValues(etst);
 
   useEffect(() => {
     const leftColCur = leftCol && leftCol.current;

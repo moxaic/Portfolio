@@ -313,7 +313,8 @@
   font-family: "Josefin Slab";
   font-size: var(--font-size-button);
   font-weight: 700;
-  margin: calc(var(--translate) + 1.2em) auto;
+  /* margin: calc(var(--translate) + 1.2em) auto; */
+  margin: 0 auto var(--translate);
   padding: 0.5em 1.2em;
   position: relative;
   transition: 200ms all ease;
@@ -409,13 +410,13 @@
   }
 
   ._card:nth-child(odd) ._card_cta:active {
-    bottom: calc(0.5 * var(--translate));
-    left: calc(0.5 * var(--translate));
+    bottom: calc(-0.5 * var(--translate));
+    right: calc(0.5 * var(--translate));
   }
 
   ._card:nth-child(odd) ._card_cta:active::before {
     bottom: 0;
-    right: 0;
+    left: calc(-0.5 * var(--translate));
   }
 
   ._card:nth-child(even) ._card_cta {
@@ -433,7 +434,7 @@
   }
 
   ._deco_img {
-    --width: 8rem;
+    --width: 6rem;
     position: absolute;
     top: 2rem;
     width: var(--width);
