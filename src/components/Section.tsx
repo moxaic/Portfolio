@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from "react";
 
-import { ParallaxElem } from ".";
+import { ParallaxElem } from "@/components";
 
 type Props = {
   children: JSX.Element;

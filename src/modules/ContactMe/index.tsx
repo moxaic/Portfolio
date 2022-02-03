@@ -2,13 +2,13 @@ import chatPng from "@/images/chat.png";
 import iceCreamConePng from "@/images/ice_cream_cone.png";
 import likedPostPng from "@/images/liked_post.png";
 import { Grid, Image, ParallaxElem, StrokeText } from "@/components";
-import { useScreenSize } from "@/contexts";
+import { useWindowWidth } from "@/contexts";
 import { BREAKPOINT } from "@/utils/constants";
 import { Form } from "./components";
 import styles from "./contact_me.module.css";
 
 const ContactMe = () => {
-  const screenSize = useScreenSize();
+  const width = useWindowWidth();
 
   const onClickHandler = (e: any) => {
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
@@ -40,7 +40,7 @@ const ContactMe = () => {
           <Image alt="" src={likedPostPng} />
         </div>
       </button>
-      {screenSize! > BREAKPOINT.TAB_LARGE && (
+      {width! > BREAKPOINT.TAB_LARGE && (
         <ParallaxElem translateZ={-50} moduleClass={styles._ice_cream}>
           <Image alt="" src={iceCreamConePng} />
         </ParallaxElem>

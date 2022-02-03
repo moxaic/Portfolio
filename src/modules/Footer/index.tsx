@@ -1,14 +1,15 @@
 import { useEffect, useRef } from "react";
 
 import fingerPng from "@/images/finger.png";
-import LogoSvg from "@/images/logo.svg";
 import { Image } from "@/components";
+import { useWindowWidth } from "@/contexts";
 import { BREAKPOINT } from "@/utils/constants";
 import GlassIcon from "./components/GlassIcon";
 import { socialMediaLinks } from "./data";
 import styles from "./footer.module.css";
 
 const Footer = () => {
+  const width = useWindowWidth();
   const fingerRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
 
@@ -77,7 +78,7 @@ const Footer = () => {
     <footer ref={footerRef}>
       <div className={styles._content}>
         <h1>Thanks for visiting</h1>
-        {innerWidth > BREAKPOINT.MOBILE && (
+        {width! > BREAKPOINT.MOBILE && (
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem id sit
             fugiat nostrum consequatur cupiditate exercitationem magnam deserunt
@@ -86,28 +87,6 @@ const Footer = () => {
           </p>
         )}
         <div className={styles._fill_space}>
-          {/* <div className={styles._stage}>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-            <div className={styles._layer}></div>
-          </div> */}
           <div>
             {[
               1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -127,7 +106,7 @@ const Footer = () => {
           ))}
         </ul>
       </div>
-      {innerWidth > BREAKPOINT.TAB_LARGE && (
+      {width! > BREAKPOINT.TAB_LARGE && (
         <div className={styles._pointing_finger} ref={fingerRef}>
           <Image alt="" src={fingerPng} />
         </div>

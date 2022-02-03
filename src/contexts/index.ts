@@ -1,1 +1,1 @@
-export { default as ScreenSizeProvider, useScreenSize } from "./screenSize";
+export { default as WindowWidthProvider, useWindowWidth } from "./windowWidth";

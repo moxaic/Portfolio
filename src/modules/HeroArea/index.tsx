@@ -3,15 +3,15 @@ import { useEffect, useRef } from "react";
 import arrowsPng from "@/images/arrows.png";
 import hiPng from "@/images/hi.png";
 import { Grid, Image, ParallaxElem } from "@/components";
-import { useScreenSize } from "@/contexts";
+import { useWindowWidth } from "@/contexts";
 import { BREAKPOINT } from "@/utils/constants";
 import Intro from "./components/Intro";
 import styles from "./hero_area.module.css";
 
 const HeroArea = () => {
+  const width = useWindowWidth();
   const leftCol = useRef<HTMLDivElement>(null);
   const rightCol = useRef<HTMLDivElement>(null);
-  const screenSize = useScreenSize();
 
   useEffect(() => {
     const leftColCur = leftCol && leftCol.current;
@@ -27,7 +27,7 @@ const HeroArea = () => {
   return (
     <>
       <Grid>
-        {screenSize! < BREAKPOINT.TAB
+        {width! < BREAKPOINT.TAB
           ? [<Intro key="hero_area_single_col" ref={rightCol} />]
           : [
               <div
@@ -42,7 +42,7 @@ const HeroArea = () => {
               <Intro key="hero_area_right_col" ref={rightCol} />,
             ]}
       </Grid>
-      {screenSize! > BREAKPOINT.TAB_LARGE && (
+      {width! > BREAKPOINT.TAB_LARGE && (
         <ParallaxElem translateZ={-14} moduleClass={styles._cta}>
           <Image alt="scroll down" src={arrowsPng} />
         </ParallaxElem>

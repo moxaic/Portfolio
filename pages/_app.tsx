@@ -1,13 +1,13 @@
 import type { AppProps } from "next/app";
 
-import { ScreenSizeProvider } from "@/contexts";
+import { WindowWidthProvider } from "@/contexts";
 import "../src/styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ScreenSizeProvider>
+    <WindowWidthProvider>
       <Component {...pageProps} />
-    </ScreenSizeProvider>
+    </WindowWidthProvider>
   );
 }
 

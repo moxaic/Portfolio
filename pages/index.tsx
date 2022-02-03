@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
 
-import { useScreenSize } from "@/contexts";
-import { HomeScreen, LoadingScreen } from "src/screens";
+import { useWindowWidth } from "@/contexts";
+import { HomeScreen, LoadingScreen } from "@/screens";
 
 const Home: NextPage = () => {
+  const width = useWindowWidth();
   const loader = useRef<HTMLDivElement>(null);
-  const screenSize = useScreenSize();
 
   useEffect(() => {
     if (loader && loader.current) {
@@ -23,9 +23,11 @@ const Home: NextPage = () => {
         <title>Aditya Srivastava | Portfolio</title>
         <meta name="description" content="Portfolio of Aditya Srivastava" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg"></link>
+        <link rel="preload" href="/images/frost.jpg" as="image" />
+        <link rel="preload" href="/images/neon_c.jpg" as="image" />
       </Head>
       <LoadingScreen ref={loader} />
-      {screenSize !== undefined && <HomeScreen />}
+      {width !== undefined && <HomeScreen />}
     </>
   );
 };

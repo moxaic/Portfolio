@@ -395,10 +395,9 @@ body {
   z-index: 100;
 }
 
-.logo > a {
-  display: block;
-  height: 100%;
-  width: 100%;
+button {
+  background-color: transparent;
+  border: none;
 }
 
 h1,

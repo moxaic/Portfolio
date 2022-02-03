@@ -9,7 +9,7 @@ type Props = {
 const CardImg = ({ alt, src }: Props) => {
   return (
     <ParallaxElem moduleClass={styles._card_img} translateZ={6}>
-      <Image {...{ alt, src }} />
+      <Image priority={true} {...{ alt, src }} />
     </ParallaxElem>
   );
 };
