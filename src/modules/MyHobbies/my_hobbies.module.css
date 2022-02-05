@@ -167,3 +167,14 @@
     left: -4rem;
   }
 }
+
+@media only screen and (min-width: 1400px) {
+  ._card_img > div {
+    padding: 0 1.5rem;
+  }
+
+  ._heart_sign {
+    --width: 6rem;
+    left: 10%;
+  }
+}

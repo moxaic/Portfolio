@@ -14,9 +14,11 @@ const Menu = forwardRef(
         onClick={onClickHandler}
         ref={ref}
       >
-        <span className={styles._bar}></span>
-        <span className={styles._bar}></span>
-        <span className={styles._bar}></span>
+        <div>
+          <span className={styles._bar}></span>
+          <span className={styles._bar}></span>
+          <span className={styles._bar}></span>
+        </div>
       </button>
     );
   }

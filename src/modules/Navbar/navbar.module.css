@@ -42,21 +42,22 @@
 }
 
 ._menu {
-  align-items: center;
-  background-color: transparent;
   backdrop-filter: blur(12px);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   height: 4rem;
   position: fixed;
-  right: 2rem;
+  right: 3rem;
   top: 1rem;
-  transform: scale(0.6);
+  transform: scale(0.7);
   width: 4rem;
   z-index: 1000;
+}
+
+._menu > div {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: auto;
+  width: 80%;
 }
 
 ._bar {
@@ -70,27 +71,27 @@
   margin-bottom: 14px;
 }
 
-._menu._open > ._bar:nth-child(1) {
+._menu._open ._bar:nth-child(1) {
   animation: top_open ease 0.7s forwards;
 }
 
-._menu._hide > ._bar:nth-child(1) {
+._menu._hide ._bar:nth-child(1) {
   animation: top_hide ease 0.7s forwards;
 }
 
-._menu._open > ._bar:nth-child(2) {
+._menu._open ._bar:nth-child(2) {
   animation: shrink ease 0.7s forwards;
 }
 
-._menu._hide > ._bar:nth-child(2) {
+._menu._hide ._bar:nth-child(2) {
   animation: expand ease 0.7s forwards;
 }
 
-._menu._open > ._bar:nth-child(3) {
+._menu._open ._bar:nth-child(3) {
   animation: bottom_open ease 0.7s forwards;
 }
 
-._menu._hide > ._bar:nth-child(3) {
+._menu._hide ._bar:nth-child(3) {
   animation: bottom_hide ease 0.7s forwards;
 }
 
