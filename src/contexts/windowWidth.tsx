@@ -1,10 +1,20 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 type Props = {
   children: JSX.Element;
 };
 
 const WindowWidth = createContext<number | undefined>(undefined);
+const SetWindowWidth = createContext<
+  Dispatch<SetStateAction<number | undefined>>
+>(() => {});
 
 const WindowWidthProvider = ({ children }: Props) => {
   const [width, setWidth] = useState<number>();
@@ -13,17 +23,15 @@ const WindowWidthProvider = ({ children }: Props) => {
     setWidth(window.innerWidth);
   }, []);
 
-  useEffect(() => {
-    window.onresize = () => {
-      if (window.innerWidth !== width) {
-        setWidth(undefined);
-        setWidth(window.innerWidth);
-      }
-    };
-  }, [width]);
-
-  return <WindowWidth.Provider value={width}>{children}</WindowWidth.Provider>;
+  return (
+    <WindowWidth.Provider value={width}>
+      <SetWindowWidth.Provider value={setWidth}>
+        {children}
+      </SetWindowWidth.Provider>
+    </WindowWidth.Provider>
+  );
 };
 
 export const useWindowWidth = () => useContext(WindowWidth);
+export const useSetWindowWidth = () => useContext(SetWindowWidth);
 export default WindowWidthProvider;

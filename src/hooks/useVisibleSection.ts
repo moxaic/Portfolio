@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 type CurrentSection = {
   id: string;
@@ -6,14 +6,13 @@ type CurrentSection = {
 };
 
 const useVisibleSection = (elems: HTMLElement[]) => {
-  const [activeSection, setActiveSection] = useState<string>();
   const currentSection = useRef({} as CurrentSection);
 
   useEffect(() => {
     const setCurrentSection = (id: string, intersectionRatio: number) => {
       currentSection.current.id = id;
       currentSection.current.intersectionRatio = intersectionRatio;
-      setActiveSection(id);
+      sessionStorage.setItem("activeSection", id);
     };
 
     const getActiveSection = (entries: IntersectionObserverEntry[]) => {
@@ -42,13 +41,11 @@ const useVisibleSection = (elems: HTMLElement[]) => {
     const observer = new IntersectionObserver(getActiveSection, {
       root: null,
       rootMargin: "0px",
-      threshold: [0, 0.1, 0.2],
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6],
     });
 
     elems.forEach((elem) => observer.observe(elem));
   }, [elems]);
-
-  return activeSection;
 };
 
 export default useVisibleSection;

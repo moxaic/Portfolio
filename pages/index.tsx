@@ -2,32 +2,48 @@ import { useEffect, useRef } from "react";
 import Head from "next/head";
 import type { NextPage } from "next";
 
-import { useWindowWidth } from "@/contexts";
+import { useSetWindowWidth, useWindowWidth } from "@/contexts";
 import { HomeScreen, LoadingScreen } from "@/screens";
 import { debounce } from "@/utils/debounce";
 
 const Home: NextPage = () => {
   const width = useWindowWidth();
+  const setWidth = useSetWindowWidth();
   const loader = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const loaderCur = loader && loader.current;
+    window.onload = () => loader.current?.classList.add("hide");
+    window.addEventListener("beforeunload", () =>
+      ["activeSection", "name", "email", "msg"].forEach((key) =>
+        sessionStorage.removeItem(key)
+      )
+    );
+  }, []);
+
+  useEffect(() => {
     const hideLoader = () => {
+      setWidth(undefined);
+      setWidth(window.innerWidth);
       loaderCur?.classList.remove("resizing");
       loaderCur?.classList.add("hide");
     };
+
     const showLoader = () => {
-      if (loaderCur) {
-        loaderCur.style.height = window.innerHeight + "px";
-        loaderCur.style.width = window.innerWidth + "px";
-      }
       loaderCur?.classList.remove("hide");
       loaderCur?.classList.add("resizing");
     };
-    const resizeHandler = debounce(hideLoader, 1000, showLoader);
-    window.onload = hideLoader;
-    window.onresize = resizeHandler;
-  }, []);
+
+    const loaderCur = loader && loader.current;
+    const onResizeHandler = debounce(hideLoader, 500, showLoader);
+    const checkWidthChange = () => {
+      if (width !== window.innerWidth) {
+        onResizeHandler();
+      }
+    };
+
+    window.addEventListener("resize", checkWidthChange);
+    return () => window.removeEventListener("resize", checkWidthChange);
+  }, [width, setWidth]);
 
   return (
     <>

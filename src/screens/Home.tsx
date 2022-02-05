@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { Logo, Section } from "@/components";
+import { Section } from "@/components";
 import {
   AboutMe,
   ContactMe,
@@ -28,14 +28,27 @@ const HomeScreen = () => {
       let distanceFromBottom: number;
       let touchStart: number;
 
+      const openFooter = () => {
+        const preventDefault = (e: WheelEvent | TouchEvent) => {
+          e.preventDefault();
+        };
+        window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+        mainCur.addEventListener("wheel", preventDefault);
+        mainCur.addEventListener("touchmove", preventDefault);
+        setTimeout(() => {
+          mainCur.removeEventListener("wheel", preventDefault);
+          mainCur.removeEventListener("touchmove", preventDefault);
+        }, 700);
+      };
+
       const touchStartHandler = (e: TouchEvent) => {
         touchStart = e.changedTouches[0].pageY;
       };
 
       const touchEndHandler = (e: TouchEvent) => {
         const touchEnd = e.changedTouches[0].pageY;
-        if (touchEnd - touchStart < 0) {
-          window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+        if (touchEnd - touchStart < 0 && distanceFromBottom < 10) {
+          openFooter();
         }
       };
 
@@ -49,7 +62,7 @@ const HomeScreen = () => {
 
       const onWheelHandler = ({ deltaY }: WheelEvent) => {
         if (deltaY > 0 && distanceFromBottom < 10) {
-          window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+          openFooter();
         }
       };
 
@@ -68,7 +81,6 @@ const HomeScreen = () => {
 
   return (
     <>
-      <Logo />
       <Navbar {...{ sectionsRef }} />
       <main ref={mainRef}>
         {Sections.map(({ title, Module }, i) => {

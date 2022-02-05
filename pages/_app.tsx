@@ -1,14 +1,14 @@
 import type { AppProps } from "next/app";
 
 import { WindowWidthProvider } from "@/contexts";
-import { LoadingScreen } from "@/screens";
 import "../src/styles/globals.css";
+import { Logo } from "src/components";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WindowWidthProvider>
       <>
-        {/* <LoadingScreen /> */}
+        <Logo />
         <Component {...pageProps} />
       </>
     </WindowWidthProvider>

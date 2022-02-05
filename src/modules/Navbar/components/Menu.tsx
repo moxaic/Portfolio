@@ -1,6 +1,5 @@
 import { forwardRef, ForwardedRef } from "react";
 
-import HamMenu from "@/images/menu.svg";
 import styles from "../navbar.module.css";
 
 type Props = {
@@ -10,8 +9,14 @@ type Props = {
 const Menu = forwardRef(
   ({ onClickHandler }: Props, ref: ForwardedRef<HTMLButtonElement>) => {
     return (
-      <button className={styles._menu} onClick={onClickHandler} ref={ref}>
-        <HamMenu />
+      <button
+        className={`${styles._menu} ${styles._hide}`}
+        onClick={onClickHandler}
+        ref={ref}
+      >
+        <span className={styles._bar}></span>
+        <span className={styles._bar}></span>
+        <span className={styles._bar}></span>
       </button>
     );
   }

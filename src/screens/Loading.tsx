@@ -23,7 +23,7 @@ const Loading = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
           justify-content: center;
           left: 0;
           position: fixed;
-          transition: all 2s ease-in;
+          transition: transform 2s ease-in;
           width: 100vw;
           z-index: 1000;
         }
@@ -33,7 +33,7 @@ const Loading = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
         }
 
         .loading.resizing {
-          transition: all 200ms ease-out;
+          transition: transform 200ms ease-out;
         }
 
         .loader {

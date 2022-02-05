@@ -1,8 +1,14 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import {
+  MutableRefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { useVisibleSection } from "@/hooks";
-import Menu from "./components/Menu";
 import Link from "./components/Link";
+import Menu from "./components/Menu";
 import styles from "./navbar.module.css";
 
 type Props = {
@@ -10,38 +16,49 @@ type Props = {
 };
 
 const Navbar = ({ sectionsRef }: Props) => {
+  const [links, setLinks] = useState<string[]>();
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLButtonElement>(null);
-  const visibleSection = useVisibleSection(sectionsRef.current);
 
   useEffect(() => {
-    if (navRef && navRef.current) {
-      navRef.current.style.height = `${window.innerHeight}px`;
-    }
-  }, []);
+    setLinks(sectionsRef.current.map(({ id }) => id));
+  }, [sectionsRef]);
 
-  const scrollToSection = (id: string) => {
-    const sectionToScroll = sectionsRef.current.findIndex(
-      (elem) => elem.id === id
-    );
-    sectionsRef.current[sectionToScroll].scrollIntoView();
-  };
+  const scrollToSection = useCallback(
+    (id: string) => {
+      const sectionToScroll = sectionsRef.current.findIndex(
+        (elem) => elem.id === id
+      );
+      sectionsRef.current[sectionToScroll].scrollIntoView();
+    },
+    [sectionsRef]
+  );
 
   const onClickHandler = () => {
-    menuRef.current?.classList.toggle(styles._open);
     navRef.current?.classList.toggle(styles._open);
+    menuRef.current?.classList.toggle(styles._open);
+    menuRef.current?.classList.toggle(styles._hide);
   };
+
+  useEffect(() => {
+    const activeSection = sessionStorage.getItem("activeSection");
+    if (activeSection) {
+      scrollToSection(activeSection);
+    }
+  }, [scrollToSection]);
+
+  useVisibleSection(sectionsRef.current);
 
   return (
     <>
       <nav className={styles._nav} ref={navRef}>
         <ul className={styles._nav_links}>
-          {sectionsRef.current.map(({ id: text }) => (
+          {links?.map((link) => (
             <Link
-              key={text}
-              isActive={visibleSection === text}
+              key={link}
               menuOnClickHandler={onClickHandler}
-              {...{ scrollToSection, text }}
+              text={link}
+              {...{ scrollToSection }}
             />
           ))}
         </ul>

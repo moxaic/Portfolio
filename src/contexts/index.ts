@@ -1,1 +1,5 @@
-export { default as WindowWidthProvider, useWindowWidth } from "./windowWidth";
+export {
+  default as WindowWidthProvider,
+  useWindowWidth,
+  useSetWindowWidth,
+} from "./windowWidth";

@@ -52,6 +52,7 @@
   ._left_col {
     margin: auto;
     margin-bottom: 0;
+    max-width: 100%;
   }
 
   ._cta {
