@@ -1,4 +1,4 @@
-const getSectionId = (sectionName: string) => {
+export const getSectionId = (sectionName: string) => {
   const arr = sectionName.split(" ");
   const arrLen = arr.length;
   let id = arr[0].toLowerCase();
@@ -11,5 +11,3 @@ const getSectionId = (sectionName: string) => {
   }
   return id;
 };
-
-export default getSectionId;

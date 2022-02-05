@@ -348,7 +348,7 @@ footer::after {
 :root {
   --color-primary: #fff;
   --color-background: #13161f;
-  --color-text: rgb(170, 170, 170);
+  --color-text: rgba(255, 255, 255, 0.6);
   --color-ascent: purple;
   --color-warning: red;
   --font-size: 16px;

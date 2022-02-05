@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 
 import { useCssValues } from "@/hooks";
-import convertRemToPx from "@/utils/convertRemToPx";
-import getNumValue from "@/utils/getNumValue";
+import { convertRemToPx } from "@/utils/convertRemToPx";
+import { getNumValue } from "@/utils/getNumValue";
 
 type Props = { children: string; moduleClass?: string; quoteBy?: string };
 

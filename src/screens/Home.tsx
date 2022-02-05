@@ -9,7 +9,7 @@ import {
   MyHobbies,
   Navbar,
 } from "@/modules";
-import getSectionId from "@/utils/getSectionId";
+import { getSectionId } from "@/utils/getSectionId";
 
 const Sections = [
   { title: "Home", Module: HeroArea },
@@ -26,8 +26,20 @@ const HomeScreen = () => {
     const mainCur = mainRef && mainRef.current;
     if (mainCur) {
       let distanceFromBottom: number;
+      let touchStart: number;
 
-      const onScrollHandler = (_: Event) => {
+      const touchStartHandler = (e: TouchEvent) => {
+        touchStart = e.changedTouches[0].pageY;
+      };
+
+      const touchEndHandler = (e: TouchEvent) => {
+        const touchEnd = e.changedTouches[0].pageY;
+        if (touchEnd - touchStart < 0) {
+          window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+        }
+      };
+
+      const onScrollHandler = () => {
         distanceFromBottom = Math.abs(
           mainCur.scrollHeight -
             Math.abs(mainCur.scrollTop) -
@@ -41,9 +53,13 @@ const HomeScreen = () => {
         }
       };
 
+      mainCur.addEventListener("touchstart", touchStartHandler);
+      mainCur.addEventListener("touchend", touchEndHandler);
       mainCur.addEventListener("wheel", onWheelHandler);
       mainCur.addEventListener("scroll", onScrollHandler);
       return () => {
+        mainCur.removeEventListener("touchstart", touchStartHandler);
+        mainCur.removeEventListener("touchend", touchEndHandler);
         mainCur.removeEventListener("scroll", onScrollHandler);
         mainCur.removeEventListener("wheel", onWheelHandler);
       };

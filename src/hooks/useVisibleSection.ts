@@ -6,7 +6,7 @@ type CurrentSection = {
 };
 
 const useVisibleSection = (elems: HTMLElement[]) => {
-  const [acticeSection, setActiveSection] = useState<string>();
+  const [activeSection, setActiveSection] = useState<string>();
   const currentSection = useRef({} as CurrentSection);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const useVisibleSection = (elems: HTMLElement[]) => {
       setActiveSection(id);
     };
 
-    const getActiceSection = (entries: IntersectionObserverEntry[]) => {
+    const getActiveSection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(
         ({ isIntersecting, intersectionRatio, target: { id } }) => {
           if (isIntersecting) {
@@ -39,19 +39,16 @@ const useVisibleSection = (elems: HTMLElement[]) => {
       );
     };
 
-    const observer = new IntersectionObserver(getActiceSection, {
+    const observer = new IntersectionObserver(getActiveSection, {
       root: null,
       rootMargin: "0px",
       threshold: [0, 0.1, 0.2],
     });
 
     elems.forEach((elem) => observer.observe(elem));
-    return () =>
-      elems &&
-      elems.forEach((elem) => observer && observer.unobserve(elem as Element));
   }, [elems]);
 
-  return acticeSection;
+  return activeSection;
 };
 
 export default useVisibleSection;

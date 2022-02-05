@@ -32,6 +32,10 @@ const Loading = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
           transform: translateX(110%);
         }
 
+        .loading.resizing {
+          transition: all 200ms ease-out;
+        }
+
         .loader {
           border-top: 2px solid white;
           display: flex;

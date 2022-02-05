@@ -13,6 +13,15 @@ const WindowWidthProvider = ({ children }: Props) => {
     setWidth(window.innerWidth);
   }, []);
 
+  useEffect(() => {
+    window.onresize = () => {
+      if (window.innerWidth !== width) {
+        setWidth(undefined);
+        setWidth(window.innerWidth);
+      }
+    };
+  }, [width]);
+
   return <WindowWidth.Provider value={width}>{children}</WindowWidth.Provider>;
 };
 

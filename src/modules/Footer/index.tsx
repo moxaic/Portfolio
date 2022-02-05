@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 
 import fingerPng from "@/images/finger.png";
+import LogoSvg from "@/images/logo.svg";
 import { Image } from "@/components";
 import { useWindowWidth } from "@/contexts";
 import { BREAKPOINT } from "@/utils/constants";
@@ -31,7 +32,7 @@ const Footer = () => {
         const touchEnd = e.changedTouches[0].pageY;
         e.preventDefault();
         if (touchEnd - touchStart > 0) {
-          scrollTo({ top: 0, behavior: "smooth" });
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
       };
 
@@ -88,16 +89,7 @@ const Footer = () => {
         )}
         <div className={styles._fill_space}>
           <div>
-            {[
-              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-              20,
-            ].map((_, i) => (
-              <div
-                key={i}
-                className={styles._test}
-                style={{ transform: `translateZ(${i * 20}px)` }}
-              />
-            ))}
+            <LogoSvg />
           </div>
         </div>
         <ul className={styles._social_links}>
