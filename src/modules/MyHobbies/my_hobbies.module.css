@@ -40,7 +40,8 @@
   font-family: "Josefin Slab";
   font-size: var(--font-size-button);
   font-weight: 700;
-  margin: 0 auto var(--translate);
+  letter-spacing: 0.07em;
+  margin: 1rem auto var(--translate);
   padding: 0.5em 1.2em;
   position: relative;
   transition: 200ms all ease;

@@ -373,6 +373,10 @@ body::-webkit-scrollbar {
   transform-style: preserve-3d;
 }
 
+img {
+  display: none !important;
+}
+
 html,
 body {
   background-color: var(--color-background);
@@ -419,7 +423,7 @@ h2 {
   font-size: var(--font-size-h2);
 }
 
-p:not(.loading_text) {
+p {
   backdrop-filter: blur(12px);
   color: var(--color-text);
   font-family: "Open Sans";
@@ -564,7 +568,11 @@ footer {
   :root {
     --font-size-h1: 4.5rem;
     --font-size-h2: 4rem;
-    --font-size-canvas: 3.5rem;
+    --font-size-text: 1.2rem;
+  }
+
+  p {
+    line-height: 2;
   }
 
   .stroke_text {

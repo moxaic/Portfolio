@@ -2,6 +2,10 @@
   padding-bottom: 4rem;
 }
 
+._left_col > div:first-child {
+  margin-bottom: 2rem;
+}
+
 ._face {
   --width: 5rem;
   height: calc(var(--width) * 3 / 2);

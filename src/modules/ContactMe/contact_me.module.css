@@ -46,7 +46,7 @@
 }
 
 ._form {
-  width: 70%;
+  width: 75%;
 }
 
 ._input_group {
@@ -95,23 +95,12 @@
 }
 
 ._input[type="email"]:invalid:not(._input[value=""]) {
-  border-bottom: 2px solid red;
-}
-
-._input[type="email"]:invalid:not(._input[value=""]) ~ label::after {
-  backdrop-filter: blur(8px);
-  background-color: rgba(255, 0, 0, 0.3);
-  color: pink;
-  content: "Please enter a valid email";
-  padding: 10px;
-  position: relative;
-  left: 100%;
+  border-bottom: 2px solid purple;
 }
 
 ._bar {
   display: block;
   position: relative;
-  width: 100%;
 }
 
 ._bar::before,
@@ -120,7 +109,6 @@
   bottom: 0;
   content: "";
   height: 2px;
-  left: 50%;
   position: absolute;
   transition: 0.2s ease all;
   width: 0;
@@ -128,8 +116,11 @@
 }
 
 ._bar::before {
-  left: unset;
   right: 50%;
+}
+
+._bar::after {
+  left: 50%;
 }
 
 ._input:focus ~ ._bar::before,
@@ -149,7 +140,7 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   overflow: hidden;
-  padding: 0.9em 3em;
+  padding: 0.7em 2.5em;
   text-transform: uppercase;
 }
 
@@ -184,6 +175,10 @@
 }
 
 @media only screen and (min-width: 1000px) {
+  ._form {
+    width: 70%;
+  }
+
   ._ice_cream {
     --width: 7rem;
     left: 2rem;

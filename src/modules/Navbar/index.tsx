@@ -26,10 +26,12 @@ const Navbar = ({ sectionsRef }: Props) => {
 
   const scrollToSection = useCallback(
     (id: string) => {
-      const sectionToScroll = sectionsRef.current.findIndex(
-        (elem) => elem.id === id
-      );
-      sectionsRef.current[sectionToScroll].scrollIntoView();
+      if (sectionsRef && sectionsRef.current) {
+        const sectionToScroll = sectionsRef.current.findIndex(
+          (elem) => elem.id === id
+        );
+        sectionsRef.current[sectionToScroll].scrollIntoView();
+      }
     },
     [sectionsRef]
   );
