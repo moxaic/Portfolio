@@ -12,12 +12,14 @@ const Home: NextPage = () => {
   const loader = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.onload = () => loader.current?.classList.add("hide");
+    const hideLoader = () => loader.current?.classList.add("hide");
+    window.onload = hideLoader;
     window.addEventListener("beforeunload", () =>
       ["activeSection", "name", "email", "msg"].forEach((key) =>
         sessionStorage.removeItem(key)
       )
     );
+    setTimeout(hideLoader, 5000);
   }, []);
 
   useEffect(() => {

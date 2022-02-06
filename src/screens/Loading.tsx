@@ -37,35 +37,45 @@ const Loading = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
         }
 
         .loader {
-          border-top: 2px solid white;
+          --duration: 2s;
+          --rope-length: clamp(80px, 20vw, 150px);
+          --rotation: 60deg;
+          --rotation-small: 2deg;
+          --size: clamp(2rem, 10vw, 4rem);
           display: flex;
+          margin: var(--rope-length) 0;
+        }
+
+        .loader::before {
+          background-color: var(--color-primary);
+          content: "";
+          height: 0.27rem;
+          position: absolute;
+          transform: translateY(-50%);
+          width: 100%;
         }
 
         .balls {
-          --duration: 2s;
-          --rope-length: 100px;
-          --rotation: 60deg;
-          --rotation-small: 2deg;
           animation-duration: var(--duration);
           animation-iteration-count: infinite;
           background-color: mediumaquamarine;
           border-radius: 999px;
           position: relative;
-          height: 4rem;
+          height: var(--size);
           top: var(--rope-length);
           transform-origin: center calc(-1 * var(--rope-length));
-          width: 4rem;
+          width: var(--size);
         }
 
         .balls::before {
-          background: white;
+          background: var(--color-primary);
           display: inline-block;
           content: "";
           height: var(--rope-length);
           left: 50%;
           position: absolute;
           transform: translateX(-50%);
-          top: -100px;
+          top: calc(-1 * var(--rope-length));
           width: 2px;
         }
 
@@ -103,6 +113,7 @@ const Loading = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
 
         .loading_text {
           animation: 2s enlarge_text infinite ease-in-out alternate;
+          backdrop-filter: blur(0);
           color: var(--color-text);
           font-family: sans-serif;
           font-size: min(15vw, 4rem);
@@ -190,9 +201,23 @@ const Loading = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
           }
           100% {
             transform: translateY(15px) scale(1.2);
-            text-shadow: -1px 0 white, 1px 0 white, -2px -2px white,
-              2px -2px white, -2px -4px white, 2px -4px white, -1px -6px white,
-              1px -6px white, 0 -8px white;
+            text-shadow: -1px 0 var(--color-primary), 1px 0 var(--color-primary),
+              -2px -2px var(--color-primary), 2px -2px var(--color-primary),
+              -2px -4px var(--color-primary), 2px -4px var(--color-primary),
+              -1px -6px var(--color-primary), 1px -6px var(--color-primary),
+              0 -8px var(--color-primary);
+          }
+        }
+
+        @media only screen and (max-width: 349px) {
+          .loader {
+            display: none;
+          }
+        }
+
+        @media only screen and (orientation: landscape) and (max-height: 450px) {
+          .loader {
+            display: none;
           }
         }
       `}</style>

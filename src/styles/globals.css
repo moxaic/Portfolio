@@ -369,6 +369,26 @@ footer::after {
   transform-style: preserve-3d;
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: purple;
+}
+
+::-webkit-scrollbar-track-piece:hover {
+  background: red;
+}
+
 /* img {
   display: none !important;
 } */
@@ -450,6 +470,8 @@ main {
   perspective: var(--perspective);
   perspective-origin: bottom right;
   scroll-behavior: smooth;
+  scrollbar-color: var(--color-background) var(--color-primary);
+  scrollbar-width: thin;
 }
 
 section {
