@@ -27,7 +27,7 @@ const HeroArea = () => {
   return (
     <>
       <Grid>
-        {width! < BREAKPOINT.TAB
+        {width! < BREAKPOINT.TAB_LARGE
           ? [<Intro key="hero_area_single_col" ref={rightCol} />]
           : [
               <div

@@ -14,10 +14,6 @@
   width: calc(100% - 12ch);
 }
 
-._short_desc {
-  text-align: center;
-}
-
 @media only screen and (max-width: 349px) {
   ._intro_text {
     text-align: center;
@@ -34,25 +30,19 @@
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1000px) {
+  ._left_col {
+    margin: auto;
+    margin-bottom: var(--font-size-text);
+    max-width: 100%;
+  }
+
   ._intro_text {
     text-align: left;
   }
 
   ._intro_text::before {
     display: none;
-  }
-
-  ._short_desc {
-    text-align: justify;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  ._left_col {
-    margin: auto;
-    margin-bottom: 0;
-    max-width: 100%;
   }
 
   ._cta {

@@ -348,7 +348,7 @@ footer::after {
 :root {
   --color-primary: #fff;
   --color-background: #13161f;
-  --color-text: rgba(255, 255, 255, 0.6);
+  --color-text: rgb(179, 179, 179);
   --color-ascent: purple;
   --color-warning: red;
   --font-size: 16px;
@@ -358,12 +358,8 @@ footer::after {
   --font-size-text: 1.1rem;
   --font-size-link: 1.2rem;
   --font-size-button: 1.2rem;
-  --padding-horizontal: clamp(1rem, 5%, 6.5rem);
+  --padding-horizontal: clamp(1rem, 7%, 2.5rem);
   --perspective: 100px;
-}
-
-body::-webkit-scrollbar {
-  display: none;
 }
 
 *,
@@ -373,9 +369,9 @@ body::-webkit-scrollbar {
   transform-style: preserve-3d;
 }
 
-img {
+/* img {
   display: none !important;
-}
+} */
 
 html,
 body {
@@ -479,7 +475,7 @@ section:nth-child(odd) h2 {
 }
 
 section:nth-child(1) > .grid {
-  padding-top: 1.4rem;
+  padding-top: 3rem;
 }
 
 .parallax_elem > div {
@@ -488,7 +484,7 @@ section:nth-child(1) > .grid {
 }
 
 .stroke_text {
-  --font-size-canvas: 2.5rem;
+  --font-size-canvas: 2.8rem;
   --line-height-canvas: 1.4;
   --text-align-canvas: center;
   position: absolute;
@@ -507,33 +503,38 @@ footer {
 }
 
 @media only screen and (min-width: 500px) {
+  :root {
+    --padding-horizontal: clamp(2.5rem, 10%, 6rem);
+  }
+
   .stroke_text[data-is-quote="true"] {
-    align-items: flex-end;
+    align-items: center;
     display: flex;
     flex-direction: column;
     font-size: 2rem;
-    justify-content: space-between;
-    min-height: calc(var(--font-size-canvas) + 2em);
     padding: 0 1.9em;
   }
 
   .stroke_text[data-is-quote="true"]::before,
   .stroke_text[data-is-quote="true"]::after {
     font-size: 7em;
-    height: 100%;
     position: absolute;
-    top: -0.45em;
   }
 
   .stroke_text[data-is-quote="true"]::before {
     content: open-quote;
     left: 0;
+    top: -0.45em;
   }
 
   .stroke_text[data-is-quote="true"]::after {
+    bottom: -0.45em;
     content: close-quote;
-    right: 15px;
-    transform: translateY(70%);
+    right: 1rem;
+  }
+
+  .stroke_text[data-is-quote="true"] > div {
+    margin-top: 0.5em;
   }
 
   .stroke_text[data-is-quote="true"] > div::before {
@@ -542,6 +543,16 @@ footer {
 }
 
 @media only screen and (min-width: 800px) {
+  :root {
+    --padding-horizontal: clamp(6rem, 15%, 10rem);
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  :root {
+    --padding-horizontal: clamp(1rem, 2%, 2rem);
+  }
+
   section:nth-child(odd) h2 {
     padding-left: 50%;
     text-align: left;
@@ -561,6 +572,22 @@ footer {
 
   .stroke_text {
     --text-align-canvas: start;
+  }
+
+  .stroke_text[data-is-quote="true"] {
+    align-items: flex-end;
+    justify-content: space-between;
+    min-height: calc(var(--font-size-canvas) + 2em);
+  }
+
+  .stroke_text[data-is-quote="true"] > div {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  :root {
+    --padding-horizontal: clamp(2rem, 5%, 6rem);
   }
 }
 

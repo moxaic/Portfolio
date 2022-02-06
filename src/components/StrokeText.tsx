@@ -6,37 +6,43 @@ import { getNumValue } from "@/utils/getNumValue";
 
 type Props = { children: string; moduleClass?: string; quoteBy?: string };
 
+const strokeTextCssProps = [
+  "--font-size-canvas",
+  "--line-height-canvas",
+  "--text-align-canvas",
+  "padding-left",
+];
+
 const cssProps = {
   body: ["font-size"],
   ":root": ["--color-primary"],
   section: ["padding-left"],
-  ".stroke_text[data-is-quote='true'": [
-    "--font-size-canvas",
-    "--line-height-canvas",
-    "--text-align-canvas",
-    "padding-left",
-  ],
+  ".stroke_text[data-is-quote='true']": strokeTextCssProps,
+  ".stroke_text": strokeTextCssProps,
 };
 
 const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
   const parent = useRef<HTMLDivElement>(null);
   const child = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
-  const [body, root, section, self] = useCssValues(cssProps);
+  const [body, root, section, isQuoteCss, notQuoteCss] = useCssValues(cssProps);
   const defaultClass = "stroke_text font_tangerine";
   const className =
     moduleClass === undefined ? defaultClass : `${defaultClass} ${moduleClass}`;
 
   useEffect(() => {
-    if (root && body && section && self) {
+    if (root && body && section && (isQuoteCss || notQuoteCss)) {
       const [color] = root;
       const [rem] = body;
       const [paddingCtn] = section;
-      const [fontSizeRem, lineHeightStr, textAlign, padding] = self;
+      const [fontSizeRem, lineHeightStr, textAlignCss, padding] = (
+        quoteBy ? isQuoteCss : notQuoteCss
+      ) as string[];
       const padCtn = getNumValue(paddingCtn, "px");
       const pad = quoteBy ? getNumValue(padding, "px") : 0;
       const fontSize = getNumValue(convertRemToPx(fontSizeRem, rem), "px");
       const lineHeight = Number(lineHeightStr);
+      const textAlign = textAlignCss.trim().toLowerCase();
       const canvasCur = canvas && canvas.current;
       const canvasCtx = canvasCur && canvasCur.getContext("2d");
       const fontWeight = 700;
@@ -119,7 +125,7 @@ const StrokeText = ({ children, moduleClass, quoteBy }: Props) => {
 
       document.fonts.ready.then(drawCanvas);
     }
-  }, [body, children, quoteBy, root, section, self]);
+  }, [body, children, quoteBy, root, section, isQuoteCss, notQuoteCss]);
 
   return (
     <div ref={parent}>
