@@ -32,7 +32,9 @@ const AboutMe = () => {
             </ParallaxElem>
           </div>,
           <div className={styles._right_col} key="about-me-right-col">
-            <CreatorSvg className={styles._my_img} />
+            <ParallaxElem translateZ={-10}>
+              <CreatorSvg className={styles._my_img} />
+            </ParallaxElem>
           </div>,
         ]}
       </Grid>

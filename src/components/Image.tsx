@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Image = (props: Props) => {
-  return <NextImage layout="responsive" priority={true} {...{ ...props }} />;
+  return <NextImage layout="responsive" {...{ ...props }} />;
 };
 
 export default Image;

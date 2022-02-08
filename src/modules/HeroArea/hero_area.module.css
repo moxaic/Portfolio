@@ -47,11 +47,11 @@
 
   ._cta {
     --width: 40%;
+    bottom: 0;
     height: var(--width);
     position: absolute;
-    right: 9.5rem;
-    top: 40rem;
-    transform: rotateX(180deg) rotateY(180deg);
+    right: 12%;
+    transform: rotateX(180deg) rotateY(180deg) translateY(-65%);
     width: var(--width);
   }
 }

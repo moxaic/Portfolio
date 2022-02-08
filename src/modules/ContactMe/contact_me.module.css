@@ -151,6 +151,11 @@
   text-transform: uppercase;
 }
 
+._send_button::after {
+  background-image: url("/images/smilee.png");
+  content: "";
+}
+
 ._message_img {
   --width: 5rem;
   position: absolute;
@@ -183,8 +188,8 @@
   }
 
   ._ice_cream {
-    --width: 7rem;
-    left: 2rem;
+    --width: 5rem;
+    left: 0;
     position: absolute;
     transform: rotate(15deg);
     top: 20rem;

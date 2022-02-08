@@ -22,15 +22,42 @@
     flex-direction: column;
     justify-content: flex-end;
   }
+
+  ._right_col {
+    display: grid;
+    place-items: center;
+  }
+
+  ._right_col::before,
+  ._right_col::after {
+    background-color: var(--color-text);
+    content: "";
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    width: 3px;
+  }
+
+  ._right_col::before {
+    left: 0;
+  }
+
+  ._right_col::after {
+    right: 0;
+  }
+
+  ._right_col > div {
+    width: 60%;
+  }
 }
 
 @media only screen and (min-width: 1000px) {
   ._face {
-    --width: 6rem;
+    --width: 5rem;
     height: calc(var(--width) * 3 / 2);
-    left: 2%;
+    left: 1%;
     position: absolute;
-    top: 30%;
+    top: 25%;
     transform: scaleX(1);
     width: var(--width);
   }
@@ -39,22 +66,22 @@
     --width: 7rem;
     bottom: -2%;
     height: calc(3 / 2 * var(--width));
-    right: 5%;
+    right: 1%;
     position: absolute;
     width: var(--width);
   }
 
   ._ice_crystal {
-    --width: 9.5rem;
+    --width: 8rem;
     bottom: 4rem;
     height: var(--width);
-    left: 21%;
+    left: 50%;
     position: absolute;
     width: var(--width);
   }
 
   ._question {
-    --width: 8rem;
+    --width: 7rem;
     height: calc(var(--width) * 3 / 2);
     left: 44%;
     position: absolute;

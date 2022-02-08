@@ -15,6 +15,9 @@ type Props = {
 
 const CardInfo = ({ cta, ctaText, decoImg, quote, quoteBy, text }: Props) => {
   const width = useWindowWidth();
+  const displayDecoImg =
+    width! > BREAKPOINT.LAPTOP_SMALL ||
+    (width! > BREAKPOINT.TAB && width! < BREAKPOINT.TAB_LARGE);
 
   return (
     <div className={styles._card_info}>
@@ -29,7 +32,7 @@ const CardInfo = ({ cta, ctaText, decoImg, quote, quoteBy, text }: Props) => {
       <ParallaxElem moduleClass={styles._button_ctn} translateZ={2}>
         <CardCta {...{ cta, ctaText }} />
       </ParallaxElem>
-      {width! > BREAKPOINT.TAB_LARGE && (
+      {displayDecoImg && (
         <div className={styles._deco_img}>
           <ParallaxElem translateZ={-15}>
             <Image alt="" src={decoImg} />

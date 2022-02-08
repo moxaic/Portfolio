@@ -19,6 +19,7 @@ const Home: NextPage = () => {
         sessionStorage.removeItem(key)
       )
     );
+    history.scrollRestoration = "manual";
     setTimeout(hideLoader, 5000);
   }, []);
 

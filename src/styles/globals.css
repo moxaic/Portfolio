@@ -389,10 +389,6 @@ footer::after {
   background: red;
 }
 
-/* img {
-  display: none !important;
-} */
-
 html,
 body {
   background-color: var(--color-background);
@@ -470,6 +466,7 @@ main {
   perspective: var(--perspective);
   perspective-origin: bottom right;
   scroll-behavior: smooth;
+  /* scrollbar-color: var(--color-primary) var(--color-background); */
   scrollbar-color: var(--color-background) var(--color-primary);
   scrollbar-width: thin;
 }
@@ -498,6 +495,11 @@ section:nth-child(odd) h2 {
 
 section:nth-child(1) > .grid {
   padding-top: 3rem;
+}
+
+.parallax_elem,
+.parallax_elem > div {
+  z-index: -100;
 }
 
 .parallax_elem > div {
@@ -622,6 +624,10 @@ footer {
 
   p {
     line-height: 2;
+  }
+
+  section:not(:last-child) {
+    margin-bottom: 14rem;
   }
 
   .stroke_text {

@@ -27,9 +27,7 @@ const ContactMe = () => {
               your feedback, or you could just let me know you favourite anime.
             </p>
           </div>,
-          <ParallaxElem key="contact-me-right-col" translateZ={-15}>
-            <Form />
-          </ParallaxElem>,
+          <Form key="contact-me-right-col" />,
         ]}
       </Grid>
       <ParallaxElem translateZ={15} moduleClass={styles._message_img}>

@@ -13,31 +13,47 @@ const Footer = () => {
   const width = useWindowWidth();
   const fingerRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
+  const prevRatio = useRef(0);
 
   useEffect(() => {
     const fingerCur = fingerRef && fingerRef.current;
     const footerCur = footerRef && footerRef.current;
 
     if (footerCur) {
+      // footerCur.style.height = window.innerHeight + "px";
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const [{ intersectionRatio }] = entries;
+          if (intersectionRatio <= prevRatio.current) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          } else {
+            window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+          }
+          prevRatio.current = intersectionRatio;
+        },
+        {
+          threshold: [0, 0.1, 0.8, 0.9],
+        }
+      );
       const magicNum = 18;
       const magicNumOver90 = 30;
       let touchStart: number;
 
+      observer.observe(footerCur);
+
       const touchStartHandler = (e: TouchEvent) => {
         touchStart = e.changedTouches[0].pageY;
-        e.preventDefault();
       };
 
       const touchEndHandler = (e: TouchEvent) => {
         const touchEnd = e.changedTouches[0].pageY;
-        e.preventDefault();
         if (touchEnd - touchStart > 0) {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       };
 
       const onWheelHandler = (e: WheelEvent) => {
-        e.preventDefault();
         if (e.deltaY < 0) {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -51,7 +67,7 @@ const Footer = () => {
         translate = (160 / 180) * (rotationDeg + magicNum);
         if (rotationDeg + magicNum < 90) {
           rotate = `${rotationDeg + magicNum}deg`;
-          fingerCur!.style.transform = `rotate(${rotate}) translate(${-translate}px)`;
+          fingerCur!.style.transform = `rotate(${rotate}) translateX(${-translate}px)`;
         } else {
           rotate = `${rotationDeg + magicNumOver90}deg`;
           fingerCur!.style.transform = `rotate(${rotate}) translate(${

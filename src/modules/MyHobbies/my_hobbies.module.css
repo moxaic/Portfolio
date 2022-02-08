@@ -18,10 +18,6 @@
   background: linear-gradient(#345953 0%, #9c9c9c 100%);
 }
 
-._card_img > div {
-  padding: 0 1rem;
-}
-
 ._card_img > div > div {
   transform: translateY(1rem);
 }
@@ -85,7 +81,30 @@
   width: var(--width);
 }
 
-@media only screen and (min-width: 1000px) {
+@media screen and (min-width: 500px) {
+  ._card_img > div {
+    padding: 0 5%;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+  ._deco_img {
+    --width: 6rem;
+    position: absolute;
+    top: 0;
+    width: var(--width);
+  }
+
+  ._card:nth-child(odd) ._deco_img {
+    left: calc(-1.2 * var(--padding-horizontal));
+  }
+
+  ._card:nth-child(even) ._deco_img {
+    right: calc(-1.2 * var(--padding-horizontal));
+  }
+}
+
+@media screen and (min-width: 1000px) {
   ._card {
     display: flex;
   }
@@ -156,26 +175,23 @@
   ._deco_img {
     --width: 6rem;
     position: absolute;
-    top: 2rem;
+    top: 0;
     width: var(--width);
   }
 
   ._card:nth-child(odd) ._deco_img {
-    right: -4rem;
+    right: calc(-1.5 * var(--padding-horizontal));
   }
 
   ._card:nth-child(even) ._deco_img {
-    left: -4rem;
+    left: calc(-1.8 * var(--padding-horizontal));
   }
 }
 
-@media only screen and (min-width: 1400px) {
-  ._card_img > div {
-    padding: 0 1.5rem;
-  }
-
+@media screen and (min-width: 1400px) {
   ._heart_sign {
-    --width: 6rem;
-    left: 10%;
+    --width: 7rem;
+    left: unset;
+    right: 60%;
   }
 }

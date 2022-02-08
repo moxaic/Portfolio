@@ -5,7 +5,7 @@ import styles from "../hero_area.module.css";
 const Intro = forwardRef((_, ref?: ForwardedRef<HTMLDivElement>) => {
   return (
     <div {...{ ref }}>
-      <ParallaxElem translateZ={-25}>
+      <ParallaxElem translateZ={-23}>
         <h1 className={styles._intro_text}>
           I&apos;m Aditya
           <br />
