@@ -55,7 +55,11 @@ const Home: NextPage = () => {
         <meta name="description" content="Portfolio of Aditya Srivastava" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg"></link>
         <link rel="preload" href="/images/frost.jpg" as="image" />
+        <link rel="preload" href="/images/hi.png" as="image" />
         <link rel="preload" href="/images/neon_c.jpg" as="image" />
+        <link rel="preload" href="/images/guitar.jpg" as="image" />
+        <link rel="preload" href="/images/laptop.jpg" as="image" />
+        <link rel="preload" href="/images/creator.svg" as="image" />
       </Head>
       <LoadingScreen ref={loader} />
       {width !== undefined && <HomeScreen />}

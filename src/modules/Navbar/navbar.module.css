@@ -15,6 +15,7 @@
 }
 
 ._nav_links {
+  align-items: center;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -23,22 +24,28 @@
 
 ._link,
 ._active {
+  display: inline-block;
   letter-spacing: 0.1rem;
-  text-align: center;
   text-transform: capitalize;
+  transition: 200ms transform ease-in;
 }
 
 ._link:hover {
-  transform: scale(2);
+  transform: scale(1.4);
 }
 
 ._link:hover::before,
 ._link:hover::after {
-  background-color: var(--color-text);
+  background-color: var(--color-primary);
   content: "";
   display: inline-block;
-  height: 0.3em;
-  width: 20px;
+  height: 0.2em;
+  margin: 0 4em;
+  width: 50px;
+}
+
+._link > a {
+  font-size: 2rem;
 }
 
 ._menu {
