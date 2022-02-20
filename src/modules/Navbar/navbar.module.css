@@ -178,3 +178,10 @@
     transform: scale(1);
   }
 }
+
+@media screen and (width < 500px) {
+  ._link:hover::before,
+  ._link:hover::after {
+    width: 0;
+  }
+}
